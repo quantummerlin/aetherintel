@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Mythos: The AI That Cracked Your Browser | Aether Intel</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Anthropic's Claude found 271 Firefox vulnerabilities, a 27-year OpenBSD crash bug, and a Linux kernel root exploit in one research sprint. Then the Pentagon called Anthropic a supply chain risk. Here's what's actually happening.">
+  <link rel="canonical" href="https://ai.quantummerlin.com/articles/claude-mythos-hacking-ai.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Claude Mythos: The AI That Cracked Your Browser">
+  <meta property="og:description" content="271 Firefox vulnerabilities. A 27-year OpenBSD crash bug. A Linux kernel root exploit. Claude did this in a single research sprint, and then the Pentagon declared Anthropic a supply chain risk.">
+  <meta property="og:image" content="https://ai.quantummerlin.com/images/articles/claude-mythos-hacking-ai-hero.png">
+  <meta property="og:url" content="https://ai.quantummerlin.com/articles/claude-mythos-hacking-ai.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Mythos: The AI That Cracked Your Browser">
+  <meta name="twitter:description" content="271 Firefox vulnerabilities. A 27-year OpenBSD crash bug. A Linux kernel root exploit, in a single research sprint. Then the Pentagon called Anthropic a supply chain risk.">
+  <meta name="twitter:image" content="https://ai.quantummerlin.com/images/articles/claude-mythos-hacking-ai-hero.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW4LGE7L1T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VW4LGE7L1T');</script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3480541530392777" crossorigin="anonymous"></script>
+
+  <!-- Fonts --><style>
+    /* ================================================================
+       AETHER INTEL, DESIGN TOKENS
+       ================================================================ */
+    :root {
+      --bg:            #07070f;
+      --surface:       #0d0d1a;
+      --surface-2:     #131326;
+      --border:        rgba(129,140,248,0.12);
+      --border-bright: rgba(129,140,248,0.28);
+
+      --neon-indigo:  #818cf8;
+      --neon-cyan:    #22d3ee;
+      --neon-gold:    #f59e0b;
+      --neon-green:   #34d399;
+      --neon-orange:  #f97316;
+
+      --text-primary:   #f1f5f9;
+      --text-secondary: rgba(241,245,249,0.65);
+      --text-muted:     rgba(241,245,249,0.45);
+
+      --font-display: 'Orbitron', monospace;
+      --font-heading: 'Sora', sans-serif;
+      --font-body:    'Space Grotesk', sans-serif;
+
+      --radius-card: 12px;
+      --transition-fast: 0.18s ease;
+      --transition-base: 0.28s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { background: var(--bg); color: var(--text-primary); scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ================================================================
+       STANDALONE NAV
+       ================================================================ */
+    .standalone-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(7,7,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 28px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--neon-indigo); text-decoration: none;
+    }
+    .nav-back {
+      font-family: var(--font-display); font-size: 0.58rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: color var(--transition-fast);
+    }
+    .nav-back:hover { color: var(--neon-cyan); }
+
+    /* ================================================================
+       PAGE WRAP
+       ================================================================ */
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 28px 80px;
+    }
+
+    /* ================================================================
+       HERO IMAGE
+       ================================================================ */
+    .article-hero-img-wrap {
+      width: 100%; margin: 0 0 40px;
+      border-radius: 0 0 var(--radius-card) var(--radius-card);
+      overflow: hidden;
+      position: relative;
+    }
+    .article-hero-img-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(7,7,15,0.6) 100%);
+      pointer-events: none;
+    }
+    .article-hero-img {
+      width: 100%; height: 480px;
+      object-fit: cover; display: block;
+    }
+
+    /* ================================================================
+       ARTICLE HEADER
+       ================================================================ */
+    .article-category-row {
+      display: flex; align-items: center; gap: 10px;
+      flex-wrap: wrap; margin-bottom: 20px;
+    }
+    .article-cat-badge {
+      font-family: var(--font-display); font-size: 0.58rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      background: rgba(129,140,248,0.15);
+      border: 1px solid rgba(129,140,248,0.3);
+      color: var(--neon-indigo);
+      padding: 4px 10px; border-radius: 20px;
+    }
+    .article-meta-text { font-size: 0.82rem; color: var(--text-muted); }
+    .article-meta-sep { color: var(--border-bright); }
+
+    .article-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--text-primary); margin-bottom: 20px;
+    }
+    .article-deck {
+      font-family: var(--font-heading);
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--text-secondary); line-height: 1.6;
+      margin-bottom: 40px; padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ================================================================
+       ARTICLE BODY
+       ================================================================ */
+    .article-body { max-width: 760px; margin: 0 auto; }
+
+    .article-body p {
+      font-size: 1.05rem; line-height: 1.78;
+      color: var(--text-secondary); margin-bottom: 22px;
+    }
+    .article-body p:first-child {
+      font-size: 1.12rem; color: var(--text-primary); font-weight: 500;
+    }
+    .article-body strong { color: var(--text-primary); font-weight: 600; }
+
+    .article-h2 {
+      font-family: var(--font-heading); font-size: 1.55rem; font-weight: 800;
+      color: var(--text-primary); letter-spacing: -0.015em; line-height: 1.25;
+      margin: 48px 0 18px; padding-top: 12px;
+    }
+    .article-h3 {
+      font-family: var(--font-heading); font-weight: 700; font-size: 1.15rem;
+      color: var(--text-primary); margin: 32px 0 12px;
+    }
+
+    /* ================================================================
+       CALLOUT BOXES
+       ================================================================ */
+    .article-callout {
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-left: 3px solid var(--neon-indigo);
+      border-radius: 0 var(--radius-card) var(--radius-card) 0;
+      padding: 20px 24px; margin: 28px 0;
+    }
+    .article-callout.callout-cyan  { border-left-color: var(--neon-cyan); }
+    .article-callout.callout-gold  { border-left-color: var(--neon-gold); }
+    .article-callout.callout-orange { border-left-color: var(--neon-orange); }
+
+    .callout-label {
+      font-family: var(--font-display); font-size: 0.56rem;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--neon-indigo); margin-bottom: 10px; display: block;
+    }
+    .callout-cyan .callout-label   { color: var(--neon-cyan); }
+    .callout-gold .callout-label   { color: var(--neon-gold); }
+    .callout-orange .callout-label { color: var(--neon-orange); }
+
+    .callout-stat-row { display: flex; gap: 28px; flex-wrap: wrap; }
+    .callout-stat { flex: 1; min-width: 120px; }
+    .callout-stat-value {
+      font-family: var(--font-display); font-size: 1.4rem;
+      font-weight: 900; color: var(--neon-cyan); line-height: 1.1; margin-bottom: 4px;
+    }
+    .callout-gold .callout-stat-value   { color: var(--neon-gold); }
+    .callout-orange .callout-stat-value { color: var(--neon-orange); }
+    .callout-stat-label { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; }
+
+    .callout-body { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; }
+    .callout-body strong { color: var(--text-primary); }
+
+    /* ================================================================
+       PULL QUOTE
+       ================================================================ */
+    .pull-quote {
+      margin: 36px 0; padding: 28px 32px;
+      border-left: 3px solid var(--neon-cyan);
+      background: linear-gradient(135deg, rgba(34,211,238,0.04) 0%, transparent 100%);
+    }
+    .pull-quote-text {
+      font-family: var(--font-heading); font-size: 1.22rem;
+      font-weight: 700; color: var(--text-primary);
+      line-height: 1.45; margin-bottom: 12px;
+      font-style: italic;
+    }
+    .pull-quote-source {
+      font-size: 0.78rem; color: var(--text-muted);
+      font-family: var(--font-display); letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ================================================================
+       QUICK HITS
+       ================================================================ */
+    .quick-hits {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-card); padding: 24px 28px; margin: 36px 0;
+    }
+    .quick-hits-title {
+      font-family: var(--font-display); font-size: 0.62rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--neon-cyan); margin-bottom: 16px;
+    }
+    .quick-hits-list { list-style: none; }
+    .quick-hits-list li {
+      font-size: 0.92rem; color: var(--text-secondary);
+      line-height: 1.6; padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .quick-hits-list li:last-child { border-bottom: none; }
+    .quick-hits-list li strong { color: var(--text-primary); }
+
+    /* ================================================================
+       LEAD MAGNET
+       ================================================================ */
+    .lead-magnet {
+      background: linear-gradient(135deg, rgba(129,140,248,0.1) 0%, rgba(34,211,238,0.05) 100%);
+      border: 1px solid var(--border-bright);
+      border-radius: var(--radius-card); padding: 32px; margin: 48px 0;
+      text-align: center;
+    }
+    .lead-magnet-eyebrow {
+      font-family: var(--font-display); font-size: 0.55rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--neon-indigo); margin-bottom: 12px;
+    }
+    .lead-magnet-title {
+      font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800;
+      color: var(--text-primary); line-height: 1.3; margin-bottom: 10px;
+    }
+    .lead-magnet-sub {
+      font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;
+      max-width: 520px; margin: 0 auto 22px;
+    }
+    .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      font-family: var(--font-display); font-size: 0.62rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 12px 24px; border-radius: 6px;
+      text-decoration: none; transition: all var(--transition-fast);
+    }
+    .btn-primary {
+      background: var(--neon-indigo); color: #07070f; font-weight: 700;
+    }
+    .btn-primary:hover { background: #a5b4fc; }
+    .btn-ghost {
+      border: 1px solid var(--border-bright); color: var(--text-secondary);
+    }
+    .btn-ghost:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); }
+
+    /* ================================================================
+       AD STRIP
+       ================================================================ */
+    .ad-strip { margin: 40px 0; }
+
+    /* ================================================================
+       ARTICLE TAGS
+       ================================================================ */
+    .article-tags {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: 8px; margin-top: 32px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .tags-label {
+      font-size: 0.78rem; color: var(--text-muted); margin-right: 4px;
+    }
+    .tag-pill {
+      font-size: 0.78rem; color: var(--text-secondary);
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 4px 12px;
+      text-decoration: none; transition: all var(--transition-fast);
+    }
+    .tag-pill:hover { border-color: var(--neon-indigo); color: var(--neon-indigo); }
+
+    /* ================================================================
+       CHECKLIST
+       ================================================================ */
+    .checklist-section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-card); padding: 24px 28px; margin: 36px 0;
+    }
+    .checklist-title {
+      font-family: var(--font-heading); font-size: 1rem; font-weight: 700;
+      color: var(--text-primary); margin-bottom: 6px;
+    }
+    .checklist-sub {
+      font-size: 0.85rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.5;
+    }
+    .article-checklist { list-style: none; }
+    .article-checklist li {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 0.92rem; color: var(--text-secondary);
+      line-height: 1.6; padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-checklist li:last-child { border-bottom: none; }
+    .article-checklist li strong { color: var(--text-primary); }
+    .check { color: var(--neon-green); font-size: 0.9rem; margin-top: 1px; flex-shrink: 0; }
+
+    /* ================================================================
+       REVEAL ANIMATIONS
+       ================================================================ */
+    [data-animate] { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    [data-animate].visible { opacity: 1; transform: none; }
+
+    /* ================================================================
+       RESPONSIVE
+       ================================================================ */
+    @media (max-width: 640px) {
+      .page-wrap { padding: 0 16px 70px; }
+      .article-hero-img-wrap { margin: 0 -16px; }
+      .article-hero-img { height: 220px; }
+      .article-title { font-size: 1.6rem; }
+      .standalone-nav { padding: 0 16px; }
+      .pull-quote { padding: 20px 18px; }
+    }
+  </style>
+  <!-- Fonts — non-blocking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700;800&display=swap"></noscript>
+  <!-- ── Favicon & PWA ── -->
+  <link rel="icon" type="image/svg+xml" href="/images/icons/ae-icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#f59e0b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Æther">
+  <!-- ── Service Worker ── -->
+  <script>if('serviceWorker'in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(e){console.warn('[SW]',e);});});}</script>
+</head>
+<body>
+
+<!-- Standalone nav, main.js will replace this with the full shell on site deployment -->
+<nav class="standalone-nav">
+  <a href="/" class="nav-logo">Aether Intel</a>
+  <a href="/articles.html" class="nav-back">← All Articles</a>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- HERO IMAGE -->
+  <div class="article-hero-img-wrap">
+    <img
+      src="/images/articles/claude-mythos-hacking-ai-hero.png"
+      alt="Dark classified-document aesthetic with code fragments, browser icons, and PROJECT GLASS WING stamp in amber"
+      class="article-hero-img"
+    >
+  </div>
+
+  <!-- ARTICLE HEADER -->
+  <header class="article-header" data-animate>
+    <div class="article-category-row">
+      <span class="article-cat-badge">AI Agents</span>
+      <span class="article-meta-text">May 2026</span>
+      <span class="article-meta-sep">·</span>
+      <span class="article-meta-text">10 min read</span>
+      <span class="article-meta-sep">·</span>
+      <span class="article-meta-text">Doomsday Scroll + Money Story</span>
+    </div>
+
+    <h1 class="article-title">Claude Mythos: The AI That Cracked Your Browser</h1>
+
+    <p class="article-deck">Anthropic's Claude found 271 Firefox vulnerabilities in a single research sprint, uncovered a 27-year-old OpenBSD crash bug, a 16-year FFmpeg flaw, and a Linux kernel root exploit achievable via a single bit-flip. Then the Pentagon declared Anthropic a "supply chain risk." Here's what these two facts mean together.</p>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <!-- HOOK -->
+    <div data-animate>
+      <p>Mozilla called it Project Glass Wing. The mandate: use Anthropic's Claude to find security vulnerabilities in the Firefox codebase, the browser that runs on roughly 180 million devices. The results were not incremental. Claude identified <strong>271 distinct vulnerabilities</strong> in a single research engagement. Not all were exploitable on their own, but the volume and specificity of the findings forced a rethink at Mozilla about what automated security research now means. The AI didn't just scan for known patterns. It reasoned about control flow, memory access, and side-channel leakage in ways that took human security researchers years to learn.</p>
+    </div>
+
+    <!-- SECTION 1: WHAT MYTHOS DID -->
+    <div data-animate>
+      <h2 class="article-h2">What Project Glass Wing Actually Found</h2>
+
+      <p>Mozilla wasn't the only organization in Anthropic's research pipeline. In parallel engagements, Claude surfaced vulnerabilities that had survived decades of human and automated review. A <strong>27-year-old crash bug in OpenBSD</strong>, the operating system used by security researchers precisely because of its reputation for rigor. A <strong>16-year-old flaw in FFmpeg</strong>, the ubiquitous media processing library embedded in virtually every platform that renders video, from YouTube to Discord to Zoom.</p>
+
+      <p>The Linux kernel finding was categorically different. Researchers demonstrated a root privilege escalation exploitable via a <strong>single-bit memory flip</strong>, not a sequence of misconfigurations, not a chain of unpatched CVEs, but a logical flaw in how the kernel handles certain memory operations under specific hardware conditions. Claude didn't just identify the bug; it characterized the precise trigger condition and the escalation path. That's the work of a senior security engineer who has spent years developing intuition for where kernels break.</p>
+
+      <p>The browser sandbox escapes were perhaps the most consequential finding from a consumer-risk perspective. Claude identified paths to escape isolation sandboxes in Chrome, Firefox, Safari, and Edge, four separate implementations, four separate codebases, four separate security teams, and Claude found seams in all of them.</p>
+    </div>
+
+    <!-- Stats callout -->
+    <div class="article-callout callout-cyan" data-animate>
+      <span class="callout-label">Project Glass Wing, The Numbers</span>
+      <div class="callout-stat-row">
+        <div class="callout-stat">
+          <div class="callout-stat-value">271</div>
+          <div class="callout-stat-label">Firefox vulnerabilities found in a single research engagement</div>
+        </div>
+        <div class="callout-stat">
+          <div class="callout-stat-value">27 yrs</div>
+          <div class="callout-stat-label">Age of the OpenBSD crash bug that survived human review</div>
+        </div>
+        <div class="callout-stat">
+          <div class="callout-stat-value">4</div>
+          <div class="callout-stat-label">Major browser sandboxes with identified escape paths</div>
+        </div>
+        <div class="callout-stat">
+          <div class="callout-stat-value">1 bit</div>
+          <div class="callout-stat-label">Linux kernel root escalation, single-bit-flip exploit trigger</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: CAPABILITY SPREAD PROBLEM -->
+    <div data-animate>
+      <h2 class="article-h2">The Capability Spread Problem</h2>
+
+      <p>The individual findings matter, but the pattern matters more. Mozilla, OpenBSD, FFmpeg, Linux, Chrome, Firefox, Safari, Edge, these are not one vendor's ecosystem. They represent the entire layered stack that modern computing runs on: operating system, kernel, media codec, browser runtime, browser isolation boundary. Claude found exploitable or crash-inducing flaws at every layer in a single concentrated research effort.</p>
+
+      <p>Security professionals have a term for this: <em>attack surface coverage</em>. A senior red-team researcher might spend a three-month engagement deeply understanding one codebase. Claude covered the full stack. The implication is not that Claude is a weapon, it's that the time required to audit critical infrastructure just collapsed by an order of magnitude, in both directions. Defenders can move faster. So can attackers with access to the same or equivalent models.</p>
+
+      <p>The SWE-bench number captures this. Claude scores <strong>93.9%</strong> on the software engineering benchmark, the industry-standard test for AI ability to read, reason about, and fix real-world code. At that level, benchmark saturation becomes a serious concern. Not because the number is inflated, but because it means the test itself may no longer be measuring what it was designed to measure. The ability gap between Claude and the average security engineer on routine code review tasks has narrowed to the point where it's functionally zero for many classes of vulnerability.</p>
+    </div>
+
+    <!-- Pull quote, SWE-bench -->
+    <div class="pull-quote" data-animate>
+      <p class="pull-quote-text">"By end of 2028, there is likely a 60%+ chance AI builds its own successor autonomously."</p>
+      <span class="pull-quote-source">Jack Clark, Anthropic Co-Founder, AI Mythos Transcript</span>
+    </div>
+
+    <!-- SECTION 3: PENTAGON FIGHT -->
+    <div data-animate>
+      <h2 class="article-h2">Pentagon Designation: Supply Chain Risk</h2>
+
+      <p>The same week that Project Glass Wing results were circulating inside security circles, the US Department of Defense labeled Anthropic a <strong>"supply chain risk."</strong> The designation is not ceremonial. Under the framework in which it was applied, the label can restrict Anthropic's access to federal contracts, limit its ability to participate in certain defense research programs, and flag its software as a risk factor for government contractors who integrate it into their own systems.</p>
+
+      <p>Anthropic's legal team moved quickly. The company filed for and received a <strong>temporary block on the designation</strong>, arguing that the classification was applied without due process and that the DoD's evidence for the risk categorization had not been disclosed. The case is ongoing. But the framing of the dispute reveals a structural tension that has no clean resolution: the same AI capability that makes Claude valuable to Mozilla and Linux Foundation security teams is precisely what makes the DoD nervous about uncontrolled deployment.</p>
+
+      <p>This is not a novel concern. The export control framework for cryptographic software in the 1990s went through the same ratchet, technology deemed too powerful to be unregulated eventually became too important to be restricted. The difference is timeline. The Clipper Chip debate played out over years. The current AI capability curve is moving faster.</p>
+    </div>
+
+    <!-- Callout: Pentagon timeline -->
+    <div class="article-callout callout-orange" data-animate>
+      <span class="callout-label">The DoD Dispute, Timeline</span>
+      <div class="callout-body">
+        <p><strong>DoD designates Anthropic a "supply chain risk"</strong>, restricts access to certain federal and contractor programs, citing capability concerns about uncontrolled AI deployment in sensitive codebases.</p>
+        <br>
+        <p><strong>Anthropic files for injunction</strong>, argues the designation was applied without disclosed evidence or adequate due process. Legal challenge proceeds in federal court.</p>
+        <br>
+        <p><strong>Temporary block granted</strong>, court issues interim relief. The underlying designation is under review. Contractors who had begun compliance procedures face uncertainty about how to treat Anthropic tooling in the interim.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 4: $1T PARADOX -->
+    <div data-animate>
+      <h2 class="article-h2">The $1 Trillion Paradox</h2>
+
+      <p>Against this backdrop, Anthropic is approaching a <strong>$1 trillion valuation</strong>. Not a speculative projection, a figure based on the terms of recent funding discussions and commitments already on the books. Google Cloud has committed <strong>$200 billion</strong> to AI infrastructure. SpaceX has committed <strong>220,000 NVIDIA GPUs</strong> for training runs. These are not soft letters of intent. They are capital commitments of a scale that, historically, only get made when the people writing the checks believe the capability is real and the market is not hypothetical.</p>
+
+      <p>The paradox is not that Anthropic is simultaneously valuable and regulated. Every significant technology company has operated in that space. The paradox is the specific nature of the tension: the capability that makes Anthropic's valuation plausible, AI that can autonomously identify exploitable flaws in the software stack that all modern infrastructure runs on, is the same capability that makes the DoD classification comprehensible, if not legally defensible.</p>
+
+      <p>The traditional startup story is: disruptive technology, regulatory lag, eventual accommodation. The Anthropic story adds a second track running in parallel: technology so capable that the national security apparatus cannot ignore it, even as the commercial investment thesis depends on deploying it broadly.</p>
+    </div>
+
+    <!-- Stats callout: Money -->
+    <div class="article-callout callout-gold" data-animate>
+      <span class="callout-label">The Investment Stack</span>
+      <div class="callout-stat-row">
+        <div class="callout-stat">
+          <div class="callout-stat-value" style="color:var(--neon-gold)">~$1T</div>
+          <div class="callout-stat-label">Anthropic projected valuation, based on current funding round terms</div>
+        </div>
+        <div class="callout-stat">
+          <div class="callout-stat-value" style="color:var(--neon-gold)">$200B</div>
+          <div class="callout-stat-label">Google Cloud AI infrastructure commitment</div>
+        </div>
+        <div class="callout-stat">
+          <div class="callout-stat-value" style="color:var(--neon-gold)">220K</div>
+          <div class="callout-stat-label">NVIDIA GPUs committed by SpaceX for AI training runs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mid-article ad -->
+    <div class="ad-strip" data-animate>
+      <ins class="adsbygoogle"
+           style="display:block;text-align:center"
+           data-ad-client="ca-pub-3480541530392777"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- SECTION 5: BENCHMARK NUMBERS -->
+    <div data-animate>
+      <h2 class="article-h2">Benchmark Saturation and What It Actually Means</h2>
+
+      <p>A 93.9% score on SWE-bench is not a marketing number. SWE-bench uses real GitHub issues from real open-source projects, the kind of messy, context-dependent, poorly-documented bugs that stump junior engineers. The benchmark was designed to be hard. At 93.9%, the question shifts from "can Claude code?" to "what does it mean that we've run out of benchmark?"</p>
+
+      <p>The research community calls this <em>benchmark saturation</em>. When a model approaches the ceiling of what a benchmark measures, two things happen simultaneously. First, the benchmark stops being a useful differentiator, you can no longer rank models against each other using it, because they all cluster near the ceiling. Second, and more important, the benchmark stops being a proxy for the underlying capability you care about. A model that scores 93.9% on SWE-bench may be better or worse than a competing model at the specific task you need, but you can't tell from the benchmark anymore.</p>
+
+      <p>What this means in practice: the security research capabilities demonstrated in Project Glass Wing are not a special deployment of Claude. They are the expected behavior of a production model operating on a codebase. The specialized security research workflow that Mozilla built around Claude is downstream of a general capability, not a fine-tuned special case. Any organization that deploys Claude-level AI against a codebase it doesn't own is doing security research, whether or not it's classified as such.</p>
+    </div>
+
+    <!-- SECTION 6: WHAT BUILDERS SHOULD WATCH -->
+    <div data-animate>
+      <h2 class="article-h2">What Builders Need to Monitor Now</h2>
+
+      <p>The implications split cleanly into two categories: defensive opportunity and policy risk. On the defensive side, the Project Glass Wing model is now replicable. Any engineering organization with access to frontier AI and a codebase it wants audited can run the same class of exercise Mozilla ran. The cost of that engagement, which would have required a dedicated red team for months, is now compressible to weeks or days with the right scaffolding.</p>
+
+      <p>The policy risk is less tractable. The DoD's supply chain risk designation, even temporarily blocked, signals that government bodies are beginning to develop regulatory frameworks for AI deployment in critical systems. Those frameworks will almost certainly be modeled on existing software supply chain controls (SBOM requirements, FedRAMP authorization, CMMC compliance), but applied to AI model weights, training pipelines, and API dependencies. Organizations building on top of foundation model APIs need to track this development. The framework that doesn't exist today will exist in 18 months.</p>
+    </div>
+
+    <!-- Checklist -->
+    <div class="checklist-section" data-animate>
+      <div class="checklist-title">5 Things to Watch Before the Framework Lands</div>
+      <div class="checklist-sub">The regulatory response to AI security capabilities is being drafted now. Track these before they become compliance requirements.</div>
+      <ul class="article-checklist">
+        <li>
+          <span class="check">✓</span>
+          <span><strong>CISA AI security guidance.</strong> The Cybersecurity and Infrastructure Security Agency has been tasked with developing AI-specific supply chain security guidelines. Watch for the draft publication, it will define "AI supply chain risk" in ways that affect how federal contractors classify their model dependencies.</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span><strong>FedRAMP AI extension.</strong> The Federal Risk and Authorization Management Program currently covers cloud services. An extension to AI model APIs is in early discussion. If your product sells to government entities, track whether the API you depend on will require its own FedRAMP authorization, and what happens to your authorization if your AI provider loses or disputes a supply chain designation.</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span><strong>EU AI Act Article 6 and Annex I classifications.</strong> High-risk AI systems under the EU AI Act include systems used for critical infrastructure. "Security research tooling" is not currently a listed category, but software vulnerability discovery tools are adjacent to several that are. Track the Commission's delegated acts, they determine what gets reclassified.</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span><strong>The Anthropic v. DoD case outcome.</strong> The temporary block on the supply chain designation is the precedent-setting event. If the block holds, it signals that AI companies can successfully contest security classifications in court on due process grounds. If it doesn't, it establishes that AI capability alone is sufficient legal basis for supply chain risk designation.</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span><strong>Jack Clark's 2028 threshold.</strong> The Anthropic co-founder's statement, 60%+ probability that AI autonomously builds its own successor by end of 2028, is not a prediction made in isolation. It's a datapoint from the person who has seen Anthropic's internal capability roadmap. Position your product architecture for a world where AI-written code is the majority of new code in your stack by late decade.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- QUICK HITS -->
+    <div class="quick-hits" data-animate>
+      <div class="quick-hits-title">Quick Hits</div>
+      <ul class="quick-hits-list">
+        <li><strong>271 Firefox vulnerabilities</strong>, Project Glass Wing, single research engagement. Not all independently exploitable, but the density and specificity forced a security posture review at Mozilla.</li>
+        <li><strong>27-year OpenBSD crash bug</strong>, survived decades of human and automated review including the OpenBSD team's own audits; identified by Claude in one research pass.</li>
+        <li><strong>16-year FFmpeg flaw</strong>, embedded in virtually every platform that renders video: YouTube, Discord, Zoom, VLC, and hundreds of others. Patched post-disclosure.</li>
+        <li><strong>93.9% SWE-bench score</strong>, the software engineering benchmark is approaching saturation; scores at this level stop differentiating between models and start raising questions about what the benchmark is actually measuring.</li>
+        <li><strong>$200B Google Cloud commitment + 220K SpaceX GPUs</strong>, the infrastructure investment is so large it creates path dependency: the organizations funding it are financially committed to a world where the capability is deployed at scale.</li>
+        <li><strong>Anthropic's temporary block on DoD designation</strong>, currently held by court order; the underlying legal question (whether AI capability alone constitutes supply chain risk) is unresolved and will produce precedent that applies to every frontier AI lab.</li>
+      </ul>
+    </div>
+
+    <!-- LEAD MAGNET -->
+    <div class="lead-magnet" data-animate>
+      <div class="lead-magnet-eyebrow">Free Guide, Aether Intel</div>
+      <div class="lead-magnet-title">AI Security Audit Checklist: Deploy Glass Wing Methodology in Your Stack</div>
+      <div class="lead-magnet-sub">A practical guide for engineering teams that want to run AI-assisted vulnerability research before their adversaries do. Covers tooling, scope definition, disclosure, and legal review.</div>
+      <div class="btn-row">
+        <a href="/newsletter" class="btn btn-primary">Get Free Guide, Join Newsletter</a>
+        <a href="/articles.html" class="btn btn-ghost">More AI Security Coverage →</a>
+      </div>
+    </div>
+
+    <!-- AD STRIP -->
+    <div class="ad-strip">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3480541530392777"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
+    <!-- ARTICLE TAGS -->
+    <div class="article-tags" data-animate>
+      <span class="tags-label">Topics:</span>
+      <a href="/articles.html?filter=agents" class="tag-pill">AI Agents</a>
+      <a href="/articles.html?filter=security" class="tag-pill">Security</a>
+      <a href="/articles.html?filter=research" class="tag-pill">AI Research</a>
+      <a href="/articles.html?filter=regulation" class="tag-pill">Regulation</a>
+      <a href="/articles.html?filter=anthropic" class="tag-pill">Anthropic</a>
+    </div>
+
+  </article>
+</div><!-- /page-wrap -->
+
+<script src="/js/main.js" defer></script>
+<script src="/js/byok.js" defer></script>
+<script>
+(function() {
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.05 });
+  document.querySelectorAll('[data-animate]').forEach(function(el) { observer.observe(el); });
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  (adsbygoogle = window.adsbygoogle || []).push({});
+})();
+</script>
+<script src="/js/footer.js"></script>
+</body>
+</html>
