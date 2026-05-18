@@ -54,7 +54,7 @@
   --border-bright:    rgba(129, 140, 248, 0.28);
 
   /* Neon accent palette */
-  --neon-indigo:  #818cf8;
+  --neon-indigo:  #6274f5;
   --neon-cyan:    #22d3ee;
   --neon-gold:    #f59e0b;
   --neon-green:   #34d399;
@@ -338,7 +338,7 @@ aside.sidebar {
   font-weight: 900;
   letter-spacing: 0.1em;
   line-height: 1;
-  background: linear-gradient(135deg, var(--neon-indigo), var(--neon-cyan));
+  background: linear-gradient(135deg, #6274f5, #1dd3f1);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1894,7 +1894,7 @@ nav.mobile-bottom-nav {
 
 /* Gradient text */
 .gradient-text-indigo {
-  background: linear-gradient(135deg, var(--neon-indigo), var(--neon-cyan));
+  background: linear-gradient(135deg, #6274f5, #1dd3f1);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
