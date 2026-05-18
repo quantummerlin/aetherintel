@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini 2.5 Pro Review — Deep Reasoning by Default, 1M Context | Aether Intel</title>
+  <meta name="description" content="Google Gemini 2.5 Pro reviewed: 1M context window, full 5-modality input at $1.25/1M, and remarkably deep reasoning — 575 of 596 completion tokens were reasoning in our live benchmark." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ai.quantummerlin.com/models/gemini-2-5-pro.html" />
+  <meta property="og:title" content="Gemini 2.5 Pro — Deep Reasoning, 1M Context | Aether Intel" />
+  <meta property="og:description" content="Live benchmark shows 96.5% of completion tokens were reasoning. Google's frontier model deliberates deeply before producing a single word." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://ai.quantummerlin.com/models/gemini-2-5-pro.html" />
+  <meta property="article:published_time" content="2026-05-16" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gemini 2.5 Pro — Deep Reasoning by Default | Aether Intel" />
+
+  <!-- Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW4LGE7L1T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VW4LGE7L1T');</script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3480541530392777" crossorigin="anonymous"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Design Tokens ─────────────────────────────────────────── */
+    :root {
+      --bg: #07070f; --surface: #0d0d1a; --surface-2: #131326;
+      --border: rgba(129,140,248,0.12);
+      --neon-indigo: #818cf8; --neon-cyan: #22d3ee; --neon-gold: #f59e0b;
+      --font-display: 'Orbitron', sans-serif;
+      --font-heading: 'Sora', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --text-primary: #e2e8f0; --text-secondary: #94a3b8; --text-muted: #475569;
+      --google-blue: #4285f4; --google-red: #ea4335;
+      --google-yellow: #fbbc05; --google-green: #34a853;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── Site Header ───────────────────────────────────────────── */
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+    .site-header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-logo {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      color: var(--neon-indigo);
+      text-decoration: none;
+    }
+    .site-logo span { color: var(--neon-cyan); }
+    .site-nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: .84rem;
+      margin-left: 22px;
+      transition: color .2s;
+    }
+    .site-nav a:hover { color: var(--text-primary); }
+
+    /* ── Page Wrapper ──────────────────────────────────────────── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 24px;
+    }
+
+    /* ── Breadcrumb ────────────────────────────────────────────── */
+    .breadcrumb {
+      font-size: .78rem;
+      color: var(--text-muted);
+      padding: 22px 0 6px;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--neon-indigo); }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    .hero { padding: 30px 0 26px; }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+      align-items: center;
+    }
+
+    .badge-provider {
+      background: linear-gradient(90deg, rgba(66,133,244,0.12), rgba(52,168,83,0.08));
+      border: 1px solid rgba(66,133,244,0.35);
+      color: #4285f4;
+      font-size: .74rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 6px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .badge-meta {
+      background: rgba(129,140,248,0.07);
+      border: 1px solid rgba(129,140,248,0.18);
+      color: var(--text-secondary);
+      font-size: .74rem;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 6px;
+    }
+
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--google-green);
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+
+    h1.model-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.85rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+    h1.model-title .accent { color: #4285f4; }
+
+    .hero-lead {
+      font-size: 1.06rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin-bottom: 18px;
+      line-height: 1.65;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(66,133,244,0.07);
+      border: 1px solid rgba(66,133,244,0.2);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: .88rem;
+      color: var(--text-secondary);
+    }
+    .hero-highlight strong { color: #4285f4; }
+
+    /* ── Article Meta ──────────────────────────────────────────── */
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 22px 0;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-meta .meta-item {
+      font-size: .78rem;
+      color: var(--text-muted);
+    }
+    .article-meta .meta-item strong { color: var(--text-secondary); }
+
+    /* ── Section Typography ────────────────────────────────────── */
+    h2.section-title {
+      font-family: var(--font-heading);
+      font-size: 1.32rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 38px 0 12px;
+    }
+
+    h3.sub-title {
+      font-family: var(--font-heading);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--neon-indigo);
+      margin: 24px 0 8px;
+    }
+
+    p.body-copy {
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      font-size: .97rem;
+      line-height: 1.72;
+    }
+
+    hr.section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 36px 0;
+    }
+
+    code {
+      background: var(--surface-2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: .88em;
+      color: var(--neon-cyan);
+      font-family: 'Space Grotesk', monospace;
+    }
+
+    /* ── Spec Grid ─────────────────────────────────────────────── */
+    .model-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .spec-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .spec-card .spec-label {
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .spec-card .spec-value {
+      font-size: .97rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+    }
+    .spec-card .spec-value.sv-blue  { color: #4285f4; }
+    .spec-card .spec-value.sv-green { color: var(--google-green); }
+    .spec-card .spec-value.sv-gold  { color: var(--neon-gold); }
+
+    /* ── Benchmark Block ───────────────────────────────────────── */
+    .benchmark-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin: 20px 0;
+    }
+    .benchmark-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .benchmark-block-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .benchmark-cost-badge {
+      font-size: .88rem;
+      font-weight: 700;
+      border-radius: 7px;
+      padding: 4px 12px;
+    }
+    .benchmark-cost-badge.bc-mid {
+      color: #f59e0b;
+      background: rgba(245,158,11,.08);
+      border: 1px solid rgba(245,158,11,.3);
+      border-radius: 7px;
+      padding: 4px 12px;
+      font-weight: 700;
+      font-size: .82rem;
+    }
+
+    /* ── Token Stats Strip ─────────────────────────────────────── */
+    .token-stats-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .token-stat {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      flex: 1;
+      min-width: 110px;
+    }
+    .token-stat .ts-label {
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .token-stat .ts-value {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+    }
+    .token-stat .ts-value.tc-blue  { color: #4285f4; }
+    .token-stat .ts-value.tc-green { color: var(--google-green); }
+    .token-stat .ts-value.tc-gold  { color: var(--neon-gold); }
+    .token-stat .ts-value.tc-red   { color: var(--google-red); }
+
+    /* ── Reasoning Ratio Bar ───────────────────────────────────── */
+    .reasoning-ratio-bar { margin: 16px 0; }
+    .ratio-bar-legend {
+      font-size: .84rem;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+    }
+    .ratio-bar-legend strong { color: #4285f4; }
+    .ratio-bar-track {
+      background: var(--surface-2);
+      border-radius: 6px;
+      height: 10px;
+      overflow: hidden;
+      margin: 6px 0;
+    }
+    .ratio-bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      background: #4285f4;
+    }
+    .ratio-bar-fill.fill-visible {
+      background: var(--google-green);
+    }
+    .ratio-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: .72rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Reasoning Visible Callout ─────────────────────────────── */
+    .reasoning-visible-callout {
+      background: linear-gradient(135deg, rgba(66,133,244,0.06), rgba(52,168,83,0.03));
+      border: 1px solid rgba(66,133,244,0.25);
+      border-left: 3px solid #4285f4;
+      border-radius: 0 10px 10px 0;
+      padding: 16px 18px;
+      margin: 20px 0;
+    }
+    .reasoning-visible-callout .rcv-label {
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: #4285f4;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .reasoning-visible-callout p {
+      font-size: .92rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ── Reasoning Text Block ──────────────────────────────────── */
+    .reasoning-text-block {
+      background: var(--surface-2);
+      border: 1px solid rgba(66,133,244,0.15);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 14px 0;
+    }
+    .reasoning-phase {
+      font-weight: 700;
+      color: #4285f4;
+      display: block;
+      margin-bottom: 5px;
+      font-size: .92rem;
+      font-family: var(--font-heading);
+    }
+    .reasoning-phase-desc {
+      color: var(--text-muted);
+      font-size: .82rem;
+      font-style: italic;
+      margin: 0 0 4px;
+      line-height: 1.5;
+    }
+    .rt-separator {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 12px 0;
+    }
+
+    /* ── Partial Output Box ────────────────────────────────────── */
+    .partial-output-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 14px 0;
+    }
+    .partial-output-box .po-label {
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .partial-output-box .po-text {
+      font-size: .97rem;
+      color: var(--text-primary);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .po-cutoff {
+      display: inline-block;
+      background: rgba(234,67,53,0.12);
+      border: 1px solid rgba(234,67,53,0.35);
+      color: #ea4335;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+      font-style: normal;
+    }
+
+    /* ── Info Callout ──────────────────────────────────────────── */
+    .info-callout {
+      background: rgba(245,158,11,0.06);
+      border: 1px solid rgba(245,158,11,0.25);
+      border-left: 3px solid var(--neon-gold);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: .93rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .info-callout strong { color: var(--neon-gold); }
+
+    /* ── Pricing Table ─────────────────────────────────────────── */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: .88rem;
+    }
+    .pricing-table th {
+      text-align: left;
+      padding: 10px 14px;
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-table td {
+      padding: 11px 14px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(129,140,248,0.06);
+      vertical-align: top;
+    }
+    .pricing-table td:first-child { color: var(--text-primary); font-weight: 600; }
+    .pricing-table tr:last-child td { border-bottom: none; }
+    .pricing-table .total-row td {
+      color: var(--text-primary);
+      font-weight: 700;
+      border-top: 1px solid var(--border);
+      border-bottom: none;
+    }
+    .pricing-table .total-row td:last-child { color: var(--neon-gold); }
+
+    /* ── Use Case Grid ─────────────────────────────────────────── */
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .use-case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .use-case-card .uc-icon {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+    .use-case-card .uc-title {
+      font-family: var(--font-heading);
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 5px;
+    }
+    .use-case-card .uc-desc {
+      font-size: .8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── Fit Grid ──────────────────────────────────────────────── */
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0;
+    }
+    @media (max-width: 560px) { .fit-grid { grid-template-columns: 1fr; } }
+
+    .fit-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .fit-card.fit-yes { border-color: rgba(52,168,83,0.28); }
+    .fit-card.fit-no  { border-color: rgba(234,67,53,0.22); }
+
+    .fit-card .fit-header {
+      font-family: var(--font-heading);
+      font-size: .88rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .fit-card.fit-yes .fit-header { color: var(--google-green); }
+    .fit-card.fit-no  .fit-header { color: #ea4335; }
+
+    .fit-card ul { list-style: none; padding: 0; }
+    .fit-card ul li {
+      font-size: .83rem;
+      color: var(--text-muted);
+      padding: 4px 0 4px 18px;
+      position: relative;
+      line-height: 1.45;
+    }
+    .fit-card.fit-yes ul li::before { content: '+'; position: absolute; left: 0; color: var(--google-green); font-weight: 700; }
+    .fit-card.fit-no  ul li::before { content: '–'; position: absolute; left: 0; color: #ea4335; font-weight: 700; }
+
+    /* ── Comparison Table ──────────────────────────────────────── */
+    .comparison-table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .84rem;
+      min-width: 600px;
+    }
+    .comparison-table th {
+      background: var(--surface);
+      text-align: left;
+      padding: 11px 14px;
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .comparison-table td {
+      padding: 11px 14px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(129,140,248,0.06);
+    }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table .row-highlight td {
+      background: rgba(66,133,244,0.05);
+      color: var(--text-primary);
+    }
+    .comparison-table .row-highlight td:first-child {
+      color: #4285f4;
+      font-weight: 700;
+    }
+    .tag-yes   { color: var(--google-green); font-weight: 700; }
+    .tag-no    { color: var(--text-muted); }
+    .tag-deep  { color: #4285f4; font-weight: 700; }
+    .tag-partial { color: var(--neon-gold); }
+    .tag-hidden  { color: var(--text-muted); font-style: italic; }
+
+    /* ── Try It Band ───────────────────────────────────────────── */
+    .try-it-band {
+      background: linear-gradient(135deg, rgba(66,133,244,0.08), rgba(52,168,83,0.05));
+      border: 1px solid rgba(66,133,244,0.22);
+      border-radius: 14px;
+      padding: 30px 28px;
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    .try-it-band h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .try-it-band p {
+      font-size: .9rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .try-it-btn {
+      display: inline-block;
+      background: #4285f4;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: .92rem;
+      font-weight: 700;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity .2s, transform .15s;
+      letter-spacing: .03em;
+    }
+    .try-it-btn:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* ── AdSense Mid ───────────────────────────────────────────── */
+    .adsense-mid {
+      margin: 30px 0;
+      min-height: 90px;
+    }
+
+    /* ── Provider Color Bar ────────────────────────────────────── */
+    .google-color-bar {
+      height: 3px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #4285f4 25%, #ea4335 25% 50%, #fbbc05 50% 75%, #34a853 75%);
+      margin-bottom: 28px;
+    }
+
+    /* ── Key Finding Box ───────────────────────────────────────── */
+    .key-finding-box {
+      background: rgba(66,133,244,0.04);
+      border: 1px solid rgba(66,133,244,0.2);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin: 20px 0;
+    }
+    .key-finding-box .kf-label {
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: #4285f4;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .key-finding-box p {
+      font-size: .94rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.65;
+    }
+    .key-finding-box p strong { color: var(--text-primary); }
+
+    /* ── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 620px) {
+      .model-specs-grid { grid-template-columns: 1fr 1fr; }
+      .use-case-grid { grid-template-columns: 1fr; }
+      .token-stats-strip { gap: 8px; }
+      .token-stat { min-width: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+  <a href="/" class="site-logo">AETHER<span>INTEL</span></a>
+  <a href="/models.html" class="site-back">← All Models</a>
+</header>
+
+  <div class="page-wrap">
+
+    <!-- Google color bar -->
+    <div class="google-color-bar" style="margin-top:22px;"></div>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>&#x203a;</span>
+      <a href="/models.html">Models</a>
+      <span>&#x203a;</span>
+      <span>Gemini 2.5 Pro</span>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badges">
+        <span class="badge-provider">Google</span>
+        <span class="badge-meta"><span class="badge-dot"></span>Live</span>
+        <span class="badge-meta">Frontier</span>
+        <span class="badge-meta">Reasoning</span>
+        <span class="badge-meta">1M Context</span>
+        <span class="badge-meta">5-Modality</span>
+      </div>
+
+      <h1 class="model-title">
+        <span class="accent">Gemini 2.5 Pro</span>:<br />
+        Deep Reasoning by Default
+      </h1>
+
+      <p class="hero-lead">
+        Google's flagship frontier model combines a 1-million-token context window, full five-modality input,
+        and structured chain-of-thought reasoning — all at $1.25 per million input tokens. Our live benchmark
+        uncovered a defining characteristic: this model deliberates deeply before writing a single word of visible output.
+      </p>
+
+      <div class="hero-highlight">
+        <strong>96.5%</strong>&nbsp;of completion tokens were reasoning — only 21 visible tokens before hitting the 600-token limit
+      </div>
+    </section>
+
+    <!-- Article Meta -->
+    <div class="article-meta">
+      <span class="meta-item"><strong>Published:</strong> May 16, 2026</span>
+      <span class="meta-item"><strong>OpenRouter ID:</strong> google/gemini-2.5-pro</span>
+      <span class="meta-item"><strong>Tested by:</strong> Aether Intel</span>
+      <span class="meta-item"><strong>Provider:</strong> Google (direct)</span>
+    </div>
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- SPECS GRID                                    -->
+    <!-- ────────────────────────────────────────────── -->
+    <h2 class="section-title">Model at a Glance</h2>
+
+    <div class="model-specs-grid">
+      <div class="spec-card">
+        <div class="spec-label">Input Price</div>
+        <div class="spec-value sv-blue">$1.25<span style="font-size:.68em;font-weight:400;color:var(--text-muted)">&nbsp;/1M tokens</span></div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Output Price</div>
+        <div class="spec-value">$10.00<span style="font-size:.68em;font-weight:400;color:var(--text-muted)">&nbsp;/1M tokens</span></div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Context Window</div>
+        <div class="spec-value">1,000,000<span style="font-size:.68em;font-weight:400;color:var(--text-muted)">&nbsp;tokens</span></div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Reasoning</div>
+        <div class="spec-value sv-blue">Yes — Deep</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Input Modalities</div>
+        <div class="spec-value" style="font-size:.8rem;line-height:1.45">Text · Image · Audio · Video · File</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Output Modalities</div>
+        <div class="spec-value" style="font-size:.8rem">Text + Image gen</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Architecture</div>
+        <div class="spec-value" style="font-size:.82rem">Dense Transformer</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Benchmark Cost</div>
+        <div class="spec-value sv-gold">$0.021875</div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- SECTION 1: WHAT IS IT                         -->
+    <!-- ────────────────────────────────────────────── -->
+    <h2 class="section-title">What Is Gemini 2.5 Pro?</h2>
+
+    <p class="body-copy">
+      Gemini 2.5 Pro is Google's frontier-tier model and the top of the Gemini 2.5 family. It is a dense
+      transformer architecture released in 2025 and served directly by Google — not a third-party fine-tune,
+      quantized variant, or intermediary distillation. When you call <code>google/gemini-2.5-pro</code>,
+      you are calling Google's full production model on Google's infrastructure.
+    </p>
+    <p class="body-copy">
+      The model sits above Gemini 2.5 Flash and Flash Lite in the family hierarchy. While Flash is optimized
+      for throughput and Flash Lite for cost efficiency, Pro is built for depth — complex analytical tasks,
+      multi-step reasoning, long-context synthesis, and workloads where the quality of the answer matters
+      more than the speed or cost of producing it. It competes directly with OpenAI's GPT-5 and Anthropic's
+      Claude Opus tier, while maintaining a significantly lower input price point than either.
+    </p>
+    <p class="body-copy">
+      Gemini 2.5 Pro is natively multimodal across five input modalities: text, images, audio, video, and
+      files. This is not a bolted-on capability — Google designed the Gemini architecture for multimodality
+      from the ground up. A single API call can process a PDF with embedded charts, an audio annotation,
+      and a video clip simultaneously. The model's output is primarily text, but it also carries an image
+      generation capability, giving it a rare bidirectional visual facility.
+    </p>
+
+    <hr class="section-divider" />
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- SECTION 2: 1M CONTEXT                         -->
+    <!-- ────────────────────────────────────────────── -->
+    <h2 class="section-title">One Million Tokens of Context</h2>
+
+    <p class="body-copy">
+      The 1-million-token context window remains one of Gemini 2.5 Pro's most practically significant
+      specifications. At approximately 750,000 words — roughly 1,500 pages of dense text — it means you can
+      load an entire software repository, a multi-volume research archive, a full legal document corpus, or
+      a feature-length film transcript and reason across the entire body of material in a single call.
+    </p>
+    <p class="body-copy">
+      For enterprise workloads, this removes chunking complexity. Rather than building retrieval pipelines
+      that split documents into overlapping fragments and stitch answers together, teams can pass entire
+      datasets directly and let the model synthesize globally. Code review across an entire codebase, not
+      just individual files. Contract analysis across an entire agreement set, not just selected clauses.
+    </p>
+    <p class="body-copy">
+      At $1.25/1M input tokens, loading large contexts remains economical. Filling 500,000 tokens of
+      context — roughly half the window — costs $0.625 in input charges. That's a tractable number for
+      regular production use, particularly compared to alternatives at $5–$30/1M input for similar
+      capabilities.
+    </p>
+
+    <hr class="section-divider" />
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- SECTION 3: FULL MULTIMODAL                    -->
+    <!-- ────────────────────────────────────────────── -->
+    <h2 class="section-title">Full Five-Modality Input at $1.25/M</h2>
+
+    <p class="body-copy">
+      Gemini 2.5 Pro is one of the few frontier models to support all five major input modalities under a
+      single unified price. Text, images, audio, video, and raw file formats are all included — no separate
+      vision API tier, no audio add-on pricing, no video surcharge. Everything runs at $1.25 per million
+      input tokens.
+    </p>
+    <p class="body-copy">
+      The practical value is consolidation. Builders who previously needed separate API integrations for
+      document OCR, audio transcription, and video understanding can route all three through a single
+      Gemini 2.5 Pro call. For multimodal document intelligence pipelines — mixed-media reports, annotated
+      PDFs, meeting recordings with slide attachments — this model handles the full stack natively.
+    </p>
+    <p class="body-copy">
+      On the output side, Gemini 2.5 Pro adds image generation capability alongside its text output. This
+      is a differentiator among frontier text-first models in this price tier: the ability to produce both
+      written analysis and generated visuals from the same call, without additional API hops.
+    </p>
+
+    <hr class="section-divider" />
+
+    <!-- AdSense -->
+    <div class="adsense-mid">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3480541530392777"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- SECTION 4: DEEP REASONING — KEY STORY         -->
+    <!-- ────────────────────────────────────────────── -->
+    <h2 class="section-title">The Key Story: Deep Reasoning by Default</h2>
+
+    <p class="body-copy">
+      This is the finding that most directly shapes how you must configure and deploy this model. In our
+      standard live benchmark — a straightforward conversational question about SQL vs. NoSQL database
+      trade-offs — Gemini 2.5 Pro spent <strong style="color:#4285f4">575 out of 596 completion tokens
+      purely on reasoning</strong>, producing only 21 tokens of visible output before hitting the
+      600-token limit and terminating mid-sentence.
+    </p>
+
+    <div class="key-finding-box">
+      <div class="kf-label">Key Benchmark Finding</div>
+      <p>At a 600-token cap, Gemini 2.5 Pro generated <strong>575 reasoning tokens</strong> and
+      <strong>21 visible output tokens</strong> — a 96.5% / 3.5% split. The model was still actively
+      deliberating when the response was cut off. It had not yet written a complete sentence.</p>
+    </div>
+
+    <!-- Benchmark Block -->
+    <div class="benchmark-block">
+      <div class="benchmark-block-header">
+        <h3>Live Benchmark — SQL vs. NoSQL Question</h3>
+        <span class="benchmark-cost-badge bc-mid">bc-mid &middot; $0.021875</span>
+      </div>
+
+      <p style="font-size:.83rem;color:var(--text-muted);margin-bottom:14px;font-style:italic;">
+        Prompt: "Explain the key trade-offs between SQL and NoSQL databases. When would you choose each? Give me a concrete example of a system that suits each approach."
+      </p>
+
+      <div class="token-stats-strip">
+        <div class="token-stat">
+          <div class="ts-label">Prompt Tokens</div>
+          <div class="ts-value">32</div>
+        </div>
+        <div class="token-stat">
+          <div class="ts-label">Completion Total</div>
+          <div class="ts-value">596</div>
+        </div>
+        <div class="token-stat">
+          <div class="ts-label">Reasoning Tokens</div>
+          <div class="ts-value tc-blue">575</div>
+        </div>
+        <div class="token-stat">
+          <div class="ts-label">Visible Output</div>
+          <div class="ts-value tc-green">21</div>
+        </div>
+        <div class="token-stat">
+          <div class="ts-label">Finish Reason</div>
+          <div class="ts-value tc-red" style="font-size:.85rem">MAX_TOKENS</div>
+        </div>
+        <div class="token-stat">
+          <div class="ts-label">Actual Cost</div>
+          <div class="ts-value tc-gold">$0.006</div>
+        </div>
+      </div>
+
+      <!-- Ratio Bar -->
+      <div class="reasoning-ratio-bar">
+        <div class="ratio-bar-legend"><strong>575 / 596</strong> completion tokens were reasoning (96.5%)</div>
+        <div class="ratio-bar-track">
+          <div class="ratio-bar-fill" style="width:96.5%"></div>
+        </div>
+        <div class="ratio-labels">
+          <span>Reasoning: 575 tokens (96.5%)</span>
+          <span>Visible: 21 tokens (3.5%)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- What the model actually produced -->
+    <h3 class="sub-title">The Complete Visible Output</h3>
+    <p class="body-copy">
+      After 575 tokens of internal deliberation, here is the entirety of what the model produced as
+      visible output before the response was cut off:
+    </p>
+
+    <div class="partial-output-box">
+      <div class="po-label">Visible model output — 21 tokens</div>
+      <div class="po-text">
+        "Of course. This is a fundamental decision in modern software architecture. Let's break down the trade-"
+        <span class="po-cutoff">MAX_TOKENS</span>
+      </div>
+    </div>
+
+    <p class="body-copy">
+      The model was mid-sentence. It had produced one partial sentence of actual content in response to a
+      conversational question. This is not an error state or a failure mode — it is the model doing exactly
+      what it is designed to do: thinking carefully and thoroughly before committing words to the response.
+      The 600-token budget simply ran out while the model was still in deliberation.
+    </p>
+
+    <hr class="section-divider" />
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- SECTION 5: REASONING FORMAT                   -->
+    <!-- ────────────────────────────────────────────── -->
+    <h2 class="section-title">Google's Reasoning Format: Structured Phase Headers</h2>
+
+    <p class="body-copy">
+      Gemini 2.5 Pro uses a distinct reasoning presentation that differs meaningfully from other
+      open-reasoning models. Rather than emitting raw stream-of-consciousness text — as seen in DeepSeek
+      R1's unfiltered internal monologue or Nvidia Nemotron's interleaved scratchpad — Google structures
+      reasoning into clearly labeled thinking phases with bold markdown headers.
+    </p>
+
+    <div class="reasoning-visible-callout">
+      <div class="rcv-label">Google Gemini Native Reasoning Format</div>
+      <p>Reasoning phases are announced with bold headers like <strong>**Exploring Database Choices**</strong>.
+      Each phase represents a distinct cognitive step: problem mapping, systematic evaluation, and
+      definition crystallization. Our benchmark recorded three phases before the response was truncated —
+      none of the phases had completed.</p>
+    </div>
+
+    <div class="reasoning-text-block">
+      <span class="reasoning-phase">**Exploring Database Choices**</span>
+      <p class="reasoning-phase-desc">Phase 1 — The model maps the problem space: what types of databases exist, what the user actually needs, how to frame a useful structural comparison. Trade-off dimensions are being enumerated.</p>
+
+      <hr class="rt-separator" />
+
+      <span class="reasoning-phase">**Evaluating Database Paradigms**</span>
+      <p class="reasoning-phase-desc">Phase 2 — Systematic evaluation: ACID compliance, schema flexibility, horizontal scaling, consistency guarantees, query patterns, and operational characteristics are being weighed.</p>
+
+      <hr class="rt-separator" />
+
+      <span class="reasoning-phase">**Defining Database Distinctions**</span>
+      <p class="reasoning-phase-desc">Phase 3 — Crystallizing definitions and preparing concrete examples for both SQL and NoSQL. Still in progress when MAX_TOKENS terminated the response.</p>
+    </div>
+
+    <p class="body-copy">
+      This structured format — bold phase headers acting as visible waypoints in the reasoning chain —
+      is more organized and readable than the raw thinking streams of DeepSeek R1 (which outputs
+      unformatted internal monologue) or plain-text scratchpad models. The trade-off is that each
+      phase header and organizational structure consumes tokens. Gemini 2.5 Pro's reasoning is more
+      expensive per insight, but also more interpretable — you can follow the model's logic step by step
+      if you inspect the reasoning output.
+    </p>
+    <p class="body-copy">
+      GPT-5's reasoning, by contrast, is entirely hidden from the caller. There are no phase headers to
+      inspect, no visible deliberation — just the final output. Gemini's approach gives developers
+      observability into model cognition, which can be valuable for debugging and trust-building in
+      high-stakes applications.
+    </p>
+
+    <!-- Info Callout -->
+    <div class="info-callout">
+      <strong>Set max_tokens &ge; 2,000.</strong> Gemini 2.5 Pro uses deep reasoning by default. At our 600-token benchmark limit, the model generated 575 reasoning tokens and only 21 visible output tokens. For real tasks, budget at least 2,000–4,000 tokens.
+    </div>
+
+    <p class="body-copy">
+      This is not a quirk of our specific prompt. Deep reasoning before responding is Gemini 2.5 Pro's
+      default behavior for virtually any non-trivial question. For production deployments, a minimum of
+      2,000 tokens handles most conversational tasks; complex analytical prompts, document synthesis, or
+      multi-part questions should be allocated 4,000 or more. Failing to set an adequate budget will
+      result in MAX_TOKENS terminations mid-reasoning with zero or near-zero visible output.
+    </p>
+
+    <hr class="section-divider" />
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- SECTION 6: PRICING                            -->
+    <!-- ────────────────────────────────────────────── -->
+    <h2 class="section-title">Pricing Breakdown</h2>
+
+    <p class="body-copy">
+      The benchmark cost of $0.021875 places Gemini 2.5 Pro in the <strong style="color:var(--neon-gold)">bc-mid tier</strong>
+      ($0.005–$0.05 per standard benchmark run). Output tokens at $10/1M dominate — accounting for 91%
+      of the benchmark total. Because reasoning tokens are billed as output tokens at the same rate,
+      real-world costs for this model often run higher than naive estimates based on visible text length alone.
+      When budgeting production usage, count all completion tokens including reasoning toward the $10/1M rate.
+    </p>
+
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Line Item</th>
+          <th>Tokens (benchmark)</th>
+          <th>Rate</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Input (prompt)</td>
+          <td>1,500</td>
+          <td>$1.25 / 1M</td>
+          <td>$0.001875</td>
+        </tr>
+        <tr>
+          <td>Output (completion — incl. reasoning)</td>
+          <td>2,000</td>
+          <td>$10.00 / 1M</td>
+          <td>$0.020000</td>
+        </tr>
+        <tr class="total-row">
+          <td>Total — bc-mid benchmark</td>
+          <td>3,500</td>
+          <td>—</td>
+          <td>$0.021875</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-copy">
+      Compared to the broader Gemini 2.5 family: Flash Lite at $0.10/$0.40 and Flash at $0.30/$2.50
+      are dramatically cheaper for high-volume workloads where maximum reasoning depth is not required.
+      Compared to the frontier tier from other providers — Claude Opus 4.7 Fast at $30/$150 and GPT-5
+      at approximately $10/$40 — Gemini 2.5 Pro's $1.25 input rate represents a significant cost
+      advantage, particularly for input-heavy applications like long-context document analysis.
+    </p>
+
+    <hr class="section-divider" />
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- SECTION 7: USE CASES                          -->
+    <!-- ────────────────────────────────────────────── -->
+    <h2 class="section-title">Ideal Use Cases</h2>
+
+    <p class="body-copy">
+      Gemini 2.5 Pro's combination of 1M context, full multimodal input, and deep structured reasoning
+      makes it most valuable for demanding workloads where the quality of the answer justifies the cost
+      and latency of careful deliberation.
+    </p>
+
+    <div class="use-case-grid">
+      <div class="use-case-card">
+        <div class="uc-icon">&#128203;</div>
+        <div class="uc-title">Long-Context Research Synthesis</div>
+        <div class="uc-desc">Load entire paper corpora, legal sets, or regulatory archives and synthesize insights across the full 1M token window in one call.</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">&#128444;</div>
+        <div class="uc-title">Multimodal Document Analysis</div>
+        <div class="uc-desc">Process PDFs with embedded charts, scanned contracts with annotations, and mixed-format reports natively — no preprocessing pipeline required.</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">&#128187;</div>
+        <div class="uc-title">Large Codebase Review</div>
+        <div class="uc-desc">Load full repositories into context for architectural review, security auditing, or refactor planning without chunking or retrieval hacks.</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">&#127908;</div>
+        <div class="uc-title">Audio and Video Grounding</div>
+        <div class="uc-desc">Combine video, audio, and text context for meeting intelligence, content analysis, and multimodal Q&amp;A — all in one API call.</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">&#129504;</div>
+        <div class="uc-title">Complex Reasoning Tasks</div>
+        <div class="uc-desc">Multi-step logic, strategic analysis, hypothesis evaluation — the model's deliberate reasoning chain is an asset, not overhead, on these workloads.</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">&#9881;</div>
+        <div class="uc-title">Production Code Generation</div>
+        <div class="uc-desc">Planning before writing reduces logic errors. Gemini 2.5 Pro reasons through architecture and edge cases before committing code.</div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- SECTION 8: WHEN TO USE / AVOID                -->
+    <!-- ────────────────────────────────────────────── -->
+    <h2 class="section-title">When to Use — and When to Avoid</h2>
+
+    <div class="fit-grid">
+      <div class="fit-card fit-yes">
+        <div class="fit-header">Good Fit</div>
+        <ul>
+          <li>Tasks requiring multi-step reasoning over long evidence chains</li>
+          <li>Multimodal inputs — audio, video, or mixed-format documents</li>
+          <li>Workloads where 1M context removes the need for chunking</li>
+          <li>Applications where reasoning transparency is valued</li>
+          <li>Research synthesis where output quality matters more than speed</li>
+          <li>Image generation alongside text output in the same session</li>
+          <li>Complex code generation where planning reduces downstream bugs</li>
+        </ul>
+      </div>
+      <div class="fit-card fit-no">
+        <div class="fit-header">Poor Fit</div>
+        <ul>
+          <li>High-volume, low-complexity tasks where cost per call is primary</li>
+          <li>Applications with hard token limits below 1,000 output tokens</li>
+          <li>Simple Q&amp;A, classification, or routing — use Flash Lite instead</li>
+          <li>Real-time streaming where reasoning latency is unacceptable</li>
+          <li>Teams not prepared to set adequate max_tokens budgets</li>
+          <li>Scenarios where reasoning token billing is not accounted for</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- SECTION 9: COMPARISON TABLE                   -->
+    <!-- ────────────────────────────────────────────── -->
+    <h2 class="section-title">How It Compares</h2>
+
+    <p class="body-copy">
+      Gemini 2.5 Pro occupies a unique position: frontier-tier reasoning and a full 1M context window at
+      an input price that is 4–24x cheaper than equivalent-capability competitors. The comparison below
+      shows where it stands against its own family and the broader frontier.
+    </p>
+
+    <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Input / 1M</th>
+            <th>Output / 1M</th>
+            <th>Context</th>
+            <th>Reasoning</th>
+            <th>Modalities</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-highlight">
+            <td>Gemini 2.5 Pro &#x25BA;</td>
+            <td>$1.25</td>
+            <td>$10.00</td>
+            <td>1M</td>
+            <td class="tag-deep">Deep (visible)</td>
+            <td>5-in / text+img out</td>
+          </tr>
+          <tr>
+            <td>Gemini 2.5 Flash Lite</td>
+            <td>$0.10</td>
+            <td>$0.40</td>
+            <td>1M</td>
+            <td class="tag-no">None</td>
+            <td>Multi-in / text</td>
+          </tr>
+          <tr>
+            <td>Gemini 2.5 Flash</td>
+            <td>$0.30</td>
+            <td>$2.50</td>
+            <td>1M</td>
+            <td class="tag-partial">Partial</td>
+            <td>Multi-in / text</td>
+          </tr>
+          <tr>
+            <td>Claude Opus 4.7 Fast</td>
+            <td>$30.00</td>
+            <td>$150.00</td>
+            <td>200K</td>
+            <td class="tag-hidden">Not visible</td>
+            <td>Text + image in</td>
+          </tr>
+          <tr>
+            <td>GPT-5</td>
+            <td>~$10.00</td>
+            <td>~$40.00</td>
+            <td>1M</td>
+            <td class="tag-hidden">Hidden</td>
+            <td>Multi-in / text</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="body-copy">
+      The table makes the value proposition clear. Gemini 2.5 Pro offers visible, structured reasoning
+      with a 1M context window at an input price of $1.25 — compared to GPT-5 at ~$10 and Claude Opus
+      4.7 Fast at $30. GPT-5's reasoning is hidden, giving you no observability into deliberation.
+      Claude Opus 4.7 Fast caps at 200K context. For teams that need frontier-quality reasoning, 1M
+      context, and cost efficiency together, Gemini 2.5 Pro is the only option that delivers all three.
+    </p>
+
+    <hr class="section-divider" />
+
+    <!-- ────────────────────────────────────────────── -->
+    <!-- TRY IT BAND                                   -->
+    <!-- ────────────────────────────────────────────── -->
+    <div class="try-it-band">
+      <h3>Try Gemini 2.5 Pro</h3>
+      <p>
+        Run it directly in Aether Intel with your own API key. Full 5-modality input, 1M context,
+        and visible reasoning chains. Set max_tokens to 4,000+ to see the full response.
+      </p>
+      <a
+        href="/models.html"
+        class="try-it-btn"
+        onclick="event.preventDefault(); if(window.byok){ window.byok.openByokModal && window.byok.openByokModal('google/gemini-2.5-pro','Gemini 2.5 Pro'); } else { window.location.href='/models/'; }"
+      >
+        Try Gemini 2.5 Pro
+      </a>
+    </div>
+
+  </div><!-- /.page-wrap -->
+
+  
+<script src="/js/footer.js"></script>
+
+</body>
+</html>
