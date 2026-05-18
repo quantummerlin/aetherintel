@@ -62,8 +62,8 @@
 
   /* Text */
   --text-primary:   #f1f5f9;
-  --text-secondary: rgba(241, 245, 249, 0.65);
-  --text-muted:     rgba(241, 245, 249, 0.38);
+  --text-secondary: rgba(241, 245, 249, 0.88);
+  --text-muted:     rgba(241, 245, 249, 0.60);
 
   /* Layout dimensions */
   --sidebar-w:  240px;
@@ -397,7 +397,7 @@ aside.sidebar {
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 500;
-  color: rgba(34, 211, 238, 0.38);
+  color: rgba(34, 211, 238, 0.70);
   cursor: pointer;
   transition:
     background var(--transition-fast),
@@ -687,7 +687,7 @@ footer.now-bar {
   font-family: var(--font-body);
   font-size: 0.76rem;
   font-weight: 500;
-  color: rgba(255,255,255,.45);
+  color: var(--neon-cyan);
   gap: 0;
 }
 
@@ -740,14 +740,14 @@ nav.mobile-bottom-nav {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(34, 211, 238, 0.38);
+  color: rgba(34, 211, 238, 0.70);
   cursor: pointer;
   transition: color var(--transition-fast), filter var(--transition-fast);
   padding: 8px 4px;
 }
 
 .mob-nav-item:hover {
-  color: rgba(34, 211, 238, 0.75);
+  color: rgba(34, 211, 238, 0.92);
 }
 
 .mob-nav-item.active {
