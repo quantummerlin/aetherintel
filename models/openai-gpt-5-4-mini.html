@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPT-5.4 Mini — Fast Capable Mid-Tier from OpenAI | Aether Intel</title>
+  <meta name="description" content="GPT-5.4 Mini review: $0.75 input, 400K context, reasoning support. The high-throughput mid-tier of the unified GPT-5.4 / Codex family — benchmark tested.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ai.quantummerlin.com/models/openai-gpt-5-4-mini.html">
+  <meta property="og:title" content="GPT-5.4 Mini — Fast Capable Mid-Tier from OpenAI | Aether Intel">
+  <meta property="og:description" content="GPT-5.4 Mini review: $0.75 input, 400K context, reasoning support. The high-throughput mid-tier of the unified GPT-5.4 / Codex family — benchmark tested.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ai.quantummerlin.com/models/openai-gpt-5-4-mini.html">
+  <meta property="og:image" content="https://ai.quantummerlin.com/images/models/openai-gpt-5-4-mini-hero.png">
+  <meta property="article:published_time" content="2026-05-20">
+  <meta property="article:author" content="Quantum Merlin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GPT-5.4 Mini — Fast Capable Mid-Tier from OpenAI | Aether Intel">
+  <meta name="twitter:description" content="GPT-5.4 Mini review: $0.75 input, 400K context, reasoning support. The high-throughput mid-tier of the unified GPT-5.4 / Codex family — benchmark tested.">
+  <meta name="twitter:image" content="https://ai.quantummerlin.com/images/models/openai-gpt-5-4-mini-hero.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW4LGE7L1T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VW4LGE7L1T');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3480541530392777" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ─── Model article extras ─── */
+    .model-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .spec-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .spec-label {
+      font-family: var(--font-display);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+    .spec-value {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .spec-value.sv-green  { color: #34d399; }
+    .spec-value.sv-indigo { color: var(--neon-indigo); }
+    .spec-value.sv-gold   { color: var(--neon-gold); }
+    .spec-value.sv-orange { color: #f97316; }
+    .spec-value.sv-amber  { color: #f59e0b; }
+
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .use-case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .use-case-card h4 {
+      font-family: var(--font-body);
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 6px;
+    }
+    .use-case-card p {
+      font-size: .8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Benchmark display */
+    .benchmark-block {
+      background: var(--surface);
+      border: 1px solid rgba(129,140,248,.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    .benchmark-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .benchmark-block-title {
+      font-family: var(--font-display);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--neon-indigo);
+    }
+    .benchmark-cost-badge {
+      font-family: var(--font-body);
+      font-size: .88rem;
+      font-weight: 700;
+      border-radius: 7px;
+      padding: 4px 12px;
+    }
+    .benchmark-prompt-label {
+      font-family: var(--font-display);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .benchmark-prompt-text {
+      background: rgba(7,7,15,.6);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: .83rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .benchmark-response-label {
+      font-family: var(--font-display);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .benchmark-response-text {
+      font-size: .88rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+    .benchmark-response-text p { margin: 0 0 12px; }
+    .benchmark-response-text p:last-child { margin: 0; }
+    .benchmark-response-text ul {
+      margin: 0 0 12px 0;
+      padding-left: 20px;
+    }
+    .benchmark-response-text ul li {
+      margin-bottom: 4px;
+      color: var(--text-primary);
+    }
+    .benchmark-response-text h2 {
+      font-family: var(--font-heading);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 16px 0 8px;
+    }
+    .benchmark-response-text strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    .benchmark-truncated-note {
+      background: rgba(245,158,11,.06);
+      border: 1px dashed rgba(245,158,11,.3);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--text-muted);
+      font-size: .8rem;
+      line-height: 1.5;
+      margin-top: 14px;
+      font-style: italic;
+    }
+
+    /* Try it CTA */
+    .try-it-band {
+      background: linear-gradient(135deg, rgba(116,170,156,.08), rgba(34,211,238,.04));
+      border: 1px solid rgba(116,170,156,.25);
+      border-radius: 14px;
+      padding: 28px;
+      margin: 32px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .try-it-band h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 6px;
+    }
+    .try-it-band p {
+      color: var(--text-secondary);
+      font-size: .86rem;
+      margin: 0;
+    }
+
+    /* Provider accent stripe */
+    .provider-accent-bar {
+      display: inline-block;
+      width: 32px;
+      height: 3px;
+      background: #74aa9c;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .model-specs-grid { grid-template-columns: repeat(2, 1fr); }
+      .use-case-grid { grid-template-columns: 1fr; }
+      .try-it-band { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <article class="article-page">
+
+    <!-- ── HERO ── -->
+    <div class="article-hero">
+      <div class="article-hero-img-wrap">
+        <img src="/images/models/openai-gpt-5-4-mini-hero.png"
+             alt="GPT-5.4 Mini — OpenAI's high-throughput mid-tier model"
+             class="article-hero-img" loading="eager"
+             onerror="this.style.background='linear-gradient(135deg,rgba(116,170,156,0.18),rgba(34,211,238,0.05))';this.removeAttribute('src')">
+      </div>
+      <div class="article-hero-overlay">
+        <div class="article-hero-content">
+          <nav class="article-breadcrumb">
+            <a href="/">Home</a>
+            <span>&#x203a;</span>
+            <a href="/models.html">Models</a>
+            <span>&#x203a;</span>
+            <span>GPT-5.4 Mini</span>
+          </nav>
+          <span class="badge badge-tools">OpenAI</span>
+          <h1 class="article-hero-title">GPT-5.4 Mini</h1>
+          <div class="article-meta">
+            <span class="article-meta-date">May 20, 2026</span>
+            <span class="article-meta-dot">&middot;</span>
+            <span class="article-meta-read">8 min read</span>
+            <span class="article-meta-dot">&middot;</span>
+            <span class="article-meta-read">Benchmark tested</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BODY ── -->
+    <div class="article-layout">
+      <div class="article-body">
+
+        <p>GPT-5.4 Mini is the mid-tier workhorse of OpenAI's GPT-5.4 family — the model that occupies the same strategic position in 2026 that GPT-4o Mini held in 2024. Released on 17 March 2026 as part of the landmark GPT-5.4 launch, Mini brings the core capabilities of the unified GPT and Codex architecture to high-throughput production workloads at $0.75 per million input tokens and $4.50 per million output tokens. It is 3.75x cheaper than the base GPT-5.4 on input, while retaining the 400K context window, reasoning token support, and Codex-inherited code generation capability that define the entire family.</p>
+
+        <!-- QUICK SPECS -->
+        <div class="model-specs-grid">
+          <div class="spec-card">
+            <div class="spec-label">Input /1M tokens</div>
+            <div class="spec-value sv-amber">$0.75</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Output /1M tokens</div>
+            <div class="spec-value sv-amber">$4.50</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Cache read /1M</div>
+            <div class="spec-value sv-green">$0.075</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Context window</div>
+            <div class="spec-value">400,000 tokens</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Max output</div>
+            <div class="spec-value">128,000 tokens</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Benchmark cost</div>
+            <div class="spec-value sv-amber">$0.002706</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Knowledge cutoff</div>
+            <div class="spec-value">Aug 2025</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Reasoning</div>
+            <div class="spec-value sv-green">Supported</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Web search</div>
+            <div class="spec-value">$0.01 / call</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Modality</div>
+            <div class="spec-value">Text + Image + File</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Released</div>
+            <div class="spec-value">17 Mar 2026</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">OpenRouter ID</div>
+            <div class="spec-value" style="font-size:.72rem;font-family:monospace;color:var(--text-secondary)">openai/gpt-5.4-mini</div>
+          </div>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- WHAT IT IS -->
+        <h2 class="article-h2">What is GPT-5.4 Mini?</h2>
+        <p>GPT-5.4 Mini is OpenAI's answer to a persistent question in AI product design: how do you deliver meaningful capability at high throughput without paying frontier model prices? It is the direct successor to GPT-4o Mini in both positioning and intent — same emphasis on speed and value — but with three meaningful upgrades that reflect a year of architectural progress.</p>
+        <p>The first upgrade is lineage. GPT-5.4 Mini is built on the unified architecture that merges OpenAI's <strong>GPT series</strong> (general language models) and the <strong>Codex series</strong> (GitHub Copilot's engine, one of the most widely deployed code generation systems ever built). This is not just a branding change: the model has genuinely stronger code generation and technical reasoning than a similarly-priced GPT-only model from the prior generation.</p>
+        <p>The second upgrade is context. Where GPT-4o Mini caps out at 128K tokens, Mini raises that ceiling to <strong>400K tokens</strong> — enough to hold roughly 300,000 words, or a medium-sized codebase, in a single request. This matters for RAG pipelines, document Q&amp;A, and coding assistants that need to keep long files in context without chunking.</p>
+        <p>The third upgrade is reasoning. GPT-5.4 Mini supports the <code>include_reasoning</code> parameter that exposes the model's intermediate chain-of-thought tokens. This capability, previously available only on the o-series reasoning models at significantly higher prices, is available here at $0.75 input / $4.50 output per million — making it a genuine differentiator against alternatives like Claude Haiku 4.5 and GPT-4o Mini, neither of which support structured reasoning at comparable prices.</p>
+        <p>The canonical OpenRouter slug is <code>openai/gpt-5.4-mini-20260317</code>. The cache read rate of $0.075 per million tokens (10x cheaper than base input) makes repeated system prompts economical at scale.</p>
+
+        <hr class="article-divider">
+
+        <!-- WHAT IT EXCELS AT -->
+        <h2 class="article-h2">What GPT-5.4 Mini Excels At</h2>
+        <p>Mini's positioning is deliberate: enough capability to handle real production tasks, fast enough to meet latency budgets, cheap enough for high-volume deployments. Its combination of 400K context, reasoning support, and Codex heritage creates a model that covers a broad swathe of practical use cases that the previous GPT-4o Mini generation handled awkwardly or couldn't address at all.</p>
+
+        <div class="use-case-grid">
+          <div class="use-case-card">
+            <h4>Production Chat Interfaces</h4>
+            <p>Customer support, onboarding flows, AI-powered help centres. Mini's quality-to-cost ratio is hard to beat for conversational applications that need consistent, coherent responses at scale.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Coding Assistants</h4>
+            <p>Code completion, review, explanation, and documentation. The Codex lineage gives Mini code generation quality that GPT-4o Mini couldn't match, at a similar price point.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>RAG Pipelines</h4>
+            <p>The 400K context window means you can retrieve and inject significantly more document chunks per request — reducing round trips, improving coherence, and lowering latency in retrieval-augmented generation systems.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Moderate-Complexity Reasoning</h4>
+            <p>Multi-step analytical tasks that need more than pattern matching but don't require a frontier model. The <code>include_reasoning</code> parameter lets you trade extra token cost for better accuracy on harder problems.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Structured Output at Scale</h4>
+            <p>JSON extraction, form filling, schema-based generation — tasks where you need reliable structure across thousands of requests per day. Mini handles these with higher fidelity than Nano while remaining budget-friendly.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Long-Context Summarisation</h4>
+            <p>Summarising meeting transcripts, reports, or legal documents. The 400K window lets you pass full documents rather than chunks, producing more coherent and complete summaries.</p>
+          </div>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- BENCHMARK -->
+        <h2 class="article-h2">Benchmark Response</h2>
+        <p>We ran our standard technical exchange through GPT-5.4 Mini via OpenRouter. The benchmark uses 32 prompt tokens and 596 completion tokens, costing $0.002706 — notably more than Nano's $0.000751 but reflecting the quality step-up. The same SQL vs NoSQL prompt reveals the difference between the two tiers: Mini's response has deeper technical grounding, introduces ACID and the CAP theorem, and is cut off at max tokens mid-response — a realistic production artefact worth being aware of.</p>
+
+        <div class="benchmark-block">
+          <div class="benchmark-block-header">
+            <span class="benchmark-block-title">Benchmark Test — 628 Token Exchange</span>
+            <span class="benchmark-cost-badge" style="color:#f59e0b; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.3)">Cost: $0.002706 &mdash; Mid</span>
+          </div>
+          <div class="benchmark-prompt-label">Prompt (32 tokens)</div>
+          <div class="benchmark-prompt-text">
+            Explain the key trade-offs between SQL and NoSQL databases. When would you choose each? Give me a concrete example of a system that suits each approach.
+          </div>
+          <div class="benchmark-response-label">GPT-5.4 Mini Response (596 completion tokens — cut off at MAX_TOKENS)</div>
+          <div class="benchmark-response-text">
+            <h2>SQL vs NoSQL: Fundamental Trade-offs</h2>
+            <p>The choice between SQL and NoSQL databases comes down to three intersecting concerns: <strong>data model complexity</strong>, <strong>consistency requirements</strong>, and <strong>scaling strategy</strong>. Neither category is universally superior — they are optimised for different problem shapes.</p>
+
+            <h2>SQL (Relational Databases)</h2>
+            <p>SQL databases — PostgreSQL, MySQL, SQL Server, SQLite — organise data into tables with predefined schemas and enforce relationships via foreign keys. Their critical guarantee is <strong>ACID compliance</strong>: transactions are Atomic (all-or-nothing), Consistent (constraints are always enforced), Isolated (concurrent transactions don't corrupt each other), and Durable (committed data survives failure). This makes them the default choice wherever correctness is non-negotiable.</p>
+            <p>SQL databases scale primarily <strong>vertically</strong> (bigger machines) and secondarily through read replicas and sharding — approaches that add operational complexity at very high volume. They also require schema migrations to add or change fields, which can be painful in fast-moving products.</p>
+            <p><strong>Choose SQL when:</strong></p>
+            <ul>
+              <li>Your data is naturally relational — entities have well-defined relationships (orders belong to customers, line items belong to orders)</li>
+              <li>ACID guarantees are required — banking, payments, inventory, healthcare records where partial writes are unacceptable</li>
+              <li>You need ad-hoc querying — business analysts must be able to write flexible SQL without schema changes</li>
+              <li>Your write volume is manageable — a few hundred to a few thousand writes per second is well within relational reach</li>
+            </ul>
+
+            <h2>NoSQL Databases</h2>
+            <p>NoSQL is not a single thing — it covers document stores (MongoDB, CouchDB), key-value stores (Redis, DynamoDB), wide-column stores (Cassandra, HBase), and graph databases (Neo4j). What they share is a willingness to trade strict consistency for horizontal scalability and schema flexibility. This trade-off is captured by the <strong>CAP theorem</strong>: a distributed system can guarantee at most two of Consistency, Availability, and Partition tolerance simultaneously. Most NoSQL systems choose AP (Available + Partition-tolerant), meaning they may return slightly stale data under network partitions but will remain operational.</p>
+            <p><strong>Choose NoSQL when:</strong></p>
+            <ul>
+              <li>You need horizontal write scalability — millions of events or records per second across a distributed cluster</li>
+              <li>Your schema is flexible or entity-specific — user profiles, product catalogs, or content where different records have different fields</li>
+              <li>Access patterns are known and fixed — NoSQL shines when every query hits the same key structure (e.g., all reads are by user_id)</li>
+              <li>Eventual consistency is acceptable — social media activity, analytics aggregations, recommendation data where stale reads are tolerable</li>
+            </ul>
+
+            <h2>Concrete Examples</h2>
+            <p><strong>SQL — Banking transaction ledger:</strong> A core banking system recording account debits, credits, and transfers is the canonical SQL use case. Every transfer must atomically debit one account and credit another — a partial write (debit succeeds, credit fails) would corrupt the ledger. PostgreSQL's ACID transactions, row-level locking, and mature tooling make it the right choice. The data model is stable (accounts, transactions, customers are well-understood entities), and query patterns are varied enough that a rigid schema is an asset, not a liability.</p>
+            <p><strong>NoSQL — IoT telemetry platform:</strong> A platform ingesting sensor readings from hundreds of thousands of connected devices — each reporting temperature, pressure, and status every few seconds — suits Apache Cassandra. Writes are simple (partition key = device_id, clustering key = timestamp), throughput requirements exceed what a single relational node can handle cost-effectively, and reads are always scoped to a device over a time range. Cassandra's linear write scalability, tunable consistency, and time-series-friendly data model align directly with this</p>
+          </div>
+          <div class="benchmark-truncated-note">
+            Response cut off at MAX_TOKENS (596 completion tokens). In production, set a higher max_tokens limit or stream the response to avoid mid-sentence truncation on longer outputs.
+          </div>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- PRICING BREAKDOWN -->
+        <h2 class="article-h2">Pricing Breakdown</h2>
+        <p>GPT-5.4 Mini sits at a deliberate inflection point in the pricing curve: affordable enough for high-volume deployment, capable enough for real production tasks. At 3.75x cheaper than the base GPT-5.4 on input and 3.3x cheaper on output, it captures the large segment of workloads that don't require frontier capability but definitely require more than Nano's conciseness. The $0.075 per million cache read rate — 10x cheaper than base input — means cached system prompts and RAG context pay for themselves quickly in recurring-pattern applications.</p>
+
+        <div class="table-wrap">
+          <table class="article-table">
+            <thead>
+              <tr><th>Metric</th><th>Value</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Input tokens /1M</td><td>$0.75</td><td>3.75x cheaper than base GPT-5.4 ($2.50)</td></tr>
+              <tr><td>Output tokens /1M</td><td>$4.50</td><td>3.3x cheaper than base GPT-5.4 ($15.00)</td></tr>
+              <tr><td>Cache read /1M</td><td>$0.075</td><td>10x cheaper than base input — strong for RAG and repeated prompts</td></tr>
+              <tr><td>Web search</td><td>$0.01 / call</td><td>Grounded search add-on, per query</td></tr>
+              <tr><td>Context window</td><td>400,000 tokens</td><td>3x larger than GPT-4o Mini's 128K</td></tr>
+              <tr><td>Max output</td><td>128,000 tokens</td><td>Long-form document generation supported</td></tr>
+              <tr><td>Benchmark exchange (628 tok)</td><td>$0.002706</td><td>32 prompt + 596 completion tokens</td></tr>
+              <tr><td>Est. 10,000 req/day</td><td>$27.06 / day</td><td>At benchmark token volumes</td></tr>
+              <tr><td>Est. 100,000 req/day</td><td>$270.60 / day</td><td>Production-scale estimate; cache reduces this</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ADSENSE MID -->
+        <ins class="adsbygoogle" style="display:block;margin:28px 0"
+             data-ad-client="ca-pub-3480541530392777"
+             data-ad-slot="auto" data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+
+        <hr class="article-divider">
+
+        <!-- HOW IT COMPARES -->
+        <h2 class="article-h2">How It Compares</h2>
+        <p>GPT-5.4 Mini's closest competitors are models in the $0.50–$1.50 input tier: Claude Haiku 4.5, GPT-4o Mini (previous gen), and the various Gemini Flash variants. Against these, Mini's differentiators are the 400K context window and reasoning token support — neither of which is standard at this price point. Against the base GPT-5.4, Mini is the right choice for any workload that doesn't require the 1,050K context ceiling or maximum capability depth, since it is 3.75x cheaper on input. Within the family, the ★ marks this model's position.</p>
+
+        <div class="table-wrap">
+          <table class="article-table">
+            <thead>
+              <tr><th>Model</th><th>Input /1M</th><th>Output /1M</th><th>Context</th><th>Reasoning</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GPT-5.4 Nano</td>
+                <td>$0.20</td>
+                <td>$1.25</td>
+                <td>400k</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><strong>GPT-5.4 Mini</strong> <span style="font-size:.72rem;color:#f59e0b">&#x2605; this model</span></td>
+                <td style="color:#f59e0b">$0.75</td>
+                <td style="color:#f59e0b">$4.50</td>
+                <td>400k</td>
+                <td style="color:#34d399">Yes</td>
+              </tr>
+              <tr>
+                <td>GPT-5.4</td>
+                <td>$2.50</td>
+                <td>$15.00</td>
+                <td>1,050k</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>GPT-5.4 Pro</td>
+                <td>$30.00</td>
+                <td>$180.00</td>
+                <td>1,050k</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>GPT-4o Mini (prev gen)</td>
+                <td>$0.15</td>
+                <td>$0.60</td>
+                <td>128k</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- TRY IT BAND -->
+        <div class="try-it-band">
+          <div>
+            <h3>Try GPT-5.4 Mini with Your Own Key</h3>
+            <p>Connect your OpenRouter API key and test GPT-5.4 Mini directly in the Aether Intel playground — no signup, your key stays in your browser.</p>
+          </div>
+          <a href="/tools/playground.html" class="btn btn-primary">Open Playground &#x2192;</a>
+        </div>
+
+        <!-- TAKEAWAYS -->
+        <div class="article-takeaways">
+          <h3 class="takeaways-title">Key Takeaways</h3>
+          <ul>
+            <li>GPT-5.4 Mini is the successor to GPT-4o Mini's mid-tier position, bringing Codex-unified architecture, 3x more context (400K vs 128K), and reasoning token support at a comparable price point ($0.75 input vs $0.15 for the legacy mini).</li>
+            <li>At 3.75x cheaper than base GPT-5.4 on input, Mini is the right default for production apps that need real capability but don't require a 1M+ context window or maximum reasoning depth.</li>
+            <li>Reasoning support (<code>include_reasoning</code>) is a genuine differentiator at this price tier — it is not available on Claude Haiku 4.5 or the previous GPT-4o Mini at comparable costs.</li>
+            <li>The benchmark response demonstrates solid technical depth (ACID, CAP theorem, concrete examples) with a realistic MAX_TOKENS truncation artefact — set output limits deliberately in production to avoid mid-sentence cut-offs.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── RELATED MODELS ── -->
+    <section class="article-related">
+      <h2 class="related-title">Related Models</h2>
+      <div class="article-grid">
+        <a class="article-card" href="/models/openai-gpt-5-5.html">
+          <div class="article-card-img-wrap">
+            <img src="/images/models/openai-gpt-5-5-hero.png"
+                 alt="GPT-5.5"
+                 class="article-card-img" loading="lazy"
+                 onerror="this.style.background='linear-gradient(135deg,rgba(116,170,156,0.15),rgba(34,211,238,0.05))';this.removeAttribute('src')">
+          </div>
+          <div class="article-card-body">
+            <span class="badge badge-tools">OpenAI</span>
+            <h3 class="article-card-title">GPT-5.5</h3>
+            <p class="article-card-excerpt">OpenAI's frontier model for complex professional workloads.</p>
+          </div>
+        </a>
+        <a class="article-card" href="/models/openai-gpt-5-4-nano.html">
+          <div class="article-card-img-wrap">
+            <img src="/images/models/openai-gpt-5-4-nano-hero.png"
+                 alt="GPT-5.4 Nano"
+                 class="article-card-img" loading="lazy"
+                 onerror="this.style.background='linear-gradient(135deg,rgba(116,170,156,0.15),rgba(34,211,238,0.05))';this.removeAttribute('src')">
+          </div>
+          <div class="article-card-body">
+            <span class="badge badge-tools">OpenAI</span>
+            <h3 class="article-card-title">GPT-5.4 Nano</h3>
+            <p class="article-card-excerpt">The ultra-cheap entry tier — $0.20/1M input with Codex DNA and 400K context.</p>
+          </div>
+        </a>
+        <a class="article-card" href="/models/openai-o4-mini.html">
+          <div class="article-card-img-wrap">
+            <img src="/images/models/openai-o4-mini-hero.png"
+                 alt="o4-mini"
+                 class="article-card-img" loading="lazy"
+                 onerror="this.style.background='linear-gradient(135deg,rgba(116,170,156,0.15),rgba(34,211,238,0.05))';this.removeAttribute('src')">
+          </div>
+          <div class="article-card-body">
+            <span class="badge badge-tools">OpenAI</span>
+            <h3 class="article-card-title">o4-mini</h3>
+            <p class="article-card-excerpt">Fast affordable reasoning at o3 quality.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<script src="/js/main.js"></script>
+<script src="/js/byok.js"></script>
+</body>
+</html>

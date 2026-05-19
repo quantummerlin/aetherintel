@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPT-5.4 — OpenAI's Flagship Codex-Unified Model | Aether Intel</title>
+  <meta name="description" content="GPT-5.4 review: $2.50 input, 1M context, reasoning support. The balanced flagship of the unified GPT-5.4 / Codex family — benchmark tested.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ai.quantummerlin.com/models/openai-gpt-5-4.html">
+  <meta property="og:title" content="GPT-5.4 — OpenAI's Flagship Codex-Unified Model | Aether Intel">
+  <meta property="og:description" content="GPT-5.4 review: $2.50 input, 1M context, reasoning support. The balanced flagship of the unified GPT-5.4 / Codex family — benchmark tested.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ai.quantummerlin.com/models/openai-gpt-5-4.html">
+  <meta property="og:image" content="https://ai.quantummerlin.com/images/models/openai-gpt-5-4-hero.png">
+  <meta property="article:published_time" content="2026-05-20">
+  <meta property="article:author" content="Quantum Merlin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GPT-5.4 — OpenAI's Flagship Codex-Unified Model | Aether Intel">
+  <meta name="twitter:description" content="GPT-5.4 review: $2.50 input, 1M context, reasoning support. The balanced flagship of the unified GPT-5.4 / Codex family — benchmark tested.">
+  <meta name="twitter:image" content="https://ai.quantummerlin.com/images/models/openai-gpt-5-4-hero.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW4LGE7L1T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VW4LGE7L1T');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3480541530392777" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ─── Model article extras ─── */
+    .model-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .spec-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .spec-label {
+      font-family: var(--font-display);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+    .spec-value {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .spec-value.sv-green  { color: #34d399; }
+    .spec-value.sv-indigo { color: var(--neon-indigo); }
+    .spec-value.sv-gold   { color: var(--neon-gold); }
+    .spec-value.sv-orange { color: #f97316; }
+    .spec-value.sv-amber  { color: #f59e0b; }
+
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .use-case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .use-case-card h4 {
+      font-family: var(--font-body);
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 6px;
+    }
+    .use-case-card p {
+      font-size: .8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Benchmark display */
+    .benchmark-block {
+      background: var(--surface);
+      border: 1px solid rgba(129,140,248,.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    .benchmark-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .benchmark-block-title {
+      font-family: var(--font-display);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--neon-indigo);
+    }
+    .benchmark-cost-badge {
+      font-family: var(--font-body);
+      font-size: .88rem;
+      font-weight: 700;
+      border-radius: 7px;
+      padding: 4px 12px;
+    }
+    .benchmark-prompt-label {
+      font-family: var(--font-display);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .benchmark-prompt-text {
+      background: rgba(7,7,15,.6);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: .83rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .benchmark-response-label {
+      font-family: var(--font-display);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .benchmark-response-text {
+      font-size: .88rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+    .benchmark-response-text p { margin: 0 0 12px; }
+    .benchmark-response-text p:last-child { margin: 0; }
+    .benchmark-response-text ul {
+      margin: 0 0 12px 0;
+      padding-left: 20px;
+    }
+    .benchmark-response-text ul li {
+      margin-bottom: 4px;
+      color: var(--text-primary);
+    }
+    .benchmark-response-text h2 {
+      font-family: var(--font-heading);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 16px 0 8px;
+    }
+    .benchmark-response-text strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    /* Try it CTA */
+    .try-it-band {
+      background: linear-gradient(135deg, rgba(116,170,156,.08), rgba(34,211,238,.04));
+      border: 1px solid rgba(116,170,156,.25);
+      border-radius: 14px;
+      padding: 28px;
+      margin: 32px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .try-it-band h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 6px;
+    }
+    .try-it-band p {
+      color: var(--text-secondary);
+      font-size: .86rem;
+      margin: 0;
+    }
+
+    /* Provider accent stripe */
+    .provider-accent-bar {
+      display: inline-block;
+      width: 32px;
+      height: 3px;
+      background: #74aa9c;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .model-specs-grid { grid-template-columns: repeat(2, 1fr); }
+      .use-case-grid { grid-template-columns: 1fr; }
+      .try-it-band { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <article class="article-page">
+
+    <!-- ── HERO ── -->
+    <div class="article-hero">
+      <div class="article-hero-img-wrap">
+        <img src="/images/models/openai-gpt-5-4-hero.png"
+             alt="GPT-5.4 — OpenAI's unified Codex and GPT flagship model"
+             class="article-hero-img" loading="eager"
+             onerror="this.style.background='linear-gradient(135deg,rgba(116,170,156,0.18),rgba(34,211,238,0.05))';this.removeAttribute('src')">
+      </div>
+      <div class="article-hero-overlay">
+        <div class="article-hero-content">
+          <nav class="article-breadcrumb">
+            <a href="/">Home</a>
+            <span>&#x203a;</span>
+            <a href="/models.html">Models</a>
+            <span>&#x203a;</span>
+            <span>GPT-5.4</span>
+          </nav>
+          <span class="badge badge-tools">OpenAI</span>
+          <h1 class="article-hero-title">GPT-5.4</h1>
+          <div class="article-meta">
+            <span class="article-meta-date">May 20, 2026</span>
+            <span class="article-meta-dot">&middot;</span>
+            <span class="article-meta-read">9 min read</span>
+            <span class="article-meta-dot">&middot;</span>
+            <span class="article-meta-read">Benchmark tested</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BODY ── -->
+    <div class="article-layout">
+      <div class="article-body">
+
+        <p>GPT-5.4 is the headline model of OpenAI's most significant architectural release since GPT-4: the unification of the <strong>GPT</strong> and <strong>Codex</strong> product lines into a single model family. Launched on 17 March 2026, GPT-5.4 is the balanced flagship of the four-variant family — sitting between the affordable Mini tier and the premium Pro — at $2.50 per million input tokens and $15.00 per million output tokens. It introduced what was at the time the largest context window of any non-specialised OpenAI model: <strong>1,050,000 tokens</strong>, over eight times the size of GPT-4o's 128K ceiling.</p>
+
+        <!-- QUICK SPECS -->
+        <div class="model-specs-grid">
+          <div class="spec-card">
+            <div class="spec-label">Input /1M tokens</div>
+            <div class="spec-value sv-amber">$2.50</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Output /1M tokens</div>
+            <div class="spec-value sv-amber">$15.00</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Cache read /1M</div>
+            <div class="spec-value sv-green">$0.25</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Context window</div>
+            <div class="spec-value">1,050,000 tokens</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Max output</div>
+            <div class="spec-value">128,000 tokens</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Benchmark cost</div>
+            <div class="spec-value sv-orange">$0.009020</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Knowledge cutoff</div>
+            <div class="spec-value">Aug 2025</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Reasoning</div>
+            <div class="spec-value sv-green">Supported</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Web search</div>
+            <div class="spec-value">$0.01 / call</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Modality</div>
+            <div class="spec-value">Text + Image + File</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Released</div>
+            <div class="spec-value">17 Mar 2026</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">OpenRouter ID</div>
+            <div class="spec-value" style="font-size:.72rem;font-family:monospace;color:var(--text-secondary)">openai/gpt-5.4</div>
+          </div>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- WHAT IT IS -->
+        <h2 class="article-h2">The End of Two Product Lines</h2>
+        <p>For years, OpenAI maintained two separate model families that often confused developers. The <strong>GPT series</strong> — GPT-3.5, GPT-4, GPT-4o — was trained for general-purpose language understanding and generation. The <strong>Codex series</strong> — which powered GitHub Copilot from 2021 and became the backbone of the most widely deployed AI coding tool in history — was fine-tuned specifically for programming tasks. Both families had distinct strengths, pricing, and API endpoints. Developers building products that needed both (chat plus code, for example) routinely maintained dual integrations.</p>
+        <p>GPT-5.4 ended this bifurcation. The model was trained from the ground up as a unified architecture, with both general language and code generation capability built into the base weights rather than applied as fine-tuning on top of a generic foundation. The result is a model that writes code the way a developer thinks about code — with the context awareness, API knowledge, and debugging instinct of the Codex lineage — while retaining the breadth and conversational fluency of the GPT series.</p>
+        <p>The canonical OpenRouter slug is <code>openai/gpt-5.4-20260317</code>, pinned to the March 17 2026 launch. The <code>openai/gpt-5.4</code> alias routes to the latest version. The $0.25/1M cache read rate — 10x cheaper than base input — is particularly relevant for the 1M context window: long documents and codebases that live in context across multiple calls benefit dramatically from cache economics at this scale.</p>
+
+        <hr class="article-divider">
+
+        <!-- THE 1M CONTEXT STORY -->
+        <h2 class="article-h2">What 1 Million Tokens Actually Means</h2>
+        <p>The 1,050,000-token context window is GPT-5.4's most headline-grabbing specification, but the practical implications are more nuanced than the number suggests. At roughly 750 tokens per page of text, 1M tokens translates to approximately <strong>1,400 pages</strong> — or a short novel, a full-length technical manual, or around 40,000–50,000 lines of code depending on language and density.</p>
+        <p>For real production use cases, this means several things that were previously impractical:</p>
+        <ul>
+          <li><strong>Whole-codebase analysis</strong> — An entire medium-sized project can be passed in a single request. Ask GPT-5.4 to explain an unfamiliar codebase, audit for security issues, or refactor across files without chunking or embedding pipelines.</li>
+          <li><strong>Full legal or financial document review</strong> — Multi-hundred-page contracts, SEC filings, or research reports that previously required splitting and re-merging can be processed end-to-end in one call.</li>
+          <li><strong>Long-horizon agentic tasks</strong> — The model can maintain the full history of a complex multi-step task across dozens of tool calls and intermediate outputs without running into context limits.</li>
+          <li><strong>Cached long system prompts</strong> — With the $0.25/1M cache read rate, a 100K-token system prompt containing domain knowledge, rules, or persona costs $0.025 per million tokens after the first call — enabling rich, knowledge-heavy agents without paying full input rates on every request.</li>
+        </ul>
+        <p>The trade-off is that context window size and actual in-context performance are not perfectly correlated. At very long contexts, most models — GPT-5.4 included — show some degradation in their ability to recall information from the very middle of the context window. For critical tasks that depend on specific facts buried deep in a long document, it's worth testing retrieval quality at your target context lengths.</p>
+
+        <hr class="article-divider">
+
+        <!-- WHAT IT EXCELS AT -->
+        <h2 class="article-h2">What GPT-5.4 Excels At</h2>
+        <p>GPT-5.4 is the default choice for production workloads that need genuine capability — tasks where GPT-5.4 Mini's quality ceiling is a limitation, but GPT-5.4 Pro's $30/1M input price is more than the use case justifies. The 1M context window and Codex-unified architecture create a particularly strong combination for development-adjacent work at scale.</p>
+
+        <div class="use-case-grid">
+          <div class="use-case-card">
+            <h4>Full-Codebase Operations</h4>
+            <p>Pass an entire repository into context and ask for refactors, audits, or cross-file dependency analysis. The Codex architecture combined with 1M context makes this the most capable model for whole-project code reasoning at a non-Pro price point.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Complex Multi-Step Reasoning</h4>
+            <p>Business analysis, research synthesis, legal reasoning — tasks that require holding many facts in context simultaneously and drawing conclusions across them. The <code>include_reasoning</code> parameter exposes intermediate chain-of-thought for debugging and transparency.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Long Document Processing</h4>
+            <p>Contracts, reports, transcripts, technical manuals — process full-length documents in one pass without chunking. The 1M context eliminates the lossy splitting-and-merging patterns that reduce coherence in RAG approaches for very long documents.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Production AI Agents</h4>
+            <p>The combination of long context (for rich tool call histories), reasoning tokens (for reliable decision-making), and Codex-quality code generation makes GPT-5.4 the natural choice for production agentic systems that need to execute code, call APIs, and reason across extended workflows.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Knowledge-Heavy Chat Applications</h4>
+            <p>Applications where the system prompt needs to encode substantial domain knowledge — a medical reference, a large product catalog, a company knowledge base — benefit from the 1M context ceiling and the $0.25/1M cache rate that makes large system prompts economical at scale.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Advanced Code Generation</h4>
+            <p>Novel algorithms, complex data pipelines, multi-file scaffold generation. The Codex lineage gives GPT-5.4 an edge over similarly-priced models on code tasks that require genuine understanding of software architecture, not just pattern completion.</p>
+          </div>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- BENCHMARK -->
+        <h2 class="article-h2">Benchmark Response</h2>
+        <p>We ran our standard technical exchange through GPT-5.4 via OpenRouter. The benchmark uses 32 prompt tokens and 596 completion tokens, totalling $0.009020 — roughly 3.3x more expensive than Mini for the same exchange. The difference in response quality is discernible: GPT-5.4's response introduces more sophisticated framing, operational nuance (connection pooling, indexing strategies beyond the basics), and a more nuanced treatment of the CAP theorem's practical implications for system design.</p>
+
+        <div class="benchmark-block">
+          <div class="benchmark-block-header">
+            <span class="benchmark-block-title">Benchmark Test — 628 Token Exchange</span>
+            <span class="benchmark-cost-badge" style="color:#f97316; background:rgba(249,115,22,0.08); border:1px solid rgba(249,115,22,0.3)">Cost: $0.009020 &mdash; Moderate</span>
+          </div>
+          <div class="benchmark-prompt-label">Prompt (32 tokens)</div>
+          <div class="benchmark-prompt-text">
+            Explain the key trade-offs between SQL and NoSQL databases. When would you choose each? Give me a concrete example of a system that suits each approach.
+          </div>
+          <div class="benchmark-response-label">GPT-5.4 Response (596 completion tokens)</div>
+          <div class="benchmark-response-text">
+            <h2>SQL vs NoSQL: Architecture and Trade-offs</h2>
+            <p>The SQL vs NoSQL decision is fundamentally a question of which consistency and scalability model better fits your problem shape — and getting it wrong is expensive to undo once you have data at scale. Neither category is universally superior; they are optimised for different categories of access patterns and consistency requirements.</p>
+
+            <h2>SQL (Relational Databases)</h2>
+            <p>Relational databases — PostgreSQL, MySQL, SQL Server, Oracle — store data in normalised tables with predefined schemas and enforce referential integrity via foreign keys. Their foundational guarantee is <strong>ACID compliance</strong>: Atomicity ensures transactions are all-or-nothing; Consistency ensures constraints are always enforced; Isolation ensures concurrent transactions produce the same result as sequential execution; Durability ensures committed data survives hardware failures. For any system where partial writes would be catastrophic — payments, inventory, medical records — this is non-negotiable.</p>
+            <p>The architectural trade-off is vertical scaling pressure. Relational databases grow primarily by upgrading the server rather than adding nodes (though read replicas and manual sharding add horizontal capacity at increasing operational cost). Connection pooling is critical in high-concurrency scenarios, and schema migrations under live traffic require careful planning.</p>
+            <p><strong>Choose SQL when:</strong></p>
+            <ul>
+              <li>Data integrity is non-negotiable — multi-entity transactions that must succeed or fail atomically</li>
+              <li>Your data model is relational and stable — well-understood entities with defined relationships unlikely to change frequently</li>
+              <li>You need flexible ad-hoc querying — business analysts, reporting, or any scenario where query patterns aren't fully known at schema design time</li>
+              <li>Write volume is manageable — high tens of thousands of writes per second is achievable with proper indexing and connection pooling on modern hardware</li>
+            </ul>
+
+            <h2>NoSQL Databases</h2>
+            <p>NoSQL covers four distinct categories with different trade-off profiles: <strong>document stores</strong> (MongoDB, CouchDB), <strong>key-value stores</strong> (Redis, DynamoDB), <strong>wide-column stores</strong> (Cassandra, HBase), and <strong>graph databases</strong> (Neo4j, Amazon Neptune). What they share is the willingness to relax strict consistency in exchange for horizontal scalability and schema flexibility. The <strong>CAP theorem</strong> formalises this: a distributed system can provide at most two of Consistency, Availability, and Partition tolerance. Most NoSQL systems choose AP (Available + Partition-tolerant), returning potentially stale reads under network splits to remain operational.</p>
+            <p><strong>Choose NoSQL when:</strong></p>
+            <ul>
+              <li>Write throughput requirements exceed what a single relational node can handle — millions of events per second across a distributed cluster</li>
+              <li>Your schema is inherently flexible or entity-specific — product catalogs, user-generated content, event payloads where structure varies per record</li>
+              <li>Access patterns are known, fixed, and key-centric — NoSQL shines when every query is "get all records for user X in time range Y"</li>
+              <li>Eventual consistency is acceptable — analytics, social feeds, recommendation data, or any system where reading slightly stale values has low cost</li>
+            </ul>
+
+            <h2>Concrete Examples</h2>
+            <p><strong>SQL — Core banking ledger (PostgreSQL):</strong> A banking system's transaction ledger is the canonical relational use case. Every transfer must atomically debit one account and credit another — partial writes corrupt the ledger permanently. PostgreSQL's row-level locking, serialisable isolation, and mature WAL-based durability make it the right choice. The data model (accounts, transactions, customers) is stable and well-understood; the schema rarely changes; and audit queries against arbitrary date ranges and account combinations benefit from flexible SQL, not fixed NoSQL access patterns.</p>
+            <p><strong>NoSQL — IoT telemetry at scale (Apache Cassandra):</strong> A fleet management platform ingesting GPS and sensor data from 500,000 vehicles every 10 seconds — roughly 50,000 writes per second — suits Cassandra. Each write is a flat record with a natural partition key (vehicle ID) and a clustering key (timestamp). Reads are always scoped to a single vehicle's recent history. Cassandra's linear write scalability, tunable consistency per operation, and time-series-friendly data model align precisely with this pattern. The eventual consistency trade-off is acceptable: seeing a GPS position 200ms stale is operationally irrelevant for most fleet analytics.</p>
+          </div>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- PRICING BREAKDOWN -->
+        <h2 class="article-h2">Pricing Breakdown</h2>
+        <p>GPT-5.4 sits at the classic "balanced flagship" price point — expensive enough that you'd choose Mini for high-volume simple tasks, cheap enough that you wouldn't default to Pro for most production workloads. The $0.25/1M cache read rate is the most important number for understanding cost at scale: a 100K-token context block (documentation, codebase, or system prompt) costs $0.025 per million tokens after the initial prime, versus $0.25 at full input rate — a 10x reduction that compounds quickly in long-running agentic applications.</p>
+
+        <div class="table-wrap">
+          <table class="article-table">
+            <thead>
+              <tr><th>Metric</th><th>Value</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Input tokens /1M</td><td>$2.50</td><td>3.75x more expensive than Mini, 12x more than Nano</td></tr>
+              <tr><td>Output tokens /1M</td><td>$15.00</td><td>3.3x more expensive than Mini on output</td></tr>
+              <tr><td>Cache read /1M</td><td>$0.25</td><td>10x cheaper than base input — critical for 1M context use cases</td></tr>
+              <tr><td>Web search</td><td>$0.01 / call</td><td>Grounded search add-on, per query</td></tr>
+              <tr><td>Context window</td><td>1,050,000 tokens</td><td>Over 8x larger than GPT-4o (128K)</td></tr>
+              <tr><td>Max output</td><td>128,000 tokens</td><td>Full long-form document generation supported</td></tr>
+              <tr><td>Benchmark exchange (628 tok)</td><td>$0.009020</td><td>32 prompt + 596 completion tokens</td></tr>
+              <tr><td>Est. 10,000 req/day</td><td>$90.20 / day</td><td>At benchmark token volumes; real workloads vary significantly</td></tr>
+              <tr><td>Est. 100,000 req/day</td><td>$902.00 / day</td><td>Cache use and shorter prompts reduce this substantially</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ADSENSE MID -->
+        <ins class="adsbygoogle" style="display:block;margin:28px 0"
+             data-ad-client="ca-pub-3480541530392777"
+             data-ad-slot="auto" data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+
+        <hr class="article-divider">
+
+        <!-- HOW IT COMPARES -->
+        <h2 class="article-h2">How It Compares</h2>
+        <p>GPT-5.4's primary competition is Claude Sonnet 4.6 (Anthropic's balanced flagship at a similar price point) and Google Gemini 3.5 Flash (lower price, comparable capability). Within the GPT-5.4 family itself, the decision is context-dependent: use Mini ($0.75 input) for high-volume tasks that don't need the 1M window, use Pro ($30.00 input) for the most demanding capability-critical workloads, and use GPT-5.4 as the default for everything in between. The ★ marks this model's family position.</p>
+
+        <div class="table-wrap">
+          <table class="article-table">
+            <thead>
+              <tr><th>Model</th><th>Input /1M</th><th>Output /1M</th><th>Context</th><th>Reasoning</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GPT-5.4 Nano</td>
+                <td>$0.20</td>
+                <td>$1.25</td>
+                <td>400k</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>GPT-5.4 Mini</td>
+                <td>$0.75</td>
+                <td>$4.50</td>
+                <td>400k</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><strong>GPT-5.4</strong> <span style="font-size:.72rem;color:#f97316">&#x2605; this model</span></td>
+                <td style="color:#f97316">$2.50</td>
+                <td style="color:#f97316">$15.00</td>
+                <td>1,050k</td>
+                <td style="color:#34d399">Yes</td>
+              </tr>
+              <tr>
+                <td>GPT-5.4 Pro</td>
+                <td>$30.00</td>
+                <td>$180.00</td>
+                <td>1,050k</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Claude Sonnet 4.6</td>
+                <td>$3.00</td>
+                <td>$15.00</td>
+                <td>200k</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Gemini 3.5 Flash</td>
+                <td>$1.50</td>
+                <td>$9.00</td>
+                <td>1,000k</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- TRY IT BAND -->
+        <div class="try-it-band">
+          <div>
+            <h3>Try GPT-5.4 with Your Own Key</h3>
+            <p>Connect your OpenRouter API key and test GPT-5.4 directly in the Aether Intel playground — no signup, your key stays in your browser.</p>
+          </div>
+          <a href="/tools/playground.html" class="btn btn-primary">Open Playground &#x2192;</a>
+        </div>
+
+        <!-- TAKEAWAYS -->
+        <div class="article-takeaways">
+          <h3 class="takeaways-title">Key Takeaways</h3>
+          <ul>
+            <li>GPT-5.4 is the balanced flagship of the unified GPT-5.4 / Codex family — the first OpenAI model to merge general language and code generation into a single architecture, ending years of bifurcated GPT vs Codex product lines.</li>
+            <li>The 1,050,000-token context window enables whole-codebase analysis, full legal document processing, and rich long-horizon agentic workflows that were impractical with GPT-4o's 128K ceiling.</li>
+            <li>The $0.25/1M cache read rate is critical at 1M context scale: large system prompts, domain knowledge blocks, or long document contexts cached across requests cost 10x less than fresh input tokens.</li>
+            <li>At $2.50 input, GPT-5.4 is 3.75x more expensive than Mini — the upgrade is justified when the 1M context window, Codex-level code quality, or deeper reasoning capability is genuinely needed for the task.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── RELATED MODELS ── -->
+    <section class="article-related">
+      <h2 class="related-title">Related Models</h2>
+      <div class="article-grid">
+        <a class="article-card" href="/models/openai-gpt-5-4-pro.html">
+          <div class="article-card-img-wrap">
+            <img src="/images/models/openai-gpt-5-4-pro-hero.png"
+                 alt="GPT-5.4 Pro"
+                 class="article-card-img" loading="lazy"
+                 onerror="this.style.background='linear-gradient(135deg,rgba(116,170,156,0.15),rgba(34,211,238,0.05))';this.removeAttribute('src')">
+          </div>
+          <div class="article-card-body">
+            <span class="badge badge-tools">OpenAI</span>
+            <h3 class="article-card-title">GPT-5.4 Pro</h3>
+            <p class="article-card-excerpt">Maximum capability in the 5.4 family — enhanced reasoning for the most demanding tasks.</p>
+          </div>
+        </a>
+        <a class="article-card" href="/models/openai-gpt-5-4-mini.html">
+          <div class="article-card-img-wrap">
+            <img src="/images/models/openai-gpt-5-4-mini-hero.png"
+                 alt="GPT-5.4 Mini"
+                 class="article-card-img" loading="lazy"
+                 onerror="this.style.background='linear-gradient(135deg,rgba(116,170,156,0.15),rgba(34,211,238,0.05))';this.removeAttribute('src')">
+          </div>
+          <div class="article-card-body">
+            <span class="badge badge-tools">OpenAI</span>
+            <h3 class="article-card-title">GPT-5.4 Mini</h3>
+            <p class="article-card-excerpt">The high-throughput mid-tier — 3.75x cheaper on input while retaining Codex DNA.</p>
+          </div>
+        </a>
+        <a class="article-card" href="/models/openai-gpt-5-5.html">
+          <div class="article-card-img-wrap">
+            <img src="/images/models/openai-gpt-5-5-hero.png"
+                 alt="GPT-5.5"
+                 class="article-card-img" loading="lazy"
+                 onerror="this.style.background='linear-gradient(135deg,rgba(116,170,156,0.15),rgba(34,211,238,0.05))';this.removeAttribute('src')">
+          </div>
+          <div class="article-card-body">
+            <span class="badge badge-tools">OpenAI</span>
+            <h3 class="article-card-title">GPT-5.5</h3>
+            <p class="article-card-excerpt">OpenAI's frontier model for the most complex professional workloads.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<script src="/js/main.js"></script>
+<script src="/js/byok.js"></script>
+</body>
+</html>
