@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini 3.5 Flash Review — Near-Pro Reasoning at Flash Speed | Aether Intel</title>
+  <meta name="description" content="Google's Gemini 3.5 Flash brings near-Pro coding and reasoning, 1M context, reasoning tokens, and agentic execution to the mid-tier at $1.50/$9.00 per 1M tokens." />
+  <meta property="og:title" content="Gemini 3.5 Flash Review | Aether Intel" />
+  <meta property="og:description" content="Google's newest model: near-Pro intelligence at Flash-tier speed. Reasoning support, 5-modality input, built-in web search." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://ai.quantummerlin.com/models/gemini-3-5-flash.html" />
+
+  <!-- Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW4LGE7L1T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VW4LGE7L1T');</script>
+
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3480541530392777" crossorigin="anonymous"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #07070f;
+      --surface: #0d0d1a;
+      --surface-2: #131326;
+      --border: rgba(129,140,248,0.12);
+      --neon-indigo: #818cf8;
+      --neon-cyan: #22d3ee;
+      --neon-gold: #f59e0b;
+      --font-display: 'Orbitron', sans-serif;
+      --font-heading: 'Sora', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --text-muted: #475569;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--neon-indigo); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-logo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--neon-indigo);
+      text-decoration: none;
+    }
+
+    .site-logo span { color: var(--neon-cyan); }
+
+    .site-back {
+      font-family: var(--font-body);
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .site-back:hover { color: var(--text-primary); }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      padding: 14px 0;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); }
+    .breadcrumb a:hover { color: var(--neon-indigo); }
+    .breadcrumb .sep { opacity: 0.4; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 36px 0 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      border-radius: 5px;
+      padding: 3px 10px;
+      text-transform: uppercase;
+    }
+
+    .badge-provider {
+      background: linear-gradient(90deg, rgba(66,133,244,0.12), rgba(52,168,83,0.08));
+      border: 1px solid rgba(66,133,244,0.35);
+      color: #4285f4;
+    }
+
+    .badge-tier {
+      background: rgba(34,211,238,0.08);
+      border: 1px solid rgba(34,211,238,0.3);
+      color: var(--neon-cyan);
+    }
+
+    .badge-new {
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.35);
+      color: var(--neon-gold);
+    }
+
+    .badge-date {
+      background: rgba(129,140,248,0.08);
+      border: 1px solid rgba(129,140,248,0.2);
+      color: var(--neon-indigo);
+    }
+
+    h1.model-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    h1.model-title .accent { color: #4285f4; }
+
+    .hero-lead {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin-bottom: 20px;
+      line-height: 1.65;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(66,133,244,0.07);
+      border: 1px solid rgba(66,133,244,0.2);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+
+    .hero-highlight strong { color: #4285f4; }
+
+    /* ── Article body ── */
+    .article-body { padding: 40px 0 24px; }
+
+    h2.section-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 14px;
+    }
+
+    h3.sub-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--neon-indigo);
+      margin: 20px 0 8px;
+    }
+
+    p.body-copy {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.72;
+    }
+
+    hr.section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 36px 0;
+    }
+
+    /* ── Specs grid ── */
+    .model-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .spec-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .spec-card .spec-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 4px;
+    }
+
+    .spec-card .spec-value {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .spec-card .spec-value.accent-google { color: #4285f4; }
+    .spec-card .spec-value.accent-cyan { color: var(--neon-cyan); }
+    .spec-card .spec-value.accent-gold { color: var(--neon-gold); }
+    .spec-card .spec-value.accent-green { color: #34a853; }
+
+    /* ── Benchmark block ── */
+    .benchmark-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    .benchmark-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .benchmark-header-left {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .benchmark-cost-badge {
+      font-weight: 700;
+      font-size: 0.82rem;
+      border-radius: 7px;
+      padding: 4px 12px;
+    }
+
+    .benchmark-cost-badge.bc-mid {
+      color: var(--neon-gold);
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.3);
+    }
+
+    .token-stats-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .token-stat {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .token-stat strong { color: var(--text-primary); }
+
+    .benchmark-prompt-text {
+      background: var(--surface-2);
+      border-left: 3px solid rgba(129,140,248,0.4);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .benchmark-response-text {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+
+    .benchmark-response-text .resp-header {
+      color: var(--neon-indigo);
+      font-weight: 700;
+    }
+
+    .benchmark-note {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Pricing note strip ── */
+    .pricing-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .pricing-pill {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+    .pricing-pill strong { color: var(--text-primary); }
+    .pricing-pill .up { color: #4285f4; font-weight: 700; }
+
+    /* ── Use case grid ── */
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .use-case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .use-case-card .uc-icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .use-case-card .uc-title {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 5px;
+    }
+
+    .use-case-card .uc-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* ── Fit grid ── */
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 560px) { .fit-grid { grid-template-columns: 1fr; } }
+
+    .fit-card {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .fit-card.fit-good { border: 1px solid rgba(52,168,83,0.3); }
+    .fit-card.fit-bad { border: 1px solid rgba(234,67,53,0.25); }
+
+    .fit-card .fit-title {
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .fit-card.fit-good .fit-title { color: #34a853; }
+    .fit-card.fit-bad .fit-title { color: #ea4335; }
+
+    .fit-card ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .fit-card ul li {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .fit-card.fit-good ul li::before { content: "✓"; color: #34a853; flex-shrink: 0; }
+    .fit-card.fit-bad ul li::before { content: "✗"; color: #ea4335; flex-shrink: 0; }
+
+    /* ── Pricing table ── */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.88rem;
+    }
+
+    .pricing-table th {
+      background: var(--surface-2);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .pricing-table td strong { color: var(--text-primary); }
+    .pricing-table tr:last-child td { border-bottom: none; }
+
+    /* ── Comparison table ── */
+    .comparison-table-wrap { overflow-x: auto; margin: 20px 0; }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      min-width: 620px;
+    }
+
+    .comparison-table th {
+      background: var(--surface-2);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .comparison-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .comparison-table tr.this-model td {
+      border-left: 3px solid #4285f4;
+      background: rgba(66,133,244,0.05);
+    }
+
+    .comparison-table tr.this-model td:first-child {
+      color: #4285f4;
+      font-weight: 700;
+    }
+
+    .comparison-table tr:last-child td { border-bottom: none; }
+
+    .tag-yes { color: #34a853; font-weight: 600; }
+    .tag-no { color: var(--text-muted); }
+    .tag-some { color: var(--neon-gold); font-weight: 600; }
+
+    /* ── Info callout ── */
+    .info-callout {
+      background: rgba(66,133,244,0.05);
+      border: 1px solid rgba(66,133,244,0.2);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .info-callout .callout-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #4285f4;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .info-callout p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* ── AdSense placeholder ── */
+    .adsense-mid {
+      min-height: 90px;
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed rgba(255,255,255,0.06);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 28px 0;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .model-specs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Site Header ── -->
+  <header class="site-header">
+    <a href="/" class="site-logo">AETHER<span>INTEL</span></a>
+    <a href="/models.html" class="site-back">← All Models</a>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- ── Breadcrumb ── -->
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">›</span>
+        <a href="/models.html">Models</a>
+        <span class="sep">›</span>
+        <span>Gemini 3.5 Flash</span>
+      </nav>
+
+      <!-- ── Hero ── -->
+      <section class="hero">
+        <div class="hero-badges">
+          <span class="badge badge-provider">Google</span>
+          <span class="badge badge-new">New — May 2026</span>
+          <span class="badge badge-tier">Mid-tier</span>
+          <span class="badge badge-date">Reasoning Support</span>
+        </div>
+
+        <h1 class="model-title">
+          <span class="accent">Gemini 3.5</span> Flash
+        </h1>
+
+        <p class="hero-lead">
+          Google's newest model leaps the generational gap: Gemini 3.5 Flash brings near-Pro reasoning and coding to the Flash speed tier — with native reasoning tokens, parallel agentic execution, built-in web search, and the full five-modality input stack. Released 19 May 2026.
+        </p>
+
+        <div class="hero-highlight">
+          <strong>$1.50 / $9.00</strong> per 1M tokens &nbsp;·&nbsp; 1M context &nbsp;·&nbsp; Text · Image · Audio · Video · File &nbsp;·&nbsp; Reasoning ✓
+        </div>
+      </section>
+
+      <!-- ── Article Body ── -->
+      <article class="article-body">
+
+        <!-- SECTION 1: What it is -->
+        <h2 class="section-title">What is Gemini 3.5 Flash?</h2>
+        <p class="body-copy">
+          Released on 19 May 2026, Gemini 3.5 Flash is Google's latest production model — and the first Flash to cross the threshold into genuine reasoning capability. Where previous Flash models were defined primarily by speed and low cost, 3.5 Flash is explicitly positioned as a near-Pro model that runs at Flash latency. Google describes it as "highly optimized for coding proficiency and parallel agentic execution," a shift that reflects how AI workloads have evolved: less single-shot generation, more multi-step agent pipelines.
+        </p>
+        <p class="body-copy">
+          The model's version number carries weight. The jump from 3.1 to 3.5 is not a minor patch — it signals a meaningful capability uplift within the same generational family. 3.1 Flash was a strong, capable mid-tier model; 3.5 Flash is positioned as what you'd reach for before committing to Pro pricing. At $1.50 input / $9.00 output per 1M tokens, it sits significantly above Flash Lite ($0.25/$1.50) but close to Gemini 2.5 Pro ($1.25/$10.00) — the pricing alone signals Google's ambitions for where this model competes.
+        </p>
+
+        <!-- Specs grid -->
+        <div class="model-specs-grid">
+          <div class="spec-card">
+            <div class="spec-label">Input Price</div>
+            <div class="spec-value accent-google">$1.50 / 1M</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Output Price</div>
+            <div class="spec-value accent-google">$9.00 / 1M</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Context Window</div>
+            <div class="spec-value accent-cyan">1,048,576</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Max Output</div>
+            <div class="spec-value">65,536 tokens</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Input Modalities</div>
+            <div class="spec-value">5 (full)</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Reasoning Tokens</div>
+            <div class="spec-value accent-green">Supported</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Cache Read</div>
+            <div class="spec-value accent-gold">$0.15 / 1M</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Web Search</div>
+            <div class="spec-value">$0.014 / call</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Knowledge Cutoff</div>
+            <div class="spec-value">Jan 2025</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Released</div>
+            <div class="spec-value">19 May 2026</div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- SECTION 2: The 3.5 generation leap -->
+        <h2 class="section-title">What the .5 Version Bump Actually Means</h2>
+        <p class="body-copy">
+          Google's versioning convention has been consistent: a .5 release represents a substantial capability upgrade rather than a minor refinement. Gemini 2.5 was a significant step over 2.0 across every benchmark Google tracked; 3.5 follows the same logic within the 3.x generation. The key capability additions over Gemini 3.1 Flash are threefold.
+        </p>
+        <p class="body-copy">
+          First, <strong>reasoning token support</strong>. The <code>include_reasoning</code> and <code>reasoning</code> parameters are now supported, meaning the model can run a chain-of-thought scratchpad before producing its final answer — identical to the mechanism in Gemini 2.5 Pro. This is not available on any Flash Lite model and was limited on 3.1 Flash. Reasoning tokens are billed at the output rate ($9.00/1M), so prompts that trigger extended thinking cost more, but the quality uplift on complex tasks can be substantial.
+        </p>
+        <p class="body-copy">
+          Second, <strong>agentic optimisation</strong>. Google specifically calls out "parallel agentic execution" as a design target. This means the model is tuned to perform well inside tool-calling loops, maintain context coherence across multi-step operations, and reason correctly about intermediate results — exactly the failure modes that plague smaller models when used as agents.
+        </p>
+        <p class="body-copy">
+          Third, <strong>coding proficiency</strong>. The explicit emphasis on coding puts 3.5 Flash in direct competition with models like GPT-5 ($1.25/$10.00) and Claude Sonnet 4.6 ($3.00/$15.00) for code generation workloads. Google's Gemini Pro series has long been strong on code; 3.5 Flash brings that Pro-calibre coding capability to a Flash-speed, mid-tier price point.
+        </p>
+
+        <div class="info-callout">
+          <div class="callout-label">Generation at a glance</div>
+          <p>3.1 Flash (no reasoning) → 3.5 Flash (reasoning support, agentic tuning, near-Pro coding). Same 5-modality inputs and 1M context, meaningfully higher capability ceiling.</p>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- SECTION 3: Reasoning -->
+        <h2 class="section-title">Reasoning Tokens — When to Enable Them</h2>
+        <p class="body-copy">
+          Reasoning tokens in Gemini 3.5 Flash work identically to the Pro tier: when the <code>include_reasoning</code> parameter is enabled, the model generates a private chain-of-thought scratchpad before producing its final response. The scratchpad is not returned to the caller by default, but it informs the quality of the final answer. Reasoning tokens are billed at the same rate as output tokens ($9.00/1M).
+        </p>
+        <p class="body-copy">
+          The decision of whether to enable reasoning depends entirely on the task. For most classification, extraction, summarisation, and routine generation tasks, reasoning adds cost and latency without improving the output — the model's direct-answer capability is sufficient. Reserve reasoning for tasks where intermediate steps matter: complex debugging, multi-constraint code generation, analytical problems with non-obvious answers, and multi-hop reasoning chains.
+        </p>
+
+        <h3 class="sub-title">Cache Pricing Changes the Economics</h3>
+        <p class="body-copy">
+          At $0.15 per 1M tokens for cache reads (10× cheaper than fresh input), Gemini 3.5 Flash becomes substantially more economical for applications with repeated system prompts or static context. An agent loop that passes a 50,000-token codebase as context on every turn saves 90% of input costs on cached tokens after the first call. For production deployments with stable context, the effective input price can drop well below the headline $1.50/1M.
+        </p>
+
+        <!-- AdSense -->
+        <div class="adsense-mid">
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3480541530392777" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- SECTION 4: Built-in web search -->
+        <h2 class="section-title">Built-in Web Search at $0.014 Per Call</h2>
+        <p class="body-copy">
+          Gemini 3.5 Flash includes native web search grounding as a supported parameter — the same capability that has powered Google's AI Overviews in Search. When web search is invoked, the model retrieves and cites current web results, letting it answer questions beyond its January 2025 knowledge cutoff without any external retrieval infrastructure.
+        </p>
+        <p class="body-copy">
+          At $0.014 per search call, it is not free, but for applications where freshness matters — market data, news summarisation, product research, support ticket resolution with current documentation — the cost is negligible compared to building and maintaining a separate retrieval pipeline. For a typical web-grounded query, the total cost is: input tokens + output tokens + $0.014. A 2,000-token exchange with one search call runs roughly $0.022 all-in.
+        </p>
+        <p class="body-copy">
+          This stands in contrast to Perplexity Sonar Pro ($1.00/$1.00 + search), which is purpose-built for retrieval but priced higher per token. For teams that primarily use the model for generation but occasionally need live web data, 3.5 Flash's integrated search is the more economical path.
+        </p>
+
+        <hr class="section-divider" />
+
+        <!-- SECTION 5: 5-modality -->
+        <h2 class="section-title">Full Five-Modality Input</h2>
+        <p class="body-copy">
+          Like all Gemini models, 3.5 Flash accepts text, images, audio, video, and files (PDFs, structured documents) in the same request. The architecture treats all five input types uniformly — there is no special preprocessing or routing required on the caller's side. Audio is billed at $3.00/1M tokens (versus $1.50/1M for text and images), reflecting the higher processing cost of audio understanding.
+        </p>
+        <p class="body-copy">
+          In practice, this means a single API endpoint can handle a product catalogue image, a customer voice recording, a PDF invoice, and a natural-language instruction in one request. The unified interface simplifies pipeline design substantially compared to routing different media types to different models — and 3.5 Flash's near-Pro intelligence means the multimodal outputs are genuinely high-quality rather than just "technically supported."
+        </p>
+
+        <hr class="section-divider" />
+
+        <!-- SECTION 6: Benchmark -->
+        <h2 class="section-title">Benchmark Results</h2>
+        <p class="body-copy">
+          Our standard benchmark runs a structured technical question through every model at a 600-token output cap. Here is where Gemini 3.5 Flash lands.
+        </p>
+
+        <div class="benchmark-block">
+          <div class="benchmark-header">
+            <div class="benchmark-header-left">Aether Intel Standard Benchmark</div>
+            <span class="benchmark-cost-badge bc-mid">bc-mid — $0.02025</span>
+          </div>
+
+          <div class="token-stats-strip">
+            <div class="token-stat"><strong>32</strong> prompt tokens</div>
+            <div class="token-stat"><strong>596</strong> completion tokens</div>
+            <div class="token-stat"><strong>628</strong> total</div>
+            <div class="token-stat"><strong>0</strong> reasoning</div>
+            <div class="token-stat">Finish: <strong>MAX_TOKENS</strong></div>
+            <div class="token-stat">Actual cost: <strong>$0.005412</strong></div>
+          </div>
+
+          <div class="benchmark-prompt-text">
+            "Explain the key trade-offs between SQL and NoSQL databases. When would you choose each? Give me a concrete example of a system that suits each approach."
+          </div>
+
+          <div class="benchmark-response-text"><span class="resp-header">## SQL vs. NoSQL: Core Trade-offs</span>
+
+The choice between SQL and NoSQL isn't about which is "better" — it's about which data model, consistency guarantee, and scaling strategy fits your problem.
+
+<span class="resp-header">### SQL (Relational Databases)</span>
+
+Built around the relational model: structured tables, enforced schemas, and ACID transactions (Atomicity, Consistency, Isolation, Durability).
+
+<strong>Strengths:</strong>
+- Strict consistency — no dirty reads, no partial writes
+- Expressive query language (JOINs, aggregations, window functions)
+- Mature tooling, decades of operational knowledge
+- Strong normalization reduces data duplication
+
+<strong>Weaknesses:</strong>
+- Schema changes on large tables are operationally painful
+- Vertical scaling hits physical hardware limits
+- Poor fit for highly variable document structures
+
+★ <strong>Choose SQL when:</strong> Data relationships are complex and well-defined, correctness is non-negotiable, and you need ad-hoc querying across multiple entities.
+
+<strong>Example — Online Banking System:</strong> Every debit must atomically pair with a credit. A wire transfer that debits one account must never commit without crediting the destination. PostgreSQL's multi-statement transactions with SERIALIZABLE isolation prevent split-brain money. No eventual consistency is acceptable here.
+
+<span class="resp-header">### NoSQL (Non-relational Databases)</span>
+
+A broad family covering document stores (MongoDB), key-value stores (Redis), column-family stores (Cassandra), and graph databases (Neo4j). The unifying theme: horizontal scalab...</div>
+          <p class="benchmark-note">Response cut off at 596 tokens (600 token limit). Finish reason: MAX_TOKENS. Reasoning disabled. Provider: Google (direct).</p>
+        </div>
+
+        <h3 class="sub-title">Reading the Benchmark Response</h3>
+        <p class="body-copy">
+          The near-Pro positioning is visible immediately. Where a typical Flash model might describe SQL as "ACID-compliant storage," Gemini 3.5 Flash unpacks all four ACID properties in a parenthetical without being asked. The "window functions" call-out in the SQL strengths list is a detail many mid-tier models omit — it signals genuine familiarity with the SQL feature set rather than pattern-matching on surface-level keywords.
+        </p>
+        <p class="body-copy">
+          The banking example is tightly argued: it doesn't just say "use SQL for finance" — it specifies the PostgreSQL <code>SERIALIZABLE</code> isolation level as the correct tool and names the failure mode it prevents (split-brain money movement). That level of prescriptive technical accuracy is more characteristic of Pro-tier responses. For a model at $0.0054 per benchmark call, the depth-to-cost ratio is the headline number.
+        </p>
+        <p class="body-copy">
+          The MAX_TOKENS cutoff mid-sentence on the NoSQL section is a reminder that the 600-token ceiling is an artificial constraint — in production with a higher output budget, the response completes fully. The structural scaffold (starred callouts, strength/weakness bullets, concrete named examples) is clean throughout.
+        </p>
+
+        <hr class="section-divider" />
+
+        <!-- SECTION 7: Use cases -->
+        <h2 class="section-title">Use Cases</h2>
+        <p class="body-copy">
+          Gemini 3.5 Flash sits at the sweet spot between Flash-tier speed and Pro-tier intelligence. It is best deployed where task complexity exceeds what Flash Lite can handle, but the cost or latency of Pro is hard to justify.
+        </p>
+
+        <div class="use-case-grid">
+          <div class="use-case-card">
+            <div class="uc-icon">🤖</div>
+            <div class="uc-title">Agentic Pipelines</div>
+            <div class="uc-desc">Multi-step tool-calling loops, code interpreter agents, and parallel task orchestration — specifically tuned for these workloads by Google.</div>
+          </div>
+          <div class="use-case-card">
+            <div class="uc-icon">💻</div>
+            <div class="uc-title">Code Generation</div>
+            <div class="uc-desc">Production-quality code generation, debugging, and review at Flash speed. Near-Pro coding capability flagged by Google as a primary design target.</div>
+          </div>
+          <div class="use-case-card">
+            <div class="uc-icon">🔍</div>
+            <div class="uc-title">Web-Grounded Research</div>
+            <div class="uc-desc">Questions that need live web data alongside deep reasoning. Native search at $0.014/call avoids building a separate RAG pipeline.</div>
+          </div>
+          <div class="use-case-card">
+            <div class="uc-icon">📄</div>
+            <div class="uc-title">Long-Document Analysis</div>
+            <div class="uc-desc">Full-length contract review, technical manual analysis, codebase summarisation. 1M context fits most real-world documents without chunking.</div>
+          </div>
+          <div class="use-case-card">
+            <div class="uc-icon">🎬</div>
+            <div class="uc-title">Multimodal Intelligence</div>
+            <div class="uc-desc">Mixed-media inputs — images, audio recordings, video clips, and PDFs — processed through a single high-quality model endpoint.</div>
+          </div>
+          <div class="use-case-card">
+            <div class="uc-icon">🧮</div>
+            <div class="uc-title">Reasoning-On-Demand</div>
+            <div class="uc-desc">Enable reasoning tokens selectively for hard sub-tasks within a pipeline — pay Pro-equivalent cost only on the steps that need it.</div>
+          </div>
+        </div>
+
+        <!-- SECTION 8: Pricing -->
+        <hr class="section-divider" />
+        <h2 class="section-title">Pricing Breakdown</h2>
+        <p class="body-copy">
+          Our standard benchmark formula uses 1,500 prompt tokens and 2,000 completion tokens as a representative call. Gemini 3.5 Flash has one of the richest pricing structures of any mid-tier model — text, image, audio, cache, and search are all individually priced.
+        </p>
+
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Tokens / Unit</th>
+              <th>Rate</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Input text (prompt)</td>
+              <td>1,500</td>
+              <td>$1.50 / 1M</td>
+              <td><strong>$0.00225</strong></td>
+            </tr>
+            <tr>
+              <td>Output (completion)</td>
+              <td>2,000</td>
+              <td>$9.00 / 1M</td>
+              <td><strong>$0.01800</strong></td>
+            </tr>
+            <tr>
+              <td colspan="3"><strong>Benchmark Total (bc-mid tier)</strong></td>
+              <td><strong style="color:var(--neon-gold)">$0.02025</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pricing-strip">
+          <div class="pricing-pill">Images: <span class="up">$1.50 / 1M tokens</span></div>
+          <div class="pricing-pill">Audio: <span class="up">$3.00 / 1M tokens</span></div>
+          <div class="pricing-pill">Cache read: <strong>$0.15 / 1M</strong> (10× cheaper)</div>
+          <div class="pricing-pill">Cache write: <strong>$0.083 / 1M</strong></div>
+          <div class="pricing-pill">Web search: <strong>$0.014 / call</strong></div>
+          <div class="pricing-pill">Reasoning tokens: <span class="up">$9.00 / 1M</span></div>
+        </div>
+
+        <p class="body-copy">
+          Output dominates the cost at $9.00/1M — the same rate charged for reasoning tokens. For prompt-heavy, low-output workloads (classification, extraction, structured output), the economics are better than the benchmark suggests. For generation-heavy tasks (long-form writing, verbose code), output cost is the number to watch. Cache reads at $0.15/1M dramatically improve economics for agent loops with stable context.
+        </p>
+
+        <!-- SECTION 9: When to use / avoid -->
+        <hr class="section-divider" />
+        <h2 class="section-title">When to Use / When to Avoid</h2>
+
+        <div class="fit-grid">
+          <div class="fit-card fit-good">
+            <div class="fit-title">Good fit</div>
+            <ul>
+              <li>Agentic pipelines needing multi-step reasoning</li>
+              <li>Code generation at sub-Pro pricing</li>
+              <li>Tasks that occasionally benefit from reasoning tokens</li>
+              <li>Applications with stable context (cache cuts effective input cost by 90%)</li>
+              <li>Web-grounded queries without a dedicated retrieval stack</li>
+              <li>Mixed-media pipelines across all five input modalities</li>
+              <li>Replacing Pro-tier calls when Flash-speed output is sufficient</li>
+            </ul>
+          </div>
+          <div class="fit-card fit-bad">
+            <div class="fit-title">Poor fit</div>
+            <ul>
+              <li>Pure high-volume extraction where Flash Lite quality is sufficient</li>
+              <li>Strictly budget workloads — Flash Lite is 6× cheaper on input</li>
+              <li>Applications requiring up-to-date knowledge beyond Jan 2025 without using web search</li>
+              <li>Heavy audio processing at scale — audio tokens cost 2× text</li>
+              <li>Tasks requiring the absolute frontier (consider Gemini 2.5 Pro or Claude Opus 4.7)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 10: Comparison -->
+        <hr class="section-divider" />
+        <h2 class="section-title">Where It Sits in the Market</h2>
+        <p class="body-copy">
+          Gemini 3.5 Flash occupies a genuinely interesting position: priced like a mid-tier model, performing like a near-Pro. At $1.50/$9.00 per 1M tokens, it directly competes with GPT-5 ($1.25/$10.00) and significantly undercuts Claude Sonnet 4.6 ($3.00/$15.00) — two models it is plausibly comparable to on capability.
+        </p>
+
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Input / 1M</th>
+                <th>Output / 1M</th>
+                <th>Context</th>
+                <th>Reasoning</th>
+                <th>Web Search</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="this-model">
+                <td>Gemini 3.5 Flash ★</td>
+                <td>$1.50</td>
+                <td>$9.00</td>
+                <td>1,048k</td>
+                <td class="tag-yes">Yes</td>
+                <td class="tag-yes">Native</td>
+              </tr>
+              <tr>
+                <td>Gemini 3.1 Flash Lite</td>
+                <td>$0.25</td>
+                <td>$1.50</td>
+                <td>1,048k</td>
+                <td class="tag-no">No</td>
+                <td class="tag-no">No</td>
+              </tr>
+              <tr>
+                <td>Gemini 2.5 Pro</td>
+                <td>$1.25</td>
+                <td>$10.00</td>
+                <td>1,048k</td>
+                <td class="tag-yes">Yes</td>
+                <td class="tag-yes">Native</td>
+              </tr>
+              <tr>
+                <td>OpenAI GPT-5</td>
+                <td>$1.25</td>
+                <td>$10.00</td>
+                <td>400k</td>
+                <td class="tag-no">No</td>
+                <td class="tag-no">No</td>
+              </tr>
+              <tr>
+                <td>Claude Sonnet 4.6</td>
+                <td>$3.00</td>
+                <td>$15.00</td>
+                <td>1,000k</td>
+                <td class="tag-no">No</td>
+                <td class="tag-no">No</td>
+              </tr>
+              <tr>
+                <td>DeepSeek V4 Flash</td>
+                <td>$0.11</td>
+                <td>$0.22</td>
+                <td>1,048k</td>
+                <td class="tag-no">No</td>
+                <td class="tag-no">No</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="body-copy">
+          The comparison sharpens the value proposition. Gemini 2.5 Pro costs almost identical per-token but represents an older generation; if the capability difference between 3.5 Flash and 2.5 Pro is small on your use case (which Google's "near-Pro" claim implies), 3.5 Flash is the more future-proof choice. Against GPT-5, 3.5 Flash offers 1M versus 400K context and native multimodal inputs across five modalities — for context-heavy or mixed-media workloads, it's a clear advantage. DeepSeek V4 Flash remains the value champion at $0.11/$0.22, but offers no reasoning, no web search, and no multimodal depth.
+        </p>
+
+        <!-- Final assessment -->
+        <hr class="section-divider" />
+        <h2 class="section-title">Final Assessment</h2>
+        <p class="body-copy">
+          Gemini 3.5 Flash is the most interesting model Google has released in the mid-tier category. The combination of reasoning token support, agentic tuning, native web search, 1M context, five-modality input, and near-Pro coding capability at $1.50/$9.00 per 1M is a genuinely differentiated offering. No direct competitor at this price point checks all those boxes simultaneously.
+        </p>
+        <p class="body-copy">
+          The benchmark confirms what the positioning promises: the analytical depth and technical precision in its SQL/NoSQL response reads more like Gemini 2.5 Pro than a Flash model. For teams running agentic workflows, coding assistants, or complex multimodal pipelines where Flash Lite has started hitting its ceiling, Gemini 3.5 Flash is the natural upgrade — and at the pricing, it doesn't demand a budget rewrite to justify.
+        </p>
+        <p class="body-copy">
+          The one watch point is output cost. At $9.00/1M output — identical to Gemini 2.5 Pro — verbose generation workloads will see the same bill as the Pro tier. For applications where output volume is high and task complexity doesn't require the 3.5 jump, Flash Lite or Gemini 2.5 Flash remain better economic choices. But for intelligence-first use cases where you previously grudgingly paid Pro prices, Gemini 3.5 Flash offers a compelling reason to revisit the stack.
+        </p>
+
+        <div class="info-callout">
+          <div class="callout-label">OpenRouter ID</div>
+          <p>Model ID: <strong>google/gemini-3.5-flash</strong>&nbsp; (canonical slug: <code>google/gemini-3.5-flash-20260519</code>)</p>
+        </div>
+
+      </article>
+
+    </div><!-- /.container -->
+  </main>
+
+  <!-- ── Footer ── -->
+  <script src="/js/footer.js"></script>
+
+</body>
+</html>
