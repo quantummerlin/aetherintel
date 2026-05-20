@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NVIDIA Nemotron 3 Super 120B — 1M Context at $0.09/1M | Aether Intel</title>
+  <meta name="description" content="NVIDIA Nemotron 3 Super review: $0.09 input, 1M context, hybrid Mamba-Transformer MoE. The cheapest 1M-context model on OpenRouter — benchmark tested.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ai.quantummerlin.com/models/nvidia-nemotron-3-super-120b.html">
+  <meta property="og:title" content="NVIDIA Nemotron 3 Super 120B — 1M Context at $0.09/1M | Aether Intel">
+  <meta property="og:description" content="NVIDIA Nemotron 3 Super review: $0.09 input, 1M context, hybrid Mamba-Transformer MoE. The cheapest 1M-context model on OpenRouter — benchmark tested.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ai.quantummerlin.com/models/nvidia-nemotron-3-super-120b.html">
+  <meta property="og:image" content="https://ai.quantummerlin.com/images/models/nvidia-nemotron-3-super-120b-hero.png">
+  <meta property="article:published_time" content="2026-05-20">
+  <meta property="article:author" content="Quantum Merlin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NVIDIA Nemotron 3 Super 120B — 1M Context at $0.09/1M | Aether Intel">
+  <meta name="twitter:description" content="NVIDIA Nemotron 3 Super review: $0.09 input, 1M context, hybrid Mamba-Transformer MoE. The cheapest 1M-context model on OpenRouter — benchmark tested.">
+  <meta name="twitter:image" content="https://ai.quantummerlin.com/images/models/nvidia-nemotron-3-super-120b-hero.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW4LGE7L1T"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VW4LGE7L1T');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3480541530392777" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ─── Model article extras ─── */
+    .model-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .spec-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .spec-label {
+      font-family: var(--font-display);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+    .spec-value {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .spec-value.sv-green  { color: #34d399; }
+    .spec-value.sv-indigo { color: var(--neon-indigo); }
+    .spec-value.sv-gold   { color: var(--neon-gold); }
+    .spec-value.sv-orange { color: #f97316; }
+    .spec-value.sv-amber  { color: #f59e0b; }
+    .spec-value.sv-nvidia { color: #76b900; }
+
+    .use-case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .use-case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .use-case-card h4 {
+      font-family: var(--font-body);
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 6px;
+    }
+    .use-case-card p {
+      font-size: .8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Architecture callout */
+    .arch-callout {
+      background: rgba(118,185,0,.05);
+      border: 1px solid rgba(118,185,0,.2);
+      border-left: 3px solid #76b900;
+      border-radius: 0 10px 10px 0;
+      padding: 18px 22px;
+      margin: 24px 0;
+    }
+    .arch-callout h4 {
+      font-family: var(--font-display);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #76b900;
+      margin-bottom: 8px;
+    }
+    .arch-callout p {
+      font-size: .85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Free tier notice */
+    .free-tier-band {
+      background: rgba(52,211,153,.04);
+      border: 1px solid rgba(52,211,153,.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .free-tier-band-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .free-tier-band-text { font-size: .84rem; color: var(--text-secondary); line-height: 1.6; }
+    .free-tier-band-text strong { color: var(--text-primary); }
+
+    /* Benchmark display */
+    .benchmark-block {
+      background: var(--surface);
+      border: 1px solid rgba(129,140,248,.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    .benchmark-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .benchmark-block-title {
+      font-family: var(--font-display);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--neon-indigo);
+    }
+    .benchmark-cost-badge {
+      font-family: var(--font-body);
+      font-size: .88rem;
+      font-weight: 700;
+      border-radius: 7px;
+      padding: 4px 12px;
+    }
+    .benchmark-prompt-label {
+      font-family: var(--font-display);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .benchmark-prompt-text {
+      background: rgba(7,7,15,.6);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: .83rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .benchmark-response-label {
+      font-family: var(--font-display);
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .benchmark-response-text {
+      font-size: .88rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+    .benchmark-response-text p { margin: 0 0 12px; }
+    .benchmark-response-text p:last-child { margin: 0; }
+    .benchmark-response-text ul {
+      margin: 0 0 12px 0;
+      padding-left: 20px;
+    }
+    .benchmark-response-text ul li {
+      margin-bottom: 4px;
+      color: var(--text-primary);
+    }
+    .benchmark-response-text h2 {
+      font-family: var(--font-heading);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 16px 0 8px;
+    }
+    .benchmark-response-text strong {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    /* Try it CTA */
+    .try-it-band {
+      background: linear-gradient(135deg, rgba(118,185,0,.08), rgba(52,211,153,.04));
+      border: 1px solid rgba(118,185,0,.25);
+      border-radius: 14px;
+      padding: 28px;
+      margin: 32px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .try-it-band h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 6px;
+    }
+    .try-it-band p {
+      color: var(--text-secondary);
+      font-size: .86rem;
+      margin: 0;
+    }
+
+    /* Provider accent stripe — NVIDIA green */
+    .provider-accent-bar {
+      display: inline-block;
+      width: 32px;
+      height: 3px;
+      background: #76b900;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .model-specs-grid { grid-template-columns: repeat(2, 1fr); }
+      .use-case-grid { grid-template-columns: 1fr; }
+      .try-it-band { flex-direction: column; align-items: flex-start; }
+      .free-tier-band { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <article class="article-page">
+
+    <!-- ── HERO ── -->
+    <div class="article-hero">
+      <div class="article-hero-img-wrap">
+        <img src="/images/models/nvidia-nemotron-3-super-120b-hero.png"
+             alt="NVIDIA Nemotron 3 Super 120B — hybrid Mamba-Transformer MoE with 1M context"
+             class="article-hero-img" loading="eager"
+             onerror="this.style.background='linear-gradient(135deg,rgba(118,185,0,0.15),rgba(52,211,153,0.05))';this.removeAttribute('src')">
+      </div>
+      <div class="article-hero-overlay">
+        <div class="article-hero-content">
+          <nav class="article-breadcrumb">
+            <a href="/">Home</a>
+            <span>&#x203a;</span>
+            <a href="/models.html">Models</a>
+            <span>&#x203a;</span>
+            <span>Nemotron 3 Super 120B</span>
+          </nav>
+          <span class="badge badge-tools">NVIDIA</span>
+          <h1 class="article-hero-title">Nemotron 3 Super 120B</h1>
+          <div class="article-meta">
+            <span class="article-meta-date">May 20, 2026</span>
+            <span class="article-meta-dot">&middot;</span>
+            <span class="article-meta-read">9 min read</span>
+            <span class="article-meta-dot">&middot;</span>
+            <span class="article-meta-read">Benchmark tested</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BODY ── -->
+    <div class="article-layout">
+      <div class="article-body">
+
+        <p>NVIDIA Nemotron 3 Super 120B is a 120-billion-parameter language model with a structural twist that makes it unlike anything else in its price class: it is built on a <strong>hybrid Mamba-Transformer architecture</strong> that activates only 12 billion parameters per token during inference. Released on 11 March 2026, it delivers a 1,000,000-token context window at $0.09 per million input tokens and $0.45 per million output tokens — making it the cheapest non-free 1M-context model currently available on OpenRouter by a substantial margin. A free tier is also offered, with the same 1M context window on input but a 262,144-token output ceiling.</p>
+
+        <!-- QUICK SPECS -->
+        <div class="model-specs-grid">
+          <div class="spec-card">
+            <div class="spec-label">Input /1M tokens</div>
+            <div class="spec-value sv-green">$0.09</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Output /1M tokens</div>
+            <div class="spec-value sv-green">$0.45</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Free tier</div>
+            <div class="spec-value sv-green">Available</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Context window</div>
+            <div class="spec-value">1,000,000 tokens</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Max output (paid)</div>
+            <div class="spec-value">1,000,000 tokens</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Max output (free)</div>
+            <div class="spec-value sv-amber">262,144 tokens</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Parameters</div>
+            <div class="spec-value">120B total</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Active params</div>
+            <div class="spec-value sv-nvidia">12B / token</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Architecture</div>
+            <div class="spec-value" style="font-size:.82rem;">Mamba-Transformer</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Benchmark cost</div>
+            <div class="spec-value sv-green">$0.000271</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Released</div>
+            <div class="spec-value">11 Mar 2026</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">OpenRouter ID</div>
+            <div class="spec-value" style="font-size:.72rem;font-family:monospace;color:var(--text-secondary)">nvidia/nemotron-3-super-120b-a12b</div>
+          </div>
+        </div>
+
+        <!-- FREE TIER NOTICE -->
+        <div class="free-tier-band">
+          <div class="free-tier-band-icon">&#x1F7E2;</div>
+          <div class="free-tier-band-text">
+            <strong>Free tier available:</strong> <code>nvidia/nemotron-3-super-120b-a12b:free</code> offers the same 1M input context at no cost.
+            The free tier caps max output at 262,144 tokens (vs 1M on paid) and may use inputs for model training.
+            Suitable for evaluation, research, and workloads where the output limit is not a constraint.
+          </div>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- ARCHITECTURE -->
+        <h2 class="article-h2">The Architecture That Makes This Possible</h2>
+        <p>The price point of $0.09/1M input at 1M context is not an accident of pricing strategy — it is a direct consequence of how Nemotron 3 Super is built. Understanding the architecture explains why this model can offer a 1M context window at a cost that pure-Transformer models cannot match.</p>
+
+        <div class="arch-callout">
+          <h4>Hybrid Mamba-Transformer MoE</h4>
+          <p>Nemotron 3 Super combines three architectural advances in one model: Mixture of Experts (MoE) sparsity, the Mamba state-space model (SSM) design, and selective Transformer attention layers. The result is a model with 120B total parameters but only 12B active per token — roughly a 10x compute reduction versus a dense 120B-parameter model at equivalent quality.</p>
+        </div>
+
+        <p><strong>Mixture of Experts (MoE)</strong> means the model routes each token through only a subset of its parameter layers, not all of them. The "12B active parameters" figure reflects this: when the model processes any given token, it consults roughly 12 billion parameters, not all 120 billion. This is the same architectural principle used in Mistral's Mixtral and Google's Gemini models — the efficiency gain is well-established.</p>
+        <p><strong>Mamba (SSM layers)</strong> is more unusual. Traditional Transformers process sequences using self-attention, which has quadratic complexity in sequence length — doubling the context roughly quadruples the compute. Mamba replaces some attention layers with <em>state-space model</em> layers that process sequences with <strong>linear complexity</strong>. At sequence lengths in the hundreds of thousands of tokens, the difference is enormous: a pure Transformer at 1M context would require approximately 1,000× more compute for attention than at 1K context; a Mamba layer at the same lengths scales 1,000× more cheaply. This is the mechanism that makes 1M context economical at $0.09/1M.</p>
+        <p><strong>Selective Transformer layers</strong> complement the Mamba blocks by retaining full attention where it is most valuable — for positional reasoning, complex cross-token dependencies, and tasks that require precise recall from specific positions in the context. The hybrid design combines Mamba's long-range efficiency with attention's precision where it matters most.</p>
+
+        <hr class="article-divider">
+
+        <!-- WHAT IT EXCELS AT -->
+        <h2 class="article-h2">What Nemotron 3 Super Excels At</h2>
+        <p>NVIDIA explicitly designed Nemotron 3 Super for <em>complex multi-agent applications</em> — scenarios where multiple AI models coordinate, pass large context blocks between them, and execute extended workflows. Its architectural properties make it particularly strong for tasks that need long context at scale, where the cost of standard frontier models becomes prohibitive.</p>
+
+        <div class="use-case-grid">
+          <div class="use-case-card">
+            <h4>Multi-Agent Orchestration</h4>
+            <p>The model was designed for agentic pipelines. 1M context lets an orchestrator agent hold the full history of a long-running multi-step workflow — tool call logs, intermediate outputs, prior agent responses — without hitting context limits during complex operations.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Whole-Document RAG</h4>
+            <p>Rather than chunking large documents into smaller pieces for retrieval, Nemotron 3 Super's 1M context window lets you inject entire books, reports, or codebases and ask questions directly — at a cost ($0.09/1M input) that makes full-document retrieval economically viable at scale.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Large Codebase Analysis</h4>
+            <p>Pass an entire repository into context for security audits, dependency analysis, cross-file refactoring, or documentation generation. The 1M window comfortably holds most medium-sized codebases in a single request without chunking or embedding pipelines.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Long-Horizon Reasoning</h4>
+            <p>Tasks requiring sustained reasoning across thousands of facts — summarising an entire research corpus, synthesising findings across long documents, or tracking complex state in simulation tasks — are well suited to the extended context and the Mamba architecture's efficient long-range handling.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>High-Volume Long-Context Apps</h4>
+            <p>If your application needs 1M context but runs at high volume — batch document processing, automated report generation, large-scale data extraction — Nemotron 3 Super's price is the only way to make those economics work without free-tier rate limits.</p>
+          </div>
+          <div class="use-case-card">
+            <h4>Cost-Sensitive Production Pipelines</h4>
+            <p>At $0.09/1M input, this is one of the cheapest ways to run a capable model in production with a meaningful context window. For pipelines where you're currently using GPT-5.4 Nano (400K, $0.20/1M) but need more context, Nemotron 3 Super offers 2.5× more context at less than half the input price.</p>
+          </div>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- BENCHMARK -->
+        <h2 class="article-h2">Benchmark Response</h2>
+        <p>We ran our standard technical exchange through Nemotron 3 Super via OpenRouter. The benchmark uses 32 prompt tokens and 596 completion tokens — at $0.09/$0.45 per million, the total cost is <strong>$0.000271</strong>. That places it below even GPT-5.4 Nano ($0.000751) on the cost scale for this exchange — a remarkable result for a model with a 1M context window. The response demonstrates solid technical reasoning with clear structure and accurate treatment of both ACID and CAP theorem fundamentals.</p>
+
+        <div class="benchmark-block">
+          <div class="benchmark-block-header">
+            <span class="benchmark-block-title">Benchmark Test — 628 Token Exchange</span>
+            <span class="benchmark-cost-badge" style="color:#34d399; background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.3)">Cost: $0.000271 &mdash; Ultra Cheap</span>
+          </div>
+          <div class="benchmark-prompt-label">Prompt (32 tokens)</div>
+          <div class="benchmark-prompt-text">
+            Explain the key trade-offs between SQL and NoSQL databases. When would you choose each? Give me a concrete example of a system that suits each approach.
+          </div>
+          <div class="benchmark-response-label">Nemotron 3 Super Response (596 completion tokens)</div>
+          <div class="benchmark-response-text">
+            <h2>SQL vs NoSQL: Core Trade-offs</h2>
+            <p>The SQL vs NoSQL decision maps directly onto two properties of your system: how <strong>structured and stable</strong> your data model is, and how <strong>predictable and fixed</strong> your query patterns are. Systems with complex relational data and varied query needs favour SQL; systems with high write throughput and well-defined access patterns favour NoSQL.</p>
+
+            <h2>SQL (Relational Databases)</h2>
+            <p>Relational databases — PostgreSQL, MySQL, SQL Server — store data in normalised tables with enforced schemas and referential integrity. Their defining property is <strong>ACID compliance</strong>: every transaction is Atomic (all-or-nothing), Consistent (all constraints are enforced at all times), Isolated (concurrent transactions produce results equivalent to serial execution), and Durable (committed data survives system failures via write-ahead logging). These guarantees make SQL the natural choice wherever a partial write would leave data in a corrupted state.</p>
+            <p>The trade-off is vertical scaling pressure and schema rigidity. Relational databases grow primarily by upgrading the server rather than adding nodes — horizontal scaling through sharding is possible but adds operational complexity. Schema changes require migrations, which need careful planning under live traffic.</p>
+            <p><strong>Choose SQL when:</strong></p>
+            <ul>
+              <li>Your data has well-defined relationships — orders, customers, line items, invoices that reference each other via foreign keys</li>
+              <li>ACID guarantees are non-negotiable — financial transactions, healthcare records, inventory management where partial writes have real-world consequences</li>
+              <li>Query patterns are varied and evolving — business analysts, dashboards, and reporting tools that write ad-hoc SQL against changing requirements</li>
+              <li>Write volume fits a single well-tuned node — modern PostgreSQL handles tens of thousands of writes per second with proper indexing and connection pooling</li>
+            </ul>
+
+            <h2>NoSQL Databases</h2>
+            <p>NoSQL is a family of four distinct categories: <strong>document stores</strong> (MongoDB, Firestore) for flexible per-record schema; <strong>key-value stores</strong> (Redis, DynamoDB) for fast fixed-key lookups; <strong>wide-column stores</strong> (Cassandra, HBase) for high-throughput time-series and event data; and <strong>graph databases</strong> (Neo4j) for highly connected relational data. They trade strict consistency for horizontal scalability and schema flexibility. The CAP theorem captures this: most NoSQL systems choose AP (Available + Partition-tolerant), meaning they return potentially stale reads during network splits rather than blocking or failing.</p>
+            <p><strong>Choose NoSQL when:</strong></p>
+            <ul>
+              <li>Write throughput exceeds relational limits — millions of events per second distributed across a cluster of commodity nodes</li>
+              <li>Schema flexibility is required — entity structure varies per record, or evolves rapidly without the cost of migrations</li>
+              <li>Access patterns are known, fixed, and key-centric — every query is "fetch record by user_id and time range"</li>
+              <li>Eventual consistency is acceptable — recommendation feeds, activity logs, analytics aggregations where slightly stale reads have low operational cost</li>
+            </ul>
+
+            <h2>Concrete Examples</h2>
+            <p><strong>SQL — E-commerce order management (PostgreSQL):</strong> An online store's order management system is a classic relational use case. An order involves multiple entities (customer, order header, line items, product SKUs, shipping address, payment method) connected by foreign keys. Creating an order must atomically insert the header and all line items — a failure mid-write would produce an incomplete order record. PostgreSQL's ACID transactions, row-level locking, and rich indexing make this safe and queryable. Finance and operations teams need to write ad-hoc queries — "all orders over $500 in Q3 with >2 items" — that benefit from flexible SQL rather than fixed NoSQL key patterns.</p>
+            <p><strong>NoSQL — Real-time user activity tracking (Apache Cassandra):</strong> A streaming platform recording every play, pause, seek, and completion event from 50 million active users — hundreds of thousands of writes per second at peak — suits Cassandra. Each event is a simple row: partition key is user_id, clustering key is timestamp. Reads are always scoped to a single user's recent history. Cassandra's linear write scalability, no single point of failure, and time-series-optimised data model handle this volume without the sharding complexity that PostgreSQL would require. Eventual consistency is acceptable: a 200ms delay before a play event appears in the analytics dashboard has no user-visible impact.</p>
+          </div>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- PRICING BREAKDOWN -->
+        <h2 class="article-h2">Pricing Breakdown</h2>
+        <p>Nemotron 3 Super's pricing is the headline number: $0.09/1M input and $0.45/1M output is the cheapest paid rate for any 1M-context model on OpenRouter. To put it in perspective — Gemini 3.1 Flash Lite, the next cheapest 1M-context model, costs $0.25/$1.50 per million (2.8× more on input). GPT-5.4 Nano offers a 400K window at $0.20/$1.25 (2.2× more on input, smaller context). The benchmark cost of $0.000271 per 628-token exchange is lower than every other paid model we've tested on this site.</p>
+
+        <div class="table-wrap">
+          <table class="article-table">
+            <thead>
+              <tr><th>Metric</th><th>Paid tier</th><th>Free tier</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Input tokens /1M</td><td>$0.09</td><td>$0.00</td></tr>
+              <tr><td>Output tokens /1M</td><td>$0.45</td><td>$0.00</td></tr>
+              <tr><td>Context window</td><td>1,000,000 tokens</td><td>1,000,000 tokens</td></tr>
+              <tr><td>Max output tokens</td><td>1,000,000 tokens</td><td>262,144 tokens</td></tr>
+              <tr><td>Training data use</td><td>No</td><td>May use inputs for training</td></tr>
+              <tr><td>Rate limits</td><td>Standard paid</td><td>Lower, shared pool</td></tr>
+              <tr><td>Benchmark (628 tok)</td><td>$0.000271</td><td>$0.00</td></tr>
+              <tr><td>Est. 100K req/day (paid)</td><td>$27.10 / day</td><td>&mdash;</td></tr>
+              <tr><td>Est. 1M tokens context / request</td><td>$0.09 input</td><td>$0.00 (rate limited)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ADSENSE MID -->
+        <ins class="adsbygoogle" style="display:block;margin:28px 0"
+             data-ad-client="ca-pub-3480541530392777"
+             data-ad-slot="auto" data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+
+        <hr class="article-divider">
+
+        <!-- HOW IT COMPARES -->
+        <h2 class="article-h2">How It Compares</h2>
+        <p>The clearest comparison is against other 1M-context models. Nemotron 3 Super's Mamba-Transformer hybrid architecture gives it a genuine cost-per-token advantage over pure-Transformer 1M-context models — an architectural edge, not just a pricing decision. Against standard models at shorter context windows, Nemotron 3 Super often wins on context size while matching or beating on price. The ★ marks this model.</p>
+
+        <div class="table-wrap">
+          <table class="article-table">
+            <thead>
+              <tr><th>Model</th><th>Input /1M</th><th>Output /1M</th><th>Context</th><th>Free tier</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Nemotron 3 Super 120B</strong> <span style="font-size:.72rem;color:#76b900">&#x2605; this model</span></td>
+                <td style="color:#34d399">$0.09</td>
+                <td style="color:#34d399">$0.45</td>
+                <td>1,000k</td>
+                <td style="color:#34d399">Yes (262k out)</td>
+              </tr>
+              <tr>
+                <td>GPT-5.4 Nano</td>
+                <td>$0.20</td>
+                <td>$1.25</td>
+                <td>400k</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Gemini 3.1 Flash Lite</td>
+                <td>$0.25</td>
+                <td>$1.50</td>
+                <td>1,049k</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Gemini 3.1 Flash</td>
+                <td>$0.50</td>
+                <td>$3.50</td>
+                <td>1,000k</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>DeepSeek v3.1</td>
+                <td>$0.21</td>
+                <td>$0.79</td>
+                <td>164k</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Gemini 3.5 Flash</td>
+                <td>$1.50</td>
+                <td>$9.00</td>
+                <td>1,000k</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="article-divider">
+
+        <!-- LIMITATIONS -->
+        <h2 class="article-h2">Limitations to Know</h2>
+        <p>Nemotron 3 Super's architectural novelty and low price come with trade-offs worth understanding before committing it to production:</p>
+        <ul>
+          <li><strong>Text-only</strong> — the model processes text input only. No image, audio, or file modalities. For multimodal tasks you'll need a different model.</li>
+          <li><strong>Mamba recall at extreme lengths</strong> — Mamba's linear attention approximation is excellent at long-range <em>patterns</em> but can be less precise than Transformer attention at retrieving specific facts from specific positions deep in very long contexts. For tasks requiring exact recall from within a 1M-token context, test performance at your target context length before deploying.</li>
+          <li><strong>No cache pricing</strong> — unlike OpenAI and Anthropic models which offer 10x cheaper cache-read rates for repeated context blocks, Nemotron 3 Super does not currently advertise a prompt caching tier. At $0.09/1M the base rate is so low that this is less of a concern than at higher price points, but repeated large context blocks will be re-priced at full rate each call.</li>
+          <li><strong>Free tier training data caveat</strong> — the <code>:free</code> tier may use inputs for model training per OpenRouter's standard free-tier terms. Do not pass sensitive, confidential, or proprietary data through the free tier.</li>
+          <li><strong>Newer ecosystem</strong> — NVIDIA's model releases have less community documentation and tooling than Anthropic, OpenAI, or Google equivalents. Expect less third-party content, fewer prompt engineering guides, and less established benchmarking data.</li>
+        </ul>
+
+        <hr class="article-divider">
+
+        <!-- TRY IT BAND -->
+        <div class="try-it-band">
+          <div>
+            <h3>Try Nemotron 3 Super with Your Own Key</h3>
+            <p>Connect your OpenRouter API key and test Nemotron 3 Super directly in the Aether Intel playground — access both the paid and free tier, your key stays in your browser.</p>
+          </div>
+          <a href="/tools/playground.html" class="btn btn-primary">Open Playground &#x2192;</a>
+        </div>
+
+        <!-- TAKEAWAYS -->
+        <div class="article-takeaways">
+          <h3 class="takeaways-title">Key Takeaways</h3>
+          <ul>
+            <li>Nemotron 3 Super 120B is the cheapest non-free 1M-context model on OpenRouter at $0.09/$0.45 per million tokens — a direct consequence of its hybrid Mamba-Transformer architecture, which processes long contexts with near-linear rather than quadratic compute scaling.</li>
+            <li>The MoE design activates only 12 billion of the model's 120 billion parameters per token, giving it the reasoning capacity of a large model at the inference cost of a small one — the core reason for both the low price and the 1M context viability.</li>
+            <li>Benchmark cost of $0.000271 per 628-token exchange is lower than any other paid model on the site, including GPT-5.4 Nano ($0.000751). For high-volume long-context workloads, the savings compound rapidly.</li>
+            <li>A free tier (<code>nvidia/nemotron-3-super-120b-a12b:free</code>) offers the same 1M input context at zero cost with a 262K output cap — useful for evaluation and low-volume research, but note the training data terms for free tiers.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── RELATED MODELS ── -->
+    <section class="article-related">
+      <h2 class="related-title">Related Models</h2>
+      <div class="article-grid">
+        <a class="article-card" href="/models/gemini-3-5-flash.html">
+          <div class="article-card-img-wrap">
+            <img src="/images/models/gemini-3-5-flash-hero.png"
+                 alt="Gemini 3.5 Flash"
+                 class="article-card-img" loading="lazy"
+                 onerror="this.style.background='linear-gradient(135deg,rgba(66,133,244,0.15),rgba(52,211,153,0.05))';this.removeAttribute('src')">
+          </div>
+          <div class="article-card-body">
+            <span class="badge badge-tools">Google</span>
+            <h3 class="article-card-title">Gemini 3.5 Flash</h3>
+            <p class="article-card-excerpt">Google's latest 1M-context model — near-Pro reasoning at $1.50/1M input.</p>
+          </div>
+        </a>
+        <a class="article-card" href="/models/openai-gpt-5-4-nano.html">
+          <div class="article-card-img-wrap">
+            <img src="/images/models/openai-gpt-5-4-nano-hero.png"
+                 alt="GPT-5.4 Nano"
+                 class="article-card-img" loading="lazy"
+                 onerror="this.style.background='linear-gradient(135deg,rgba(116,170,156,0.15),rgba(34,211,238,0.05))';this.removeAttribute('src')">
+          </div>
+          <div class="article-card-body">
+            <span class="badge badge-tools">OpenAI</span>
+            <h3 class="article-card-title">GPT-5.4 Nano</h3>
+            <p class="article-card-excerpt">OpenAI's ultra-cheap tier — $0.20/1M input, 400K context.</p>
+          </div>
+        </a>
+        <a class="article-card" href="/models/openai-gpt-5-4.html">
+          <div class="article-card-img-wrap">
+            <img src="/images/models/openai-gpt-5-4-hero.png"
+                 alt="GPT-5.4"
+                 class="article-card-img" loading="lazy"
+                 onerror="this.style.background='linear-gradient(135deg,rgba(116,170,156,0.15),rgba(34,211,238,0.05))';this.removeAttribute('src')">
+          </div>
+          <div class="article-card-body">
+            <span class="badge badge-tools">OpenAI</span>
+            <h3 class="article-card-title">GPT-5.4</h3>
+            <p class="article-card-excerpt">The unified Codex flagship — 1M context at $2.50/1M input.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<script src="/js/main.js"></script>
+<script src="/js/byok.js"></script>
+</body>
+</html>
