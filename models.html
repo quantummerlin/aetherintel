@@ -884,6 +884,18 @@
       good: ['Fast responses', 'High-volume tasks', 'Classification', 'Data extraction'],
       article: '/models/claude-haiku-4-5.html'
     },
+    'anthropic/claude-sonnet-4': {
+      tagline: 'Claude Sonnet 4 — Anthropic\'s current mid-tier flagship at $3.00/$15.00 per 1M, 1M context, enhanced coding and reasoning',
+      good: ['Complex coding', 'Analysis', 'Writing', 'General tasks'],
+    },
+    'anthropic/claude-3.5-haiku': {
+      tagline: 'Claude 3.5 Haiku — Anthropic\'s fast budget tier at $0.80/$4.00 per 1M, 200k context, strong speed and tool use',
+      good: ['Fast responses', 'High-volume tasks', 'Tool use', 'Classification'],
+    },
+    'anthropic/claude-3-haiku': {
+      tagline: 'Claude 3 Haiku — legacy Anthropic budget model at $0.25/$1.25 per 1M, 200k context, ultra-fast and widely deployed',
+      good: ['Ultra-fast', 'High volume', 'Simple tasks', 'Budget production'],
+    },
     '~anthropic/claude-opus-latest': {
       tagline: 'Always resolves to the latest Claude Opus — auto-updates so your app stays current',
       good: ['Auto-updated', 'Complex reasoning', 'Long documents', 'Research'],
@@ -934,6 +946,22 @@
       tagline: 'GPT-5.4 Nano — OpenAI\'s most affordable 5.x model at $0.20/$1.25 per 1M',
       good: ['Ultra-budget tasks', 'High throughput', 'Simple queries', 'Classification'],
       article: '/models/openai-gpt-5-4-nano.html'
+    },
+    'openai/gpt-5-nano': {
+      tagline: 'GPT-5 Nano — OpenAI\'s smallest GPT-5 at $0.05/$0.40 per 1M, 400k context, optimised for speed and developer tooling',
+      good: ['Ultra-cheap', 'Developer tools', 'Fast responses', 'High throughput'],
+    },
+    'openai/gpt-4.1': {
+      tagline: 'GPT-4.1 — OpenAI\'s previous-gen flagship at $2.00/$8.00 per 1M, 1M context, advanced instruction following and coding',
+      good: ['Coding', 'Instruction following', 'Long-context tasks', 'Production apps'],
+    },
+    'openai/gpt-4.1-mini': {
+      tagline: 'GPT-4.1 Mini — mid-tier GPT-4.1 at $0.40/$1.60 per 1M, 1M context, competitive with GPT-4o at lower cost',
+      good: ['Budget tasks', 'High volume', 'Structured output', 'Coding'],
+    },
+    'openai/gpt-4.1-nano': {
+      tagline: 'GPT-4.1 Nano — cheapest 1M-context OpenAI model at $0.10/$0.40 per 1M, ultra-low latency',
+      good: ['Ultra-budget', 'Fast inference', 'Classification', 'Simple tasks'],
     },
     'openai/gpt-chat-latest': {
       tagline: 'OpenAI latest chat alias — always points to the current best chat model',
@@ -996,6 +1024,22 @@
       good: ['Ultra-fast', 'Budget use cases', 'High throughput', 'Multimodal'],
       article: '/models/gemini-2-5-flash-lite.html'
     },
+    'google/gemini-2.5-flash-lite-preview-09-2025': {
+      tagline: 'Gemini 2.5 Flash Lite (Sep 2025) — lightweight reasoning at $0.10/$0.40 per 1M, 1M context, optimised for low latency',
+      good: ['Budget reasoning', 'Low latency', 'High throughput', 'Multimodal'],
+    },
+    'google/gemini-2.0-flash-001': {
+      tagline: 'Gemini 2.0 Flash (pinned) — widely deployed version at $0.10/$0.40 per 1M, 1M context, faster TTFT than Gemini 1.5',
+      good: ['Fast tasks', 'Multimodal', 'Production apps', 'High throughput'],
+    },
+    'google/gemini-2.0-flash-lite-001': {
+      tagline: 'Gemini 2.0 Flash Lite (pinned) — $0.07/$0.30 per 1M, 1M context, Google\'s most affordable multimodal model',
+      good: ['Ultra-budget', 'Fast responses', 'High volume', 'Simple multimodal tasks'],
+    },
+    'google/gemini-3.1-flash-lite-preview': {
+      tagline: 'Gemini 3.1 Flash Lite — high-efficiency model at $0.25/$1.50 per 1M, 1M context, outperforms Gemini 2.0 Pro',
+      good: ['High volume', 'Cost-efficient', 'Multimodal routing', 'Production'],
+    },
     '~google/gemini-flash-latest': {
       tagline: 'Always resolves to the latest Gemini Flash — fast auto-updating multimodal alias',
       good: ['Auto-updated', 'Fast tasks', 'Multimodal', 'Production'],
@@ -1053,6 +1097,14 @@
       good: ['General coding', 'Analysis', 'Writing', 'Cost-efficient tasks'],
       article: '/models/deepseek-v3.html'
     },
+    'deepseek/deepseek-chat-v3.1': {
+      tagline: 'DeepSeek V3.1 — updated hybrid reasoning model at $0.21/$0.79 per 1M, 164k context, supports thinking and non-thinking modes',
+      good: ['Coding', 'Analysis', 'Cost-efficient reasoning', 'General tasks'],
+    },
+    'deepseek/deepseek-v3.2-exp': {
+      tagline: 'DeepSeek V3.2 Experimental — preview of next-gen DeepSeek at $0.27/$0.41 per 1M, 164k context',
+      good: ['Experimental tasks', 'Coding', 'Reasoning', 'Early access'],
+    },
     /* ── X-AI / GROK ────────────────────────────── */
     'x-ai/grok-4.20-multi-agent': {
       tagline: 'Grok 4.20 Multi-Agent — 2M context built for complex multi-agent pipeline orchestration',
@@ -1074,6 +1126,10 @@
       tagline: 'Llama 4 Maverick — Meta\'s multimodal frontier open-source release',
       good: ['Multimodal', 'Open source', 'Self-hosting', 'Research'],
       article: '/models/llama-4-maverick.html'
+    },
+    'meta-llama/llama-4-scout': {
+      tagline: 'Llama 4 Scout — Meta\'s open MoE model with an extraordinary 10M context window at $0.08/$0.30 per 1M',
+      good: ['Ultra-long context', 'Open source', 'Multimodal', 'Agentic workflows'],
     },
     'meta-llama/llama-3.3-70b-instruct': {
       tagline: 'Meta\'s best open-weight model — self-hostable, private, highly capable',
