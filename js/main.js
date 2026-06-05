@@ -36,8 +36,9 @@
   </div>
   <nav class="sidebar-nav">
     <a href="/index.html" class="nav-item" data-page="news">News</a>
+    <a href="/labs.html" class="nav-item" data-page="labs">Labs</a>
+    <a href="/agents.html" class="nav-item" data-page="agents">Agents</a>
     <a href="/models.html" class="nav-item" data-page="models">Models</a>
-    <a href="/tools/chat.html" class="nav-item" data-page="playground">Playground</a>
     <a href="/skills.html" class="nav-item" data-page="skills">Skills</a>
   </nav>
 </aside>`;
@@ -55,13 +56,13 @@
     <svg class="mob-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
     <span class="mob-nav-label">News</span>
   </a>
-  <a href="/models.html" class="mob-nav-item" data-page="models">
-    <svg class="mob-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
-    <span class="mob-nav-label">Models</span>
+  <a href="/labs.html" class="mob-nav-item" data-page="labs">
+    <svg class="mob-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6m-3 0v8.01M9 3h6m-6 0v8.01M5 9h14M5 9h14M3 15h18m-9 6v-6"/></svg>
+    <span class="mob-nav-label">Labs</span>
   </a>
-  <a href="/tools/chat.html" class="mob-nav-item" data-page="playground">
-    <svg class="mob-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    <span class="mob-nav-label">Play</span>
+  <a href="/agents.html" class="mob-nav-item" data-page="agents">
+    <svg class="mob-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01M12 12h.01M18 12h.01"/></svg>
+    <span class="mob-nav-label">Agents</span>
   </a>
   <a href="/skills.html" class="mob-nav-item" data-page="skills">
     <svg class="mob-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 0 3-3h7z"/></svg>
@@ -160,8 +161,9 @@
     const p = pathname.replace(/\/$/, '').toLowerCase();
 
     if (p === '' || p === '/index.html' || p === '/index' || p.includes('/articles')) return 'news';
+    if (p.includes('/labs')) return 'labs';
+    if (p.includes('/agents')) return 'agents';
     if (p.includes('/models')) return 'models';
-    if (p.includes('/tools/')) return 'playground';
     if (p.includes('/skills')) return 'skills';
     return null;
   }
