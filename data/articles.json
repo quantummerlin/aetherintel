@@ -1,0 +1,1392 @@
+[
+  {
+    "title": "AI Agents Made You The Project Manager. That's The Problem., Aether Intel",
+    "desc": "AI agents are finally capable. So why does using them feel like managing a forgetful team? The bottleneck is not the technology -- it is the UX layer nobody has",
+    "hero": "",
+    "date": "2026-05-17",
+    "category": "AI Agents",
+    "url": "/articles/46-ai-agents-attention-bottleneck.html",
+    "badge": "news",
+    "file": "46-ai-agents-attention-bottleneck.html"
+  },
+  {
+    "title": "Ed Zitron Went Looking for AI's Customers. He Found Almost None., Aether Intel",
+    "desc": "A $7.6 trillion buildout. Circular revenues. Missing customers. Ed Zitron maps the demand problem at the heart of the AI infrastructure boom.",
+    "hero": "",
+    "date": "2026-05-17",
+    "category": "Business",
+    "url": "/articles/47-ai-bubble-missing-demand.html",
+    "badge": "business",
+    "file": "47-ai-bubble-missing-demand.html"
+  },
+  {
+    "title": "The Companies That Fired Workers for AI Are Now Begging Them to Come Back, Aether Intel",
+    "desc": "Klarna slashed 40% of its workforce for AI. Engineers started answering customer calls. Forrester predicts 50% of AI layoffs reversed by 2027.",
+    "hero": "",
+    "date": "2026-05-17",
+    "category": "Business",
+    "url": "/articles/48-ai-layoff-reversal-klarna.html",
+    "badge": "business",
+    "file": "48-ai-layoff-reversal-klarna.html"
+  },
+  {
+    "title": "The AI That Made People Delusional, Aether Intel",
+    "desc": "A man stood outside at 3AM with a hammer waiting for attackers that didn't exist. A neurologist reported a bomb that wasn't there. AI chatbots are triggering ps",
+    "hero": "",
+    "date": "2026-05-17",
+    "category": "AI Safety",
+    "url": "/articles/49-ai-chatbot-delusion-mental-health.html",
+    "badge": "news",
+    "file": "49-ai-chatbot-delusion-mental-health.html"
+  },
+  {
+    "title": "The Sensor Gap Killing Physical AI, Aether Intel",
+    "desc": "Fortune blamed 'drunk data' for physical AI stalling. A PhD in computer science says that misses the real problem: the sensor infrastructure to capture reality ",
+    "hero": "",
+    "date": "2026-05-17",
+    "category": "AI",
+    "url": "/articles/50-physical-ai-sensor-infrastructure-gap.html",
+    "badge": "news",
+    "file": "50-physical-ai-sensor-infrastructure-gap.html"
+  },
+  {
+    "title": "The Anticipation Gap: Why Consumer AI Is Still Waiting for You to Manage It, Aether Intel",
+    "desc": "Symphony fixed the enterprise attention bottleneck. The consumer version does not exist yet. Here is what it would take -- and the three signals that tell you w",
+    "hero": "https://aetherintel.au/images/articles/51-consumer-ai-anticipation-gap-hero.webp",
+    "date": "2026-05-17",
+    "category": "AI Agents",
+    "url": "https://aetherintel.au/articles/51-consumer-ai-anticipation-gap.html",
+    "badge": "news",
+    "file": "51-consumer-ai-anticipation-gap.html"
+  },
+  {
+    "title": "The CEO Sycophancy Trap: How AI Is Telling Executives Exactly What They Want to Hear, Aether Intel",
+    "desc": "Garry Tan sleeps 4 hours a night because AI excites him. An MIT study found 5% of 300 AI pilots showed real profit impact. Forrester predicts 50% of AI layoffs ",
+    "hero": "https://aetherintel.au/images/articles/52-ceo-ai-delusion-loop-hero.webp",
+    "date": "2026-05-17",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/52-ceo-ai-delusion-loop.html",
+    "badge": "business",
+    "file": "52-ceo-ai-delusion-loop.html"
+  },
+  {
+    "title": "The 7 Skills That Separate AI Agent Builders from Prompt Engineers, Aether Intel",
+    "desc": "IBM Technology mapped the engineering stack separating agent builders from prompt engineers. One of these seven skills causes 90% of production failures.",
+    "hero": "https://aetherintel.au/images/articles/53-seven-skills-ai-agent-engineers-hero.webp",
+    "date": "2026-05-17",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/53-seven-skills-ai-agent-engineers.html",
+    "badge": "dev",
+    "file": "53-seven-skills-ai-agent-engineers.html"
+  },
+  {
+    "title": "Your AI Skills Are No Longer Yours — They're Company Infrastructure Now, Aether Intel",
+    "desc": "Six months after Anthropic launched skills, agents now make the majority of skill calls — not humans. Microsoft and OpenAI aligned on the standard. The compound",
+    "hero": "https://aetherintel.au/images/articles/54-skills-company-infrastructure-hero.webp",
+    "date": "2026-05-17",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/54-skills-company-infrastructure.html",
+    "badge": "business",
+    "file": "54-skills-company-infrastructure.html"
+  },
+  {
+    "title": "Stop Writing Bad Prompts: The ICC Formula That Actually Works, Aether Intel",
+    "desc": "The ICC formula — Instructions, Context, Constraints — is the difference between generic AI output and something usable. Plus the context interview technique al",
+    "hero": "https://aetherintel.au/images/articles/55-icc-prompt-formula-hero.webp",
+    "date": "2026-05-17",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/55-icc-prompt-formula.html",
+    "badge": "dev",
+    "file": "55-icc-prompt-formula.html"
+  },
+  {
+    "title": "The Agentic Development Loop: How AI Is Closing the Gap Between Idea and Shipped Code",
+    "desc": "The software development lifecycle used to take weeks. AI coding agents are compressing it to hours. Here is what the loop looks like now, and what still requir",
+    "hero": "https://aetherintel.au/images/articles/38-agentic-development-loop-hero.webp",
+    "date": "2026-05-16",
+    "category": "Agents",
+    "url": "https://aetherintel.au/articles/38-agentic-development-loop.html",
+    "badge": "agents",
+    "file": "38-agentic-development-loop.html"
+  },
+  {
+    "title": "The $8 Agent vs. the $400 Agent, Aether Intel",
+    "desc": "Model routing is slashing AI agent costs from $400 to $8/month. Learn why most users still overpay and how smart task-tier routing changes everything.",
+    "hero": "",
+    "date": "2026-05-16",
+    "category": "$1,000-5,000",
+    "url": "/articles/39-model-routing-cost-collapse.html",
+    "badge": "news",
+    "file": "39-model-routing-cost-collapse.html"
+  },
+  {
+    "title": "Your #1 Google Rank Means Nothing to ChatGPT, Aether Intel",
+    "desc": "NP Digital studied 500 keywords and found Google's top result has a 31% AI citation rate. By rank four, that drops to 2.6%. SEO's rules have changed.",
+    "hero": "",
+    "date": "2026-05-16",
+    "category": "Business",
+    "url": "/articles/40-ai-search-kills-google-seo.html",
+    "badge": "business",
+    "file": "40-ai-search-kills-google-seo.html"
+  },
+  {
+    "title": "ChatGPT Is a People Pleaser. The GPS Protocol Fixes That., Aether Intel",
+    "desc": "The GPS Protocol (Gaslight, Pushback, Stress Test) turns ChatGPT's agreeable default output into sharp, high-stakes thinking you can actually use.",
+    "hero": "",
+    "date": "2026-05-16",
+    "category": "Developer",
+    "url": "/articles/41-chatgpt-gps-protocol-sycophancy.html",
+    "badge": "news",
+    "file": "41-chatgpt-gps-protocol-sycophancy.html"
+  },
+  {
+    "title": "Codex Is No Longer a Coding Tool. OpenAI Quietly Launched Its Real Agent., Aether Intel",
+    "desc": "On April 16, 2026, OpenAI flipped Codex into a general-purpose background agent with computer use, persistent memory, and 90+ plugins. Here is what changed.",
+    "hero": "",
+    "date": "2026-05-16",
+    "category": "AI Agents",
+    "url": "/articles/42-codex-openai-real-agent.html",
+    "badge": "news",
+    "file": "42-codex-openai-real-agent.html"
+  },
+  {
+    "title": "Hermes Might Have Just Killed OpenClaw: The AI Agent War Nobody Expected, Aether Intel",
+    "desc": "OpenClaw is losing creators to Hermes fast. Themed releases, self-improving skills, and 130K GitHub stars in 2 months tell a structural story, not a news cycle.",
+    "hero": "",
+    "date": "2026-05-16",
+    "category": "AI Agents",
+    "url": "/articles/43-hermes-vs-openclaw-agent-war.html",
+    "badge": "news",
+    "file": "43-hermes-vs-openclaw-agent-war.html"
+  },
+  {
+    "title": "Your AI Agent Is Locked to One Model. That's a Liability., Aether Intel",
+    "desc": "OpenClaw's April 2026 maturity shift exposed single-model lock-in as a real risk. Here's what a model-agnostic agent runtime actually looks like -- and why it m",
+    "hero": "",
+    "date": "2026-05-16",
+    "category": "Developer",
+    "url": "/articles/44-openclaw-multi-model-unlock.html",
+    "badge": "news",
+    "file": "44-openclaw-multi-model-unlock.html"
+  },
+  {
+    "title": "The Free AI Video Stack: Replace $200/Month of Editing Tools With ChatGPT and Claude, Aether Intel",
+    "desc": "ChatGPT and Claude free plans generate LUTs, motion graphics code, sound effects, and storyboards -- replacing the $200/month video editing stack.",
+    "hero": "",
+    "date": "2026-05-16",
+    "category": "Tools",
+    "url": "/articles/45-free-ai-video-editing-stack.html",
+    "badge": "dev",
+    "file": "45-free-ai-video-editing-stack.html"
+  },
+  {
+    "title": "The Ghost Workers Powering ChatGPT: Inside AI's Hidden Labor Economy",
+    "desc": "86% of AI data workers struggle financially. They earn under $23K/year, sometimes $40 for a 13-hour day. The CEOs they enrich become history's youngest billiona",
+    "hero": "https://aetherintel.au/images/articles/28-chatgpt-ghost-workers-hidden-labor-hero.png",
+    "date": "2026-05-15",
+    "category": "Human Cost",
+    "url": "https://aetherintel.au/articles/28-chatgpt-ghost-workers-hidden-labor.html",
+    "badge": "news",
+    "file": "28-chatgpt-ghost-workers-hidden-labor.html"
+  },
+  {
+    "title": "The $20 Hack That Broke Every AI Procurement Checklist",
+    "desc": "A security researcher spent $20 and two hours to get full read-write access to Lily, the AI platform used by 70% of McKinsey's 40,000 consultants. The vulnerabi",
+    "hero": "",
+    "date": "2026-05-15",
+    "category": "Security",
+    "url": "/articles/32-ai-procurement-hack-lily-mckinsey.html",
+    "badge": "news",
+    "file": "32-ai-procurement-hack-lily-mckinsey.html"
+  },
+  {
+    "title": "Claude Code Up 80x, Anthropic Accidentally Became the Infrastructure Company",
+    "desc": "Dario Amodei planned for 10x annual growth. He got 80x in a single quarter. Now Anthropic is leasing 220,000 GPUs from xAI, spending $5-6 billion a year on comp",
+    "hero": "",
+    "date": "2026-05-15",
+    "category": "Business",
+    "url": "/articles/33-claude-code-80x-anthropic-infrastructure.html",
+    "badge": "business",
+    "file": "33-claude-code-80x-anthropic-infrastructure.html"
+  },
+  {
+    "title": "Anthropic Co-Founder's 60%+ Prediction: AI Builds Itself by 2028",
+    "desc": "Jack Clark thinks there's a better-than-even chance that by the end of 2028, we'll have an AI system that can make a better version of itself, completely autono",
+    "hero": "",
+    "date": "2026-05-15",
+    "category": "Future of AI",
+    "url": "/articles/34-jack-clark-ai-builds-itself-2028.html",
+    "badge": "news",
+    "file": "34-jack-clark-ai-builds-itself-2028.html"
+  },
+  {
+    "title": "The Model Was Never the Hard Part, Aether Intel",
+    "desc": "How AI labs quietly became the new McKinsey, and why the real battleground is deployment, not model capability, as Anthropic chases a $1T valuation.",
+    "hero": "",
+    "date": "2026-05-15",
+    "category": "Business",
+    "url": "/articles/35-ai-labs-mckinsey-mode.html",
+    "badge": "business",
+    "file": "35-ai-labs-mckinsey-mode.html"
+  },
+  {
+    "title": "Why Your AI Agent Breaks Every Time You Update It, Aether Intel",
+    "desc": "The hidden reliability crisis in agentic AI, and what it costs you in time, money, and trust. A deep dive into why AI agents like OpenClaw break on every update",
+    "hero": "",
+    "date": "2026-05-15",
+    "category": "Developer",
+    "url": "/articles/36-ai-agent-breaks-on-update.html",
+    "badge": "news",
+    "file": "36-ai-agent-breaks-on-update.html"
+  },
+  {
+    "title": "Hermes as Infrastructure, Not Chatbot: The 24/7 AI Employee Architecture, Aether Intel",
+    "desc": "How a $8/month VPS setup running Hermes Agent is outpacing $400/month enterprise tools, and what it means for how we think about AI agents as persistent infrast",
+    "hero": "",
+    "date": "2026-05-15",
+    "category": "AI Agents",
+    "url": "/articles/37-hermes-infrastructure-24-7.html",
+    "badge": "news",
+    "file": "37-hermes-infrastructure-24-7.html"
+  },
+  {
+    "title": "Self-Hosting OpenClaw Was Supposed to Give You Control. Here's What You Actually Got.",
+    "desc": "The OpenClaw community is telling a brutal story: security vulnerabilities, $300/day bills, and agents that can't remember a conversation. Here's the full pictu",
+    "hero": "https://aetherintel.au/images/articles/24-openclaw-self-hosting-reality-hero.webp",
+    "date": "2026-05-13",
+    "category": "Security",
+    "url": "https://aetherintel.au/articles/24-openclaw-self-hosting-reality.html",
+    "badge": "news",
+    "file": "24-openclaw-self-hosting-reality.html"
+  },
+  {
+    "title": "\"I'm Quitting My Job Due to Vibe Coders.\" The AI Coding Crisis Driving Senior Engineers Out.",
+    "desc": "Experienced engineers are walking out over AI-generated code quality issues, 'vibe coders,' and Copilot's 40% higher credential leak rate. Here's the full pictu",
+    "hero": "https://aetherintel.au/images/articles/25-vibe-coders-senior-engineer-exodus-hero.webp",
+    "date": "2026-05-13",
+    "category": "AI & Work",
+    "url": "https://aetherintel.au/articles/25-vibe-coders-senior-engineer-exodus.html",
+    "badge": "ethics",
+    "file": "25-vibe-coders-senior-engineer-exodus.html"
+  },
+  {
+    "title": "The AI Passive Income Fantasy vs. Reality: Why the Dream Keeps Failing",
+    "desc": "The gap between 'AI-powered passive income' promises and reality. SaaS requires 20+ hours/week. Affiliate marketing isn't passive. Here's what actually works.",
+    "hero": "https://aetherintel.au/images/articles/26-ai-passive-income-reality-check-hero.webp",
+    "date": "2026-05-13",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/26-ai-passive-income-reality-check.html",
+    "badge": "business",
+    "file": "26-ai-passive-income-reality-check.html"
+  },
+  {
+    "title": "Why \"AI Slop\" Is Losing the Internet: The Human-Touch Content Divide",
+    "desc": "AI-generated slop is failing to convert and losing audience trust, while creators who study actual psychology are pulling ahead. Here's the full picture.",
+    "hero": "https://aetherintel.au/images/articles/27-ai-slop-human-touch-content-hero.webp",
+    "date": "2026-05-13",
+    "category": "Content & Creators",
+    "url": "https://aetherintel.au/articles/27-ai-slop-human-touch-content.html",
+    "badge": "news",
+    "file": "27-ai-slop-human-touch-content.html"
+  },
+  {
+    "title": "Hermes Agent: The Complete Guide to Setup, Skills, and Making Money in 2026",
+    "desc": "Everything you need to run the Hermes agent framework — from initial setup through to building income-generating automations. Covers model selection, skill conf",
+    "hero": "https://aetherintel.au/images/articles/01-hermes-agent-complete-guide-hero.webp",
+    "date": "2026-05-12",
+    "category": "Automation",
+    "url": "https://aetherintel.au/articles/01-hermes-agent-complete-guide.html",
+    "badge": "news",
+    "file": "01-hermes-agent-complete-guide.html"
+  },
+  {
+    "title": "12 Proven Ways to Make Money With AI in 2026 (With Real Income Numbers)",
+    "desc": "The AI money-making conversation has matured. In 2023, everyone was talking about \"using ChatGPT to write blog posts.\" In 2026, the people actually earning s...",
+    "hero": "https://aetherintel.au/images/articles/02-12-ways-make-money-hero.webp",
+    "date": "2026-05-12",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/02-12-ways-make-money-ai-2025.html",
+    "badge": "business",
+    "file": "02-12-ways-make-money-ai-2025.html"
+  },
+  {
+    "title": "Hermes Agent vs OpenClaw: Which AI Agent Should You Use in 2026?",
+    "desc": "Two open-source AI agents are dominating the conversation in 2026: Hermes Agent from Nous Research and OpenClaw. Both are free to self-host, both are genuine...",
+    "hero": "https://aetherintel.au/images/articles/03-hermes-vs-openclaw-hero.webp",
+    "date": "2026-05-12",
+    "category": "AI Agents",
+    "url": "https://aetherintel.au/articles/03-hermes-vs-openclaw.html",
+    "badge": "news",
+    "file": "03-hermes-vs-openclaw.html"
+  },
+  {
+    "title": "How to Start an AI Automation Agency in 2026: The Complete AAA Playbook",
+    "desc": "The AI Automation Agency model — often called AAA — is the fastest-growing service business of 2026. The concept is straightforward: you build AI-powered sys...",
+    "hero": "https://aetherintel.au/images/articles/04-ai-automation-agency-hero.webp",
+    "date": "2026-05-12",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/04-ai-automation-agency-guide.html",
+    "badge": "business",
+    "file": "04-ai-automation-agency-guide.html"
+  },
+  {
+    "title": "The Best Free AI Tools in 2026: What Actually Works (And What's Hype)",
+    "desc": "The AI tools market has exploded, and the pricing has gotten increasingly aggressive. But here's what most \"best AI tools\" roundups won't tell you: some of t...",
+    "hero": "https://aetherintel.au/images/articles/05-best-free-ai-tools-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/05-best-free-ai-tools-2025.html",
+    "badge": "dev",
+    "file": "05-best-free-ai-tools-2025.html"
+  },
+  {
+    "title": "How to Make Money With OpenClaw in 2026: 8 Proven Methods",
+    "desc": "OpenClaw has quietly become one of the most powerful open-source AI agents available — and the community has found some genuinely creative ways to monetize i...",
+    "hero": "https://aetherintel.au/images/articles/06-openclaw-make-money-hero.webp",
+    "date": "2026-05-12",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/06-how-to-make-money-with-openclaw.html",
+    "badge": "business",
+    "file": "06-how-to-make-money-with-openclaw.html"
+  },
+  {
+    "title": "Hermes Agent vs OpenClaw vs Claude Code: The Ultimate 2026 AI Agent Comparison",
+    "desc": "Three AI agents are competing for the same users in 2026: Hermes Agent, OpenClaw, and Claude Code (Anthropic's agentic coding environment). Each has a passio...",
+    "hero": "https://aetherintel.au/images/articles/07-three-way-comparison-hero.webp",
+    "date": "2026-05-12",
+    "category": "AI Agents",
+    "url": "https://aetherintel.au/articles/07-hermes-vs-openclaw-vs-claude-code.html",
+    "badge": "news",
+    "file": "07-hermes-vs-openclaw-vs-claude-code.html"
+  },
+  {
+    "title": "How to Build an AI Content Website That Actually Makes Money",
+    "desc": "Most \"build a content website with AI\" tutorials stop at \"use ChatGPT to write blog posts.\" That approach produces generic content that ranks nowhere and ear...",
+    "hero": "https://aetherintel.au/images/articles/08-content-website-hero.webp",
+    "date": "2026-05-12",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/08-ai-content-website-make-money.html",
+    "badge": "business",
+    "file": "08-ai-content-website-make-money.html"
+  },
+  {
+    "title": "Hermes Agent Telegram Setup: Complete Tutorial (2026)",
+    "desc": "Telegram is the best entry point for Hermes Agent. It's available on every device, has a clean API, and lets you interact with your AI agent from anywhere — ...",
+    "hero": "https://aetherintel.au/images/articles/09-telegram-setup-hero.webp",
+    "date": "2026-05-12",
+    "category": "Automation",
+    "url": "https://aetherintel.au/articles/09-hermes-agent-telegram-setup.html",
+    "badge": "news",
+    "file": "09-hermes-agent-telegram-setup.html"
+  },
+  {
+    "title": "n8n for Beginners: The Complete Guide to AI Workflow Automation (2026)",
+    "desc": "n8n is the most powerful free workflow automation tool available — and it's the backbone of most serious AI automation businesses. If you've heard about it b...",
+    "hero": "https://aetherintel.au/images/articles/10-n8n-workflow-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/10-n8n-beginners-guide.html",
+    "badge": "dev",
+    "file": "10-n8n-beginners-guide.html"
+  },
+  {
+    "title": "Hermes Agent Skills System: Complete Guide to Building, Using, and Sharing Skills",
+    "desc": "The skills system is what separates Hermes Agent from every other AI agent. While most agents re-derive how to do everything from scratch on every request, H...",
+    "hero": "https://aetherintel.au/images/articles/11-hermes-skills-hero.webp",
+    "date": "2026-05-12",
+    "category": "Automation",
+    "url": "https://aetherintel.au/articles/11-hermes-agent-skills-guide.html",
+    "badge": "news",
+    "file": "11-hermes-agent-skills-guide.html"
+  },
+  {
+    "title": "OpenClaw Setup Guide: Install, Configure, and Run Your First Automation (2026)",
+    "desc": "OpenClaw is one of the most powerful open-source AI agents available, but its setup is less documented than Hermes Agent, and the learning curve is steeper. ...",
+    "hero": "https://aetherintel.au/images/articles/12-openclaw-setup-hero.webp",
+    "date": "2026-05-12",
+    "category": "AI Agents",
+    "url": "https://aetherintel.au/articles/12-openclaw-setup-guide.html",
+    "badge": "news",
+    "file": "12-openclaw-setup-guide.html"
+  },
+  {
+    "title": "AI Passive Income in 2026: The Honest Guide (What Works, What Doesn't)",
+    "desc": "\"Passive income with AI\" is one of the most searched phrases in the money-making space right now — and also one of the most misrepresented. This guide is dif...",
+    "hero": "https://aetherintel.au/images/articles/13-ai-passive-income-hero.webp",
+    "date": "2026-05-12",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/13-ai-passive-income-guide.html",
+    "badge": "business",
+    "file": "13-ai-passive-income-guide.html"
+  },
+  {
+    "title": "OpenRouter: The Complete Guide to Accessing Every AI Model From One API (2026)",
+    "desc": "OpenRouter is one of the most underrated tools in the AI practitioner's stack. Instead of juggling separate API keys and billing accounts for OpenAI, Anthrop...",
+    "hero": "https://aetherintel.au/images/articles/14-openrouter-guide-hero.webp",
+    "date": "2026-05-12",
+    "category": "Automation",
+    "url": "https://aetherintel.au/articles/14-openrouter-guide.html",
+    "badge": "news",
+    "file": "14-openrouter-guide.html"
+  },
+  {
+    "title": "Vibe Coding: How to Build and Sell AI-Generated Apps Without Knowing How to Code",
+    "desc": "Vibe coding is the practice of building software through natural language conversation with AI — describing what you want to build, iterating on the output, ...",
+    "hero": "https://aetherintel.au/images/articles/15-vibe-coding-make-money-hero.webp",
+    "date": "2026-05-12",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/15-vibe-coding-make-money.html",
+    "badge": "business",
+    "file": "15-vibe-coding-make-money.html"
+  },
+  {
+    "title": "The Best AI Tools for Content Creators in 2026: A Practical Stack Guide",
+    "desc": "Content creation has been transformed more completely by AI than almost any other profession. The tools available in 2026 cover the entire production pipelin...",
+    "hero": "https://aetherintel.au/images/articles/16-ai-tools-content-creators-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/16-ai-tools-for-content-creators.html",
+    "badge": "dev",
+    "file": "16-ai-tools-for-content-creators.html"
+  },
+  {
+    "title": "How Much Does Hermes Agent Actually Cost? Real Breakdown for 2026",
+    "desc": "One of the most common questions from people evaluating Hermes Agent is: \"What does it actually cost to run?\" The \"85% cost savings\" claim sounds compelling,...",
+    "hero": "https://aetherintel.au/images/articles/17-hermes-cost-guide-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/17-hermes-agent-cost-guide.html",
+    "badge": "dev",
+    "file": "17-hermes-agent-cost-guide.html"
+  },
+  {
+    "title": "How to Build an AI Morning Briefing System With Hermes Agent",
+    "desc": "One of the highest-value things you can build with Hermes Agent is a personalized morning briefing — a daily digest that lands in your Telegram every morning...",
+    "hero": "https://aetherintel.au/images/articles/18-ai-morning-briefing-hero.webp",
+    "date": "2026-05-12",
+    "category": "AI Agents",
+    "url": "https://aetherintel.au/articles/18-ai-agent-morning-briefing.html",
+    "badge": "news",
+    "file": "18-ai-agent-morning-briefing.html"
+  },
+  {
+    "title": "How to Freelance With AI in 2026: Earn More, Work Less, Deliver Better",
+    "desc": "AI has fundamentally changed the economics of freelancing. Not in the \"AI will replace freelancers\" way that gets breathless coverage — but in the genuinely ...",
+    "hero": "https://aetherintel.au/images/articles/19-ai-freelancing-guide-hero.webp",
+    "date": "2026-05-12",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/19-ai-freelancing-guide.html",
+    "badge": "business",
+    "file": "19-ai-freelancing-guide.html"
+  },
+  {
+    "title": "Hermes Agent vs ChatGPT: Why Persistent Memory Changes Everything",
+    "desc": "Most AI comparisons focus on response quality — which model writes better, codes better, reasons better. This comparison is different. Hermes Agent and ChatG...",
+    "hero": "https://aetherintel.au/images/articles/20-hermes-vs-chatgpt-hero.webp",
+    "date": "2026-05-12",
+    "category": "AI Agents",
+    "url": "https://aetherintel.au/articles/20-hermes-agent-vs-chatgpt.html",
+    "badge": "news",
+    "file": "20-hermes-agent-vs-chatgpt.html"
+  },
+  {
+    "title": "AI Coding Tools Are Leaking Your Secrets — Here's the Data",
+    "desc": "Researchers extracted 2,702 real credentials from GitHub Copilot suggestions. 200 were working secrets. Repos with Copilot active have a 40% higher secret leak ",
+    "hero": "https://aetherintel.au/images/articles/21-ai-coding-tools-security-crisis-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/21-ai-coding-tools-security-crisis.html",
+    "badge": "dev",
+    "file": "21-ai-coding-tools-security-crisis.html"
+  },
+  {
+    "title": "The Real Cost of Running AI Agents in 2026: What Nobody Tells You",
+    "desc": "Before you build on AI agents, read this. Real numbers from real users: $300/day for 24/7 operation, $200 overnight loop disasters, Opus vs Sonnet 10-15x cost g",
+    "hero": "https://aetherintel.au/images/articles/22-ai-agent-true-cost-guide-hero.webp",
+    "date": "2026-05-12",
+    "category": "Business",
+    "url": "https://aetherintel.au/articles/22-ai-agent-true-cost-guide.html",
+    "badge": "business",
+    "file": "22-ai-agent-true-cost-guide.html"
+  },
+  {
+    "title": "OpenClaw's Security Problem: 2,000 CVEs, Plaintext Keys, and a Marketplace You Can't Trust",
+    "desc": "Based on analysis of 7,347 OpenClaw user comments: the official Docker image has ~2,000 CVEs, credentials sit in plaintext logs, and ClawHub skills can execute ",
+    "hero": "https://aetherintel.au/images/articles/23-openclaw-security-audit-hero.webp",
+    "date": "2026-05-12",
+    "category": "Dev",
+    "url": "https://aetherintel.au/articles/23-openclaw-security-audit.html",
+    "badge": "news",
+    "file": "23-openclaw-security-audit.html"
+  },
+  {
+    "title": "The AI Hiring Boomerang: Companies Are Rehiring the Humans They Replaced",
+    "desc": "A wave of companies that replaced customer service, content, and data teams with AI are quietly rehiring humans. What's driving the reversal — and what it means",
+    "hero": "https://aetherintel.au/images/articles/ai-hiring-boomerang-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/ai-hiring-boomerang.html",
+    "badge": "dev",
+    "file": "ai-hiring-boomerang.html"
+  },
+  {
+    "title": "Cyber Psychosis: What Happens to Your Brain When You Outsource Thinking to AI",
+    "desc": "Cognitive offloading to AI is changing how people think, remember, and make decisions. The research on what's happening — and how to use AI without losing your ",
+    "hero": "https://aetherintel.au/images/articles/cyber-psychosis-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/cyber-psychosis.html",
+    "badge": "dev",
+    "file": "cyber-psychosis.html"
+  },
+  {
+    "title": "Klarna's $100M Disaster: What Every Business Can Learn About AI Deployment",
+    "desc": "Klarna bet $100M on replacing human workers with AI — and the numbers didn't add up. Here's the real story behind the headlines, and what it means for businesse",
+    "hero": "https://aetherintel.au/images/articles/klarnas-100m-disaster-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/klarnas-100m-disaster.html",
+    "badge": "dev",
+    "file": "klarnas-100m-disaster.html"
+  },
+  {
+    "title": "Recursive Self-Improvement: The AI Capability That Changes Everything",
+    "desc": "When an AI can improve its own code, reasoning, and architecture, the pace of capability gains stops following human timelines. Here's where we are, and what bu",
+    "hero": "https://aetherintel.au/images/articles/recursive-self-improvement-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/recursive-self-improvement.html",
+    "badge": "dev",
+    "file": "recursive-self-improvement.html"
+  },
+  {
+    "title": "The Sycophancy Trap: Why Your AI Assistant Is Lying to You",
+    "desc": "AI models are trained to tell you what you want to hear. Understanding this bias — and how to work around it — is one of the most important AI skills you can de",
+    "hero": "https://aetherintel.au/images/articles/sycophancy-trap-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/sycophancy-trap.html",
+    "badge": "dev",
+    "file": "sycophancy-trap.html"
+  },
+  {
+    "title": "Why 95% of AI Projects Fail (And the 5% That Don't)",
+    "desc": "Most AI projects stall before they ship. The reasons are almost never technical. Here's the pattern behind successful AI deployments — and why most teams get it",
+    "hero": "https://aetherintel.au/images/articles/why-95-percent-ai-projects-fail-hero.webp",
+    "date": "2026-05-12",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/why-95-percent-ai-projects-fail.html",
+    "badge": "dev",
+    "file": "why-95-percent-ai-projects-fail.html"
+  },
+  {
+    "title": "America Hates AI and Can't Stop Using It: The Backlash by the Numbers",
+    "desc": "Gen Z excitement about AI collapsed from 36% to 22% in one year. Usage rose from 48% to 56% in the same period. This is mass adoption paired with mass resentmen",
+    "hero": "",
+    "date": "",
+    "category": "",
+    "url": "/articles/29-ai-backlash-america-hates-ai.html",
+    "badge": "news",
+    "file": "29-ai-backlash-america-hates-ai.html"
+  },
+  {
+    "title": "AI Was Built to Make You Feel Good. That's Turning Into a Mental Health Crisis.",
+    "desc": "A support group has catalogued 414 cases of AI-induced delusional episodes. OpenAI's own testing confirmed users prefer the most sycophantic answers. Grok convi",
+    "hero": "",
+    "date": "",
+    "category": "",
+    "url": "/articles/30-ai-sycophancy-mental-health-crisis.html",
+    "badge": "news",
+    "file": "30-ai-sycophancy-mental-health-crisis.html"
+  },
+  {
+    "title": "Anthropic Can Read Claude's Mind, And It Knows When It's Being Tested",
+    "desc": "Anthropic built a system that translates Claude's internal neural activations into plain English. The first thing it revealed: Claude was silently flagging its ",
+    "hero": "",
+    "date": "",
+    "category": "",
+    "url": "/articles/31-anthropic-reads-claudes-mind.html",
+    "badge": "news",
+    "file": "31-anthropic-reads-claudes-mind.html"
+  },
+  {
+    "title": "How I Built a 52-Article AI News Site Using Only Hyperagent — Aether Intel",
+    "desc": "No developer. No designer. No DevOps. Just a persistent AI agent with GitHub integration, image generation, and a memory that learns from its own mistakes.",
+    "hero": "https://aetherintel.au/images/articles/53-hyperagent-built-aether-intel-hero.webp",
+    "date": "",
+    "category": "Tools",
+    "url": "https://aetherintel.au/articles/53-hyperagent-built-aether-intel.html",
+    "badge": "dev",
+    "file": "53-hyperagent-built-aether-intel.html"
+  },
+  {
+    "title": "About",
+    "desc": "Aether Intelligence extracts signal from 200,000+ real online conversations — trends, pain points, and market opportunities for founders and researchers.",
+    "hero": "https://aetherintel.au/logo.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/about.html",
+    "badge": "news",
+    "file": "about.html"
+  },
+  {
+    "title": "The AI Debt Bomb: $700 Billion In, $30 Billion Out — Aether Intel",
+    "desc": "Five major tech companies are spending $700B building AI infrastructure. Goldman Sachs says AI won't meaningfully move the economy until 2027. Someone is wrong.",
+    "hero": "https://aetherintel.au/images/articles/ai-debt-bomb-hero.webp",
+    "date": "",
+    "category": "",
+    "url": "https://aetherintel.au/articles/ai-debt-bomb.html",
+    "badge": "news",
+    "file": "ai-debt-bomb.html"
+  },
+  {
+    "title": "AI Is Replacing Junior Roles First: The Ladder Is Being Removed From the Bottom",
+    "desc": "Insights extracted from 200,000+ real online comments. AI Is Replacing Junior Roles First: The Ladder Is Being Removed From the Bottom.",
+    "hero": "https://aetherintel.au/images/articles/ai-replacing-junior-roles-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/ai-replacing-junior-roles.html",
+    "badge": "news",
+    "file": "ai-replacing-junior-roles.html"
+  },
+  {
+    "title": "The Anti-Intellectualism Crisis: When Facts Don't Matter",
+    "desc": "Insights extracted from 200,000+ real online comments. The Anti-Intellectualism Crisis: When Facts Don't Matter.",
+    "hero": "https://aetherintel.au/images/articles/anti-intellectualism-crisis-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/anti-intellectualism-crisis.html",
+    "badge": "news",
+    "file": "anti-intellectualism-crisis.html"
+  },
+  {
+    "title": "AI News & Analysis — Aether Intel",
+    "desc": "The latest AI news, model releases, tool reviews, and deep-dive analysis. Stay current with Aether Intel.",
+    "hero": "",
+    "date": "",
+    "category": "Security",
+    "url": "https://aetherintel.au/articles.html",
+    "badge": "news",
+    "file": "articles.html"
+  },
+  {
+    "title": "The Attention Economy Is Eating Itself",
+    "desc": "Insights extracted from 200,000+ real online comments. The Attention Economy Is Eating Itself.",
+    "hero": "https://aetherintel.au/images/articles/attention-economy-collapse-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/attention-economy-collapse.html",
+    "badge": "news",
+    "file": "attention-economy-collapse.html"
+  },
+  {
+    "title": "Startup Opportunity: Specialized Bird Seed Supply Company",
+    "desc": "Insights extracted from 200,000+ real online comments. Startup Opportunity: Specialized Bird Seed Supply Company.",
+    "hero": "https://aetherintel.au/images/articles/bird-seed-empire-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/bird-seed-empire.html",
+    "badge": "news",
+    "file": "bird-seed-empire.html"
+  },
+  {
+    "title": "The Body Odor Crisis: When Basic Hygiene Isn't Basic Anymore",
+    "desc": "Insights extracted from 200,000+ real online comments. The Body Odor Crisis: When Basic Hygiene Isn't Basic Anymore.",
+    "hero": "https://aetherintel.au/images/articles/body-odor-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/body-odor.html",
+    "badge": "news",
+    "file": "body-odor.html"
+  },
+  {
+    "title": "The $12B Market for Bureaucracy Navigation",
+    "desc": "Insights extracted from 200,000+ real online comments. The $12B Market for Bureaucracy Navigation.",
+    "hero": "https://aetherintel.au/images/articles/bureaucracy-navigation-service-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/bureaucracy-navigation-service.html",
+    "badge": "news",
+    "file": "bureaucracy-navigation-service.html"
+  },
+  {
+    "title": "Celebrity Polarity: Why Negative Encounters Drive 3x More Engagement",
+    "desc": "Insights extracted from 200,000+ real online comments. Celebrity Polarity: Why Negative Encounters Drive 3x More Engagement.",
+    "hero": "https://aetherintel.au/images/articles/celebrity-rudeness-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/celebrity-rudeness.html",
+    "badge": "news",
+    "file": "celebrity-rudeness.html"
+  },
+  {
+    "title": "The Childhood Moment That Haunts You Decades Later",
+    "desc": "Insights extracted from 200,000+ real online comments. The Childhood Moment That Haunts You Decades Later.",
+    "hero": "https://aetherintel.au/images/articles/childhood-guilt-haunting-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/childhood-guilt-haunting.html",
+    "badge": "news",
+    "file": "childhood-guilt-haunting.html"
+  },
+  {
+    "title": "Claude Mythos: The AI That Cracked Your Browser",
+    "desc": "Anthropic's Claude found 271 Firefox vulnerabilities, a 27-year OpenBSD crash bug, and a Linux kernel root exploit in one research sprint. Then the Pentagon cal",
+    "hero": "https://aetherintel.au/images/articles/claude-mythos-hacking-ai-hero.png",
+    "date": "",
+    "category": "AI Agents",
+    "url": "https://aetherintel.au/articles/claude-mythos-hacking-ai.html",
+    "badge": "news",
+    "file": "claude-mythos-hacking-ai.html"
+  },
+  {
+    "title": "When Colleagues' Practices Make Your Job Impossible",
+    "desc": "Insights extracted from 200,000+ real online comments. When Colleagues' Practices Make Your Job Impossible.",
+    "hero": "https://aetherintel.au/images/articles/colleagues-practices-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/colleagues-practices.html",
+    "badge": "news",
+    "file": "colleagues-practices.html"
+  },
+  {
+    "title": "Conspiracy Family Rupture: When Facts No Longer Exist in Your Living Room",
+    "desc": "Insights extracted from 200,000+ real online comments. Conspiracy Family Rupture: When Facts No Longer Exist in Your Living Room.",
+    "hero": "https://aetherintel.au/images/articles/conspiracy-family-rupture-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/conspiracy-family-rupture.html",
+    "badge": "news",
+    "file": "conspiracy-family-rupture.html"
+  },
+  {
+    "title": "Creator Economy Burnout: The Algorithm Doesn't Care If You're Exhausted",
+    "desc": "Insights extracted from 200,000+ real online comments. Creator Economy Burnout: The Algorithm Doesn't Care If You're Exhausted.",
+    "hero": "https://aetherintel.au/images/articles/creator-economy-burnout-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/creator-economy-burnout.html",
+    "badge": "news",
+    "file": "creator-economy-burnout.html"
+  },
+  {
+    "title": "The Dating Paradox: Easy Sex, Impossible Love",
+    "desc": "Insights extracted from 200,000+ real online comments. The Dating Paradox: Easy Sex, Impossible Love.",
+    "hero": "https://aetherintel.au/images/articles/dating-app-paradox-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/dating-app-paradox.html",
+    "badge": "news",
+    "file": "dating-app-paradox.html"
+  },
+  {
+    "title": "Digital Footprint Anxiety: Your Past Is One Search Away",
+    "desc": "Insights extracted from 200,000+ real online comments. Digital Footprint Anxiety: Your Past Is One Search Away.",
+    "hero": "https://aetherintel.au/images/articles/digital-footprint-anxiety-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/digital-footprint-anxiety.html",
+    "badge": "news",
+    "file": "digital-footprint-anxiety.html"
+  },
+  {
+    "title": "Startup Opportunity: Digital Footprint Privacy Service",
+    "desc": "Insights extracted from 200,000+ real online comments. Startup Opportunity: Digital Footprint Privacy Service.",
+    "hero": "https://aetherintel.au/images/articles/digital-footprint-privacy-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/digital-footprint-privacy.html",
+    "badge": "news",
+    "file": "digital-footprint-privacy.html"
+  },
+  {
+    "title": "How Dropshippers Broke the Handmade Promise on Etsy",
+    "desc": "Insights extracted from 200,000+ real online comments. How Dropshippers Broke the Handmade Promise on Etsy.",
+    "hero": "https://aetherintel.au/images/articles/dropshippers-ruined-etsy-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/dropshippers-ruined-etsy.html",
+    "badge": "news",
+    "file": "dropshippers-ruined-etsy.html"
+  },
+  {
+    "title": "The Universal Loneliness Paradox",
+    "desc": "Insights extracted from 200,000+ real online comments. The Universal Loneliness Paradox.",
+    "hero": "https://aetherintel.au/images/articles/everyone-is-lonely-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/everyone-is-lonely.html",
+    "badge": "news",
+    "file": "everyone-is-lonely.html"
+  },
+  {
+    "title": "The Refusal to Accept Facts: Reality No Longer Matters",
+    "desc": "Insights extracted from 200,000+ real online comments. The Refusal to Accept Facts: Reality No Longer Matters.",
+    "hero": "https://aetherintel.au/images/articles/facts-refusal-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/facts-refusal.html",
+    "badge": "news",
+    "file": "facts-refusal.html"
+  },
+  {
+    "title": "The Financial Guidance Gap Nobody's Solving",
+    "desc": "Insights extracted from 200,000+ real online comments. The Financial Guidance Gap Nobody's Solving.",
+    "hero": "https://aetherintel.au/images/articles/financial-guidance-platform-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/financial-guidance-platform.html",
+    "badge": "news",
+    "file": "financial-guidance-platform.html"
+  },
+  {
+    "title": "Financial Milestone Anxiety: The Race We're All Losing",
+    "desc": "Insights extracted from 200,000+ real online comments. Financial Milestone Anxiety: The Race We're All Losing.",
+    "hero": "https://aetherintel.au/images/articles/financial-milestone-anxiety-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/financial-milestone-anxiety.html",
+    "badge": "news",
+    "file": "financial-milestone-anxiety.html"
+  },
+  {
+    "title": "The Silent Degradation of Food Quality",
+    "desc": "Insights extracted from 200,000+ real online comments. The Silent Degradation of Food Quality.",
+    "hero": "https://aetherintel.au/images/articles/food-quality-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/food-quality.html",
+    "badge": "news",
+    "file": "food-quality.html"
+  },
+  {
+    "title": "Forcing Kids Into Older Age Brackets Kills Their Love for Sports",
+    "desc": "Insights extracted from 200,000+ real online comments. Forcing Kids Into Older Age Brackets Kills Their Love for Sports.",
+    "hero": "https://aetherintel.au/images/articles/forcing-kills-love-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/forcing-kills-love.html",
+    "badge": "news",
+    "file": "forcing-kills-love.html"
+  },
+  {
+    "title": "Why Gen Z Refuses to Hustle: It's Pattern Recognition, Not Laziness",
+    "desc": "Insights extracted from 200,000+ real online comments. Why Gen Z Refuses to Hustle: It's Pattern Recognition, Not Laziness.",
+    "hero": "https://aetherintel.au/images/articles/gen-z-refuses-to-hustle-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/gen-z-refuses-to-hustle.html",
+    "badge": "news",
+    "file": "gen-z-refuses-to-hustle.html"
+  },
+  {
+    "title": "The Generational Communication Gap: Why We Can't Talk to Each Other",
+    "desc": "Insights extracted from 200,000+ real online comments. The Generational Communication Gap: Why We Can't Talk to Each Other.",
+    "hero": "https://aetherintel.au/images/articles/generational-communication-gap-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/generational-communication-gap.html",
+    "badge": "news",
+    "file": "generational-communication-gap.html"
+  },
+  {
+    "title": "Startup Opportunity: Genuine Handmade Goods Marketplace",
+    "desc": "Insights extracted from 200,000+ real online comments. Startup Opportunity: Genuine Handmade Goods Marketplace.",
+    "hero": "https://aetherintel.au/images/articles/genuine-handmade-marketplace-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/genuine-handmade-marketplace.html",
+    "badge": "news",
+    "file": "genuine-handmade-marketplace.html"
+  },
+  {
+    "title": "The Gig Economy's Hidden Exploitation Crisis",
+    "desc": "Insights extracted from 200,000+ real online comments. The Gig Economy's Hidden Exploitation Crisis.",
+    "hero": "https://aetherintel.au/images/articles/gig-economy-exploitation-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/gig-economy-exploitation.html",
+    "badge": "news",
+    "file": "gig-economy-exploitation.html"
+  },
+  {
+    "title": "History's 'Good Old Days' Were Often Terrible",
+    "desc": "Insights extracted from 200,000+ real online comments. History's 'Good Old Days' Were Often Terrible.",
+    "hero": "https://aetherintel.au/images/articles/historical-perception-flip-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/historical-perception-flip.html",
+    "badge": "news",
+    "file": "historical-perception-flip.html"
+  },
+  {
+    "title": "The Historical Time Perspective That Changed How I See Everything",
+    "desc": "Insights extracted from 200,000+ real online comments. The Historical Time Perspective That Changed How I See Everything.",
+    "hero": "https://aetherintel.au/images/articles/historical-time-perspective-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/historical-time-perspective.html",
+    "badge": "news",
+    "file": "historical-time-perspective.html"
+  },
+  {
+    "title": "How Corporate Home Buying Is Destroying Housing Affordability",
+    "desc": "Insights extracted from 200,000+ real online comments. How Corporate Home Buying Is Destroying Housing Affordability.",
+    "hero": "https://aetherintel.au/images/articles/housing-corporate-buying-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/housing-corporate-buying.html",
+    "badge": "news",
+    "file": "housing-corporate-buying.html"
+  },
+  {
+    "title": "Hustle Culture Didn't Fail Gen Z — It Lied to Them",
+    "desc": "Insights extracted from 200,000+ real online comments. Hustle Culture Didn't Fail Gen Z — It Lied to Them.",
+    "hero": "https://aetherintel.au/images/articles/hustle-culture-lie-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/hustle-culture-lie.html",
+    "badge": "news",
+    "file": "hustle-culture-lie.html"
+  },
+  {
+    "title": "ICU/ED PTSD: The Hidden Toll That Only Surfaces After You Leave",
+    "desc": "Insights extracted from 200,000+ real online comments. ICU/ED PTSD: The Hidden Toll That Only Surfaces After You Leave.",
+    "hero": "https://aetherintel.au/images/articles/icu-ptsd-hidden-toll-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/icu-ptsd-hidden-toll.html",
+    "badge": "news",
+    "file": "icu-ptsd-hidden-toll.html"
+  },
+  {
+    "title": "The People Who Ignore Safety Advice Survive",
+    "desc": "Insights extracted from 200,000+ real online comments. The People Who Ignore Safety Advice Survive.",
+    "hero": "https://aetherintel.au/images/articles/ignoring-safety-advice-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/ignoring-safety-advice.html",
+    "badge": "news",
+    "file": "ignoring-safety-advice.html"
+  },
+  {
+    "title": "Articles",
+    "desc": "70 deep-dive articles extracted from 200,000+ real online comments. Aha moments, pain points, startup ideas, trends, and more.",
+    "hero": "",
+    "date": "",
+    "category": "",
+    "url": "/articles/index.html",
+    "badge": "news",
+    "file": "index.html"
+  },
+  {
+    "title": "The Hidden Exhaustion of Introverts in an Extrovert World",
+    "desc": "Insights extracted from 200,000+ real online comments. The Hidden Exhaustion of Introverts in an Extrovert World.",
+    "hero": "https://aetherintel.au/images/articles/introvert-social-exhaustion-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/introvert-social-exhaustion.html",
+    "badge": "news",
+    "file": "introvert-social-exhaustion.html"
+  },
+  {
+    "title": "The Crisis of Curiosity: When People Stop Asking Questions",
+    "desc": "Insights extracted from 200,000+ real online comments. The Crisis of Curiosity: When People Stop Asking Questions.",
+    "hero": "https://aetherintel.au/images/articles/lack-of-curiosity-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/lack-of-curiosity.html",
+    "badge": "news",
+    "file": "lack-of-curiosity.html"
+  },
+  {
+    "title": "Liberalism Isn't a Phase: Staying Open-Hearted Matters at Any Age",
+    "desc": "Insights extracted from 200,000+ real online comments. Liberalism Isn't a Phase: Staying Open-Hearted Matters at Any Age.",
+    "hero": "https://aetherintel.au/images/articles/liberalism-not-a-phase-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/liberalism-not-a-phase.html",
+    "badge": "news",
+    "file": "liberalism-not-a-phase.html"
+  },
+  {
+    "title": "Startup Opportunity: Local Farm-to-Consumer Platform",
+    "desc": "Insights extracted from 200,000+ real online comments. Startup Opportunity: Local Farm-to-Consumer Platform.",
+    "hero": "https://aetherintel.au/images/articles/local-farm-to-consumer-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/local-farm-to-consumer.html",
+    "badge": "news",
+    "file": "local-farm-to-consumer.html"
+  },
+  {
+    "title": "The Impossible Contradictions of Modern Masculinity",
+    "desc": "Insights extracted from 200,000+ real online comments. The Impossible Contradictions of Modern Masculinity.",
+    "hero": "https://aetherintel.au/images/articles/masculinity-contradictions-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/masculinity-contradictions.html",
+    "badge": "news",
+    "file": "masculinity-contradictions.html"
+  },
+  {
+    "title": "The Masks We Wear: Everyone is Faking Confidence",
+    "desc": "Insights extracted from 200,000+ real online comments. The Masks We Wear: Everyone is Faking Confidence.",
+    "hero": "https://aetherintel.au/images/articles/masks-we-wear-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/masks-we-wear.html",
+    "badge": "news",
+    "file": "masks-we-wear.html"
+  },
+  {
+    "title": "AI Models — Aether Intel",
+    "desc": "Browse 360+ AI models via OpenRouter. Compare capabilities, input/output costs, and benchmark performance. Text, vision, image, audio and video models.",
+    "hero": "https://aetherintel.au/images/articles/14-openrouter-guide-hero.png",
+    "date": "",
+    "category": "",
+    "url": "https://aetherintel.au/models.html",
+    "badge": "news",
+    "file": "models.html"
+  },
+  {
+    "title": "The Money Doesn't Fix Emptiness Aha Moment",
+    "desc": "Insights extracted from 200,000+ real online comments. The Money Doesn't Fix Emptiness Aha Moment.",
+    "hero": "https://aetherintel.au/images/articles/money-doesnt-fix-emptiness-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/money-doesnt-fix-emptiness.html",
+    "badge": "news",
+    "file": "money-doesnt-fix-emptiness.html"
+  },
+  {
+    "title": "The Adulting Conspiracy: Nobody Has It Figured Out",
+    "desc": "Insights extracted from 200,000+ real online comments. The Adulting Conspiracy: Nobody Has It Figured Out.",
+    "hero": "https://aetherintel.au/images/articles/nobody-has-it-figured-out-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/nobody-has-it-figured-out.html",
+    "badge": "news",
+    "file": "nobody-has-it-figured-out.html"
+  },
+  {
+    "title": "When 'OCD' Became a Casual Adjective",
+    "desc": "Insights extracted from 200,000+ real online comments. When 'OCD' Became a Casual Adjective.",
+    "hero": "https://aetherintel.au/images/articles/ocd-trivialization-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/ocd-trivialization.html",
+    "badge": "news",
+    "file": "ocd-trivialization.html"
+  },
+  {
+    "title": "The Password Management Problem Nobody's Solving Right",
+    "desc": "Insights extracted from 200,000+ real online comments. The Password Management Problem Nobody's Solving Right.",
+    "hero": "https://aetherintel.au/images/articles/password-manager-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/password-manager.html",
+    "badge": "news",
+    "file": "password-manager.html"
+  },
+  {
+    "title": "The Crisis of Self-Awareness: People Who Don't Know Themselves",
+    "desc": "Insights extracted from 200,000+ real online comments. The Crisis of Self-Awareness: People Who Don't Know Themselves.",
+    "hero": "https://aetherintel.au/images/articles/people-lacking-awareness-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/people-lacking-awareness.html",
+    "badge": "news",
+    "file": "people-lacking-awareness.html"
+  },
+  {
+    "title": "The Social Exclusion of Chronic Cancellers",
+    "desc": "Insights extracted from 200,000+ real online comments. The Social Exclusion of Chronic Cancellers.",
+    "hero": "https://aetherintel.au/images/articles/people-who-cancel-last-minute-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/people-who-cancel-last-minute.html",
+    "badge": "news",
+    "file": "people-who-cancel-last-minute.html"
+  },
+  {
+    "title": "Perfectionism Isn't High Standards—It's Fear in Disguise",
+    "desc": "Insights extracted from 200,000+ real online comments. Perfectionism Isn't High Standards—It's Fear in Disguise.",
+    "hero": "https://aetherintel.au/images/articles/perfectionism-is-procrastination-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/perfectionism-is-procrastination.html",
+    "badge": "news",
+    "file": "perfectionism-is-procrastination.html"
+  },
+  {
+    "title": "Navigating Pharmacy Services Has Become a Full-Time Job",
+    "desc": "Insights extracted from 200,000+ real online comments. Navigating Pharmacy Services Has Become a Full-Time Job.",
+    "hero": "https://aetherintel.au/images/articles/pharmacy-crisis-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/pharmacy-crisis.html",
+    "badge": "news",
+    "file": "pharmacy-crisis.html"
+  },
+  {
+    "title": "The Pharmacy Navigation Platform Healthcare Needs",
+    "desc": "Insights extracted from 200,000+ real online comments. The Pharmacy Navigation Platform Healthcare Needs.",
+    "hero": "https://aetherintel.au/images/articles/pharmacy-navigation-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/pharmacy-navigation.html",
+    "badge": "news",
+    "file": "pharmacy-navigation.html"
+  },
+  {
+    "title": "Political Corruption as Background Noise: When We Stop Caring",
+    "desc": "Insights extracted from 200,000+ real online comments. Political Corruption as Background Noise: When We Stop Caring.",
+    "hero": "https://aetherintel.au/images/articles/political-corruption-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/political-corruption.html",
+    "badge": "news",
+    "file": "political-corruption.html"
+  },
+  {
+    "title": "AI Can Read Your Mind — Here's Exactly How Far It's Gone",
+    "desc": "A team at UT Austin decoded inner speech at 72–82% accuracy. Stanford's BCI patient communicates at 62 wpm. UCSF hit 78. Here's the gap between 'feasible' and '",
+    "hero": "https://aetherintel.au/images/articles/reading-ais-mind-hero.webp",
+    "date": "",
+    "category": "AI Research",
+    "url": "https://aetherintel.au/articles/reading-ais-mind.html",
+    "badge": "news",
+    "file": "reading-ais-mind.html"
+  },
+  {
+    "title": "The Relationship Fantasy That Ruins Real Love",
+    "desc": "Insights extracted from 200,000+ real online comments. The Relationship Fantasy That Ruins Real Love.",
+    "hero": "https://aetherintel.au/images/articles/relationship-fantasy-vs-reality-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/relationship-fantasy-vs-reality.html",
+    "badge": "news",
+    "file": "relationship-fantasy-vs-reality.html"
+  },
+  {
+    "title": "Remote Work Loneliness Epidemic: Connected but Alone",
+    "desc": "Insights extracted from 200,000+ real online comments. Remote Work Loneliness Epidemic: Connected but Alone.",
+    "hero": "https://aetherintel.au/images/articles/remote-work-loneliness-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/remote-work-loneliness.html",
+    "badge": "news",
+    "file": "remote-work-loneliness.html"
+  },
+  {
+    "title": "AI Capability Platform",
+    "desc": "Install AI capabilities, not prompts. Each skill is a complete, installable workflow — system prompt, model recommendation, cost estimate, and example outputs i",
+    "hero": "https://aetherintel.au/images/og-skills.jpg",
+    "date": "",
+    "category": "57 Skills in Pipeline",
+    "url": "https://aetherintel.au/skills.html",
+    "badge": "news",
+    "file": "skills.html"
+  },
+  {
+    "title": "Startup Opportunity: SMB-Focused IT Security Consultancy",
+    "desc": "Insights extracted from 200,000+ real online comments. Startup Opportunity: SMB-Focused IT Security Consultancy.",
+    "hero": "https://aetherintel.au/images/articles/smb-security-consultancy-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/smb-security-consultancy.html",
+    "badge": "news",
+    "file": "smb-security-consultancy.html"
+  },
+  {
+    "title": "The Invisible Struggle of Sobriety Journey",
+    "desc": "Insights extracted from 200,000+ real online comments. The Invisible Struggle of Sobriety Journey.",
+    "hero": "https://aetherintel.au/images/articles/sobriety-journey-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/sobriety-journey.html",
+    "badge": "news",
+    "file": "sobriety-journey.html"
+  },
+  {
+    "title": "Counting Sobriety in Years, Not Days: The Shift That Changes Everything",
+    "desc": "Insights extracted from 200,000+ real online comments. Counting Sobriety in Years, Not Days: The Shift That Changes Everything.",
+    "hero": "https://aetherintel.au/images/articles/sobriety-years-vs-days-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/sobriety-years-vs-days.html",
+    "badge": "news",
+    "file": "sobriety-years-vs-days.html"
+  },
+  {
+    "title": "The Social Media Comparison Trap",
+    "desc": "Insights extracted from 200,000+ real online comments. The Social Media Comparison Trap.",
+    "hero": "https://aetherintel.au/images/articles/social-media-comparison-trap-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/social-media-comparison-trap.html",
+    "badge": "news",
+    "file": "social-media-comparison-trap.html"
+  },
+  {
+    "title": "How Social Media Warps Your Perception of Normal Behavior",
+    "desc": "Insights extracted from 200,000+ real online comments. How Social Media Warps Your Perception of Normal Behavior.",
+    "hero": "https://aetherintel.au/images/articles/social-media-distorts-reality-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/social-media-distorts-reality.html",
+    "badge": "news",
+    "file": "social-media-distorts-reality.html"
+  },
+  {
+    "title": "The Loneliness Epidemic Nobody's Talking About",
+    "desc": "Insights extracted from 200,000+ real online comments. The Loneliness Epidemic Nobody's Talking About.",
+    "hero": "https://aetherintel.au/images/articles/solitude-loneliness-epidemic-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/solitude-loneliness-epidemic.html",
+    "badge": "news",
+    "file": "solitude-loneliness-epidemic.html"
+  },
+  {
+    "title": "The Speakerphone Epidemic: It's Not About Volume, It's About Forced Intimacy",
+    "desc": "Insights extracted from 200,000+ real online comments. The Speakerphone Epidemic: It's Not About Volume, It's About Forced Intimacy.",
+    "hero": "https://aetherintel.au/images/articles/speakerphone-in-public-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/speakerphone-in-public.html",
+    "badge": "news",
+    "file": "speakerphone-in-public.html"
+  },
+  {
+    "title": "Subscription Fatigue: When You Don't Own Anything Anymore",
+    "desc": "Insights extracted from 200,000+ real online comments. Subscription Fatigue: When You Don't Own Anything Anymore.",
+    "hero": "https://aetherintel.au/images/articles/subscription-fatigue-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/subscription-fatigue.html",
+    "badge": "news",
+    "file": "subscription-fatigue.html"
+  },
+  {
+    "title": "Time Management for People Who Hate Time Management",
+    "desc": "Insights extracted from 200,000+ real online comments. Time Management for People Who Hate Time Management.",
+    "hero": "https://aetherintel.au/images/articles/time-management-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/time-management.html",
+    "badge": "news",
+    "file": "time-management.html"
+  },
+  {
+    "title": "The Tiny Details Where Everyone Else Misses: Where Real Opportunities Live",
+    "desc": "Insights extracted from 200,000+ real online comments. The Tiny Details Where Everyone Else Misses: Where Real Opportunities Live.",
+    "hero": "https://aetherintel.au/images/articles/tiny-details-big-opportunities-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/tiny-details-big-opportunities.html",
+    "badge": "news",
+    "file": "tiny-details-big-opportunities.html"
+  },
+  {
+    "title": "Your Trauma Responses Aren't Broken—They're Survival",
+    "desc": "Insights extracted from 200,000+ real online comments. Your Trauma Responses Aren't Broken—They're Survival.",
+    "hero": "https://aetherintel.au/images/articles/trauma-response-normalization-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/trauma-response-normalization.html",
+    "badge": "news",
+    "file": "trauma-response-normalization.html"
+  },
+  {
+    "title": "The Complete Collapse of Social Trust",
+    "desc": "Insights extracted from 200,000+ real online comments. The Complete Collapse of Social Trust.",
+    "hero": "https://aetherintel.au/images/articles/trust-erosion-society-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/trust-erosion-society.html",
+    "badge": "news",
+    "file": "trust-erosion-society.html"
+  },
+  {
+    "title": "The Validation Trap: External Approval Is a Bottomless Pit",
+    "desc": "Insights extracted from 200,000+ real online comments. The Validation Trap: External Approval Is a Bottomless Pit.",
+    "hero": "https://aetherintel.au/images/articles/validation-seeking-trap-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/validation-seeking-trap.html",
+    "badge": "news",
+    "file": "validation-seeking-trap.html"
+  },
+  {
+    "title": "Startup Opportunity: Vetted Life Coach Platform",
+    "desc": "Insights extracted from 200,000+ real online comments. Startup Opportunity: Vetted Life Coach Platform.",
+    "hero": "https://aetherintel.au/images/articles/vetted-life-coach-platform-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/vetted-life-coach-platform.html",
+    "badge": "news",
+    "file": "vetted-life-coach-platform.html"
+  },
+  {
+    "title": "The Programmers Using Vibe Coding Will Replace Everyone Else — Aether Intel",
+    "desc": "Gary Tan rebuilt a $4M platform in 5 days for $200 using Claude Code. The vibe coding opportunity isn't for non-programmers — it's a multiplier for people who a",
+    "hero": "https://aetherintel.au/images/articles/vibe-coding-hero.png",
+    "date": "",
+    "category": "",
+    "url": "https://aetherintel.au/articles/vibe-coding.html",
+    "badge": "news",
+    "file": "vibe-coding.html"
+  },
+  {
+    "title": "66 Viral Hooks: The Complete Engagement Formula Library",
+    "desc": "Insights extracted from 200,000+ real online comments. 66 Viral Hooks: The Complete Engagement Formula Library.",
+    "hero": "https://aetherintel.au/images/articles/viral-hooks-library-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/viral-hooks-library.html",
+    "badge": "news",
+    "file": "viral-hooks-library.html"
+  },
+  {
+    "title": "The Wellness Information Crisis",
+    "desc": "Insights extracted from 200,000+ real online comments. The Wellness Information Crisis.",
+    "hero": "https://aetherintel.au/images/articles/wellness-resource-aggregator-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/wellness-resource-aggregator.html",
+    "badge": "news",
+    "file": "wellness-resource-aggregator.html"
+  },
+  {
+    "title": "Sudden Wealth Vanishes Faster Than You Think: The Windfall Trap",
+    "desc": "Insights extracted from 200,000+ real online comments. Sudden Wealth Vanishes Faster Than You Think: The Windfall Trap.",
+    "hero": "https://aetherintel.au/images/articles/windfall-disappears-without-plan-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/windfall-disappears-without-plan.html",
+    "badge": "news",
+    "file": "windfall-disappears-without-plan.html"
+  },
+  {
+    "title": "Why Your Best Employee Just Quit: The Invisibility Crisis",
+    "desc": "Insights extracted from 200,000+ real online comments. Why Your Best Employee Just Quit: The Invisibility Crisis.",
+    "hero": "https://aetherintel.au/images/articles/workplace-crisis-invisibility-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/workplace-crisis-invisibility.html",
+    "badge": "news",
+    "file": "workplace-crisis-invisibility.html"
+  },
+  {
+    "title": "Workplace Ignorance: When Nobody Knows What They're Doing",
+    "desc": "Insights extracted from 200,000+ real online comments. Workplace Ignorance: When Nobody Knows What They're Doing.",
+    "hero": "https://aetherintel.au/images/articles/workplace-ignorance-hero.png",
+    "date": "",
+    "category": "",
+    "url": "/articles/workplace-ignorance.html",
+    "badge": "news",
+    "file": "workplace-ignorance.html"
+  }
+]

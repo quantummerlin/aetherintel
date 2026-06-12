@@ -3930,3 +3930,199 @@ aside.sidebar::before {
   margin-bottom: 1.5em;
 }
 
+
+/* =============================================================================
+   27. CATEGORY FILTER CHIPS
+   ============================================================================= */
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
+  overflow-x: auto;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.filter-row::-webkit-scrollbar { display: none; }
+
+.filter-chip {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .25s;
+  white-space: nowrap;
+}
+.filter-chip:hover {
+  border-color: var(--neon-indigo);
+  color: var(--neon-indigo);
+}
+.filter-chip.active {
+  background: var(--neon-indigo);
+  border-color: var(--neon-indigo);
+  color: #fff;
+}
+
+
+/* =============================================================================
+   28. SEARCH
+   ============================================================================= */
+
+.topbar-search {
+  display: flex;
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  gap: 8px;
+  transition: border-color .2s;
+  width: 100%;
+  max-width: 320px;
+}
+.topbar-search:focus-within { border-color: var(--neon-indigo); }
+.topbar-search svg { width: 16px; height: 16px; color: var(--text-muted); flex-shrink: 0; }
+.topbar-search input {
+  background: none; border: none; outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: .85rem;
+  width: 100%;
+}
+.topbar-search input::placeholder { color: var(--text-muted); }
+
+.search-results-info {
+  padding: 12px 28px;
+  color: var(--text-muted);
+  font-size: .82rem;
+  display: none;
+}
+.search-results-info.visible { display: block; }
+
+.no-results {
+  text-align: center;
+  padding: 60px 28px;
+  color: var(--text-muted);
+  display: none;
+}
+.no-results.visible { display: block; }
+
+
+/* =============================================================================
+   29. ARTICLE CARD DATE
+   ============================================================================= */
+
+.article-card-date {
+  display: block;
+  font-size: .72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  letter-spacing: .02em;
+}
+
+
+/* =============================================================================
+   30. LOAD MORE
+   ============================================================================= */
+
+.load-more-row {
+  display: flex;
+  justify-content: center;
+  padding: 32px 28px;
+}
+.load-more-btn {
+  padding: 12px 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border-bright);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .25s;
+}
+.load-more-btn:hover {
+  border-color: var(--neon-indigo);
+  color: var(--neon-indigo);
+}
+
+
+/* =============================================================================
+   31. FOOTER
+   ============================================================================= */
+
+.site-footer {
+  padding: 40px 28px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto 32px;
+}
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--neon-indigo);
+  margin-bottom: 12px;
+}
+.footer-col a {
+  display: block;
+  color: var(--text-muted);
+  font-size: .85rem;
+  padding: 4px 0;
+  transition: color .2s;
+}
+.footer-col a:hover { color: var(--text-primary); }
+.footer-bottom {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.footer-bottom p { color: var(--text-muted); font-size: .78rem; }
+.footer-social { display: flex; gap: 12px; margin-top: 12px; justify-content: center; }
+.footer-social a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--border); color: var(--text-muted);
+  transition: all .2s;
+}
+.footer-social a:hover { border-color: var(--neon-indigo); color: var(--neon-indigo); }
+
+
+/* =============================================================================
+   32. RESPONSIVE — FILTER / SEARCH / FOOTER
+   ============================================================================= */
+
+@media (max-width: 900px) {
+  .topbar-search { max-width: 200px; }
+}
+@media (max-width: 600px) {
+  .filter-row { padding: 12px 16px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  .footer-social { justify-content: center; }
+}
+
